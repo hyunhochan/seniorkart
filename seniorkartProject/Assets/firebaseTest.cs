@@ -1,68 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Firebase;
-using Firebase.Database;
+using Firebase.Auth;
 using Firebase.Extensions;
+using UnityEngine;
 
-public class FirebaseDatabaseExample : MonoBehaviour
+public class FirebaseAuthExample : MonoBehaviour
 {
-    DatabaseReference reference;
+    private FirebaseAuth auth;
 
-    // Start is called before the first frame update
     void Start()
     {
-        // Firebase 초기화
-        string databaseUrl = "https://your-database-name.firebaseio.com/";
+        // Firebase 인증 객체의 인스턴스를 초기화합니다.
+        auth = FirebaseAuth.DefaultInstance;
 
-        // Database의 인스턴스를 생성하면서 URL을 설정합니다.
-        DatabaseReference reference = FirebaseDatabase.GetInstance(databaseUrl).RootReference;
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.Exception != null)
+        // 사용자를 등록하는 함수를 호출합니다.
+        //RegisterUser("user@example.com", "password123");
+    }
+
+    public void RegisterUser(string email, string password)
+    {
+        // 이메일과 비밀번호를 사용하여 새 사용자를 생성합니다.
+        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task => {
+            if (task.IsCanceled)
             {
-                Debug.LogError($"Failed to initialize Firebase with {task.Exception}");
+                Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
                 return;
             }
 
-            // 데이터베이스의 루트 참조를 가져옵니다.
-            reference = FirebaseDatabase.DefaultInstance.RootReference;
-
-            // 데이터베이스에 데이터 저장
-            SaveData();
-        });
-    }
-
-    void SaveData()
-    {
-        // 사용자 정보 객체 생성
-        User user = new User("John Doe", 30);
-
-        // 데이터베이스에 사용자 정보 저장
-        string json = JsonUtility.ToJson(user);
-        reference.Child("users").Child(user.name).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
-        {
+            // 비동기 작업이 성공적으로 완료된 경우에만 FirebaseUser에 접근합니다.
             if (task.IsCompleted)
             {
-                Debug.Log("Data saved successfully.");
-            }
-            else
-            {
-                Debug.LogError("Failed to save data.");
+                FirebaseUser newUser = task.Result.User; // AuthResult에서 User 속성을 통해 FirebaseUser에 접근합니다.
+                Debug.LogFormat("Firebase user created successfully: {0} ({1})", newUser.DisplayName, newUser.UserId);
             }
         });
-    }
-}
-
-[System.Serializable]
-public class User
-{
-    public string name;
-    public int age;
-
-    public User(string name, int age)
-    {
-        this.name = name;
-        this.age = age;
     }
 }
