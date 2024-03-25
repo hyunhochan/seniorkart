@@ -1577,3 +1577,27 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 768.621897 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4d4fac1d6cdb3c3381837afda81b33e') in 0.002987 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 4966.778271 seconds.
+  path: Assets/Plugins/iOS
+  artifactKey: Guid(9601bf08adc03784cae031aaff7b8a8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/iOS using Guid(9601bf08adc03784cae031aaff7b8a8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'caee215e44ac73574f2de987d90440c9') in 0.001162 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.828175 seconds.
+  path: Assets/Plugins/iOS/Firebase
+  artifactKey: Guid(9295bf384d426b7418a4c9f666e59064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/iOS/Firebase using Guid(9295bf384d426b7418a4c9f666e59064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dbd85ef03bbfc18cf698d80164f8502') in 0.000600 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
