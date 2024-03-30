@@ -372,6 +372,7 @@
 -analyzer:"C:/Program Files/Unity 2022.3.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity 2022.3.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Network/firebase/firebaseAuthLogin.cs"
+"Assets/Scripts/Network/firebase/firebaseAuthRegister.cs"
 "Assets/Scripts/Network/firebase/firebaseTest.cs"
 "Assets/Scripts/SceneChange/login_to_register.cs"
 "Assets/Scripts/SceneChange/register_to_login.cs"
