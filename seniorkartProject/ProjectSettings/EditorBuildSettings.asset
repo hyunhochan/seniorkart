@@ -11,6 +11,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirebaseAuthLogin.unity
     guid: 3979ff76ba60cef4280ac04cb71e346c
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: dad3f0aaf2b414267aaf4fb8daddada0
+  - enabled: 1
+    path: Assets/Scenes/Garage.unity
+    guid: 7c0bad4f39ef34170a5f69847803b8d5
+  - enabled: 1
+    path: Assets/Scenes/Racing.unity
+    guid: 5e4a505467337413bad64093c8fb1e1b
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d5627550e040d4fd9a0dd19506891330,
+      type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: ed5449c627465f640855a82fe75c2df8, type: 2}
