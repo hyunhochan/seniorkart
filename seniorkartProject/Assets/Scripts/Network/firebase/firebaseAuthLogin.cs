@@ -5,6 +5,7 @@ using Firebase.Auth;
 using Firebase.Database;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class AuthManager : MonoBehaviour
 {
@@ -19,6 +20,18 @@ public class AuthManager : MonoBehaviour
         auth = FirebaseAuth.DefaultInstance;
        
     }
+    private void Start()
+    {
+        if(auth.CurrentUser != null)
+        {
+            Debug.Log("로그인 되어있습니다.");
+            SceneManager.LoadScene("MainMenu");
+        }
+        else
+        {
+            Debug.Log("로그인 되어있지 않습니다.");
+        }
+    }
 
     public void Login()
     {
@@ -28,6 +41,7 @@ public class AuthManager : MonoBehaviour
                 if (task.IsCompleted && !task.IsFaulted && !task.IsCanceled)
                 {
                     Debug.Log(emailField.text + " 로 로그인 하셨습니다.");
+                    SceneManager.LoadScene("MainMenu");
                 }
                 else
                 {
