@@ -60,8 +60,4 @@ public class MainMove : MonoBehaviour
 
     }
 
-    public void clickExit()
-    {
-        Application.Quit();
-    }
 }
