@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FirebaseRegister.unity
-    guid: 14c0800580d86ce46b0c755f5c419806
-  - enabled: 1
     path: Assets/Scenes/FirebaseAuthLogin.unity
     guid: 3979ff76ba60cef4280ac04cb71e346c
+  - enabled: 1
+    path: Assets/Scenes/FirebaseRegister.unity
+    guid: 14c0800580d86ce46b0c755f5c419806
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: dad3f0aaf2b414267aaf4fb8daddada0
