@@ -12,10 +12,12 @@ public class MainMove : MonoBehaviour
     public RectTransform mainRectTransform;
     public RectTransform playRectTransform;
 
+    public GameObject option; // 활성화/비활성화할 오브젝트
 
     // Start is called before the first frame update
     void Start()
     {
+        option.SetActive(false);
         // Button의 RectTransform을 가져옴
         RectTransform rectTransform = btn1.GetComponent<RectTransform>();
 
@@ -58,6 +60,19 @@ public class MainMove : MonoBehaviour
         playRectTransform.DOAnchorPosX(0, 0.5f);
         mainRectTransform.DOAnchorPosX(btnwidth * 2 / 3, 0.5f);
 
+    }
+
+    public void appearoption()
+    {
+        option.SetActive(!option.activeSelf);
+        mainsequence.SetActive(false);
+
+    }
+
+    public void disappearoption()
+    {
+        option.SetActive(false);
+        mainsequence.SetActive(!mainsequence.activeSelf);
     }
 
 }
