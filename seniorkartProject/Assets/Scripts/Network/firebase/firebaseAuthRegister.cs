@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using Firebase.Extensions;
 using Firebase;
+using UnityEngine.SceneManagement;
 
 public class AuthRegisterManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class AuthRegisterManager : MonoBehaviour
                 Debug.Log(emailField.text + "로 회원가입");
 
                 WriteNewUser(newUser.UserId, nicknameField.text, newUser.Email);
+                SceneManager.LoadScene("MainMenu");
             }
             else
             {
