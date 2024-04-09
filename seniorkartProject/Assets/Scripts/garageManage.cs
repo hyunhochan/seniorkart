@@ -63,6 +63,7 @@ public class garageManage : MonoBehaviour
             docRef.UpdateAsync(carData).ContinueWith(task => {
                 if (task.IsCompleted && !task.IsFaulted && !task.IsCanceled)
                 {
+                    AndroidToast.Show("현재 선택한 차 번호가 업데이트되었습니다");
                     Debug.Log("현재 선택한 차 번호가 업데이트되었습니다.");
                 }
                 else
