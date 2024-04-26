@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangeMap : MonoBehaviour
 {
+    public bool isopen = false;
     public GameObject ChangeMapSequence; // 활성화/비활성화할 오브젝트
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,19 @@ public class ChangeMap : MonoBehaviour
 
     public void appearChangeUI()
     {
+        if (isopen==false) {
         ChangeMapSequence.SetActive(!ChangeMapSequence.activeSelf);
+        isopen = true;
+        }
 
     }
 
     public void disappearChangeUI()
     {
-        ChangeMapSequence.SetActive(false);
+        if (isopen == true)
+        {
+            ChangeMapSequence.SetActive(false);
+            isopen = false;
+        }
     }
 }

@@ -527,7 +527,8 @@ PrefabInstance:
       propertyPath: ChangeMapSequence
       value: 
       objectReference: {fileID: 302831649}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3017442993226569203, guid: 14f1325003f75453ab15319a92572be8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

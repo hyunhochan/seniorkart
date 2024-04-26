@@ -5,6 +5,7 @@ namespace MapData
     public class TrackInfo : MonoBehaviour // MonoBehaviour 상속
     {
         public string trackName;
+        public string trackNumber;
         public string UserName1st;
         public string KartBody1st;
         public string BestRecord1st;
