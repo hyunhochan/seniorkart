@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5005191037773800785}
   - component: {fileID: 5001123116960338805}
   - component: {fileID: 2737317831192330899}
+  - component: {fileID: 2412143465944332738}
+  - component: {fileID: 3957953976322111021}
   - component: {fileID: 8964024209790835076}
   m_Layer: 0
   m_Name: EventSystem
@@ -88,6 +90,30 @@ MonoBehaviour:
   mainRectTransform: {fileID: 0}
   playRectTransform: {fileID: 0}
   optionSequence: {fileID: 0}
+--- !u!114 &2412143465944332738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449261914425209359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59be3d6fb4a7640138b8d48b11f334ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3957953976322111021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449261914425209359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d3d5b0a190b497e994610e0bcddc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8964024209790835076
 MonoBehaviour:
   m_ObjectHideFlags: 0
