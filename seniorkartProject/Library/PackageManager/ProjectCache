@@ -3371,10 +3371,12 @@ m_ResolvedPackages:
     - 1.12.1
     - 1.12.2
     - 1.12.4
+    - 1.12.5
     compatible:
     - 1.12.2
     - 1.12.4
-    recommended: 1.12.4
+    - 1.12.5
+    recommended: 1.12.5
     deprecated: []
   dependencies:
   - name: com.unity.modules.unitywebrequest
@@ -3523,9 +3525,31 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 1.0.0-pre.4
+    - 1.0.0-pre.6
+    - 1.0.0-pre.37
+    - 2.0.0
+    - 2.1.1
+    - 2.2.0
+    - 2.3.1
+    - 2.4.0
+    - 2.5.0-pre.3
+    - 2.5.0
+    - 2.6.1
+    - 2.7.1
     - 2.7.2
+    - 3.0.0
+    - 3.1.0
+    - 3.2.0
+    - 3.3.0
+    - 3.3.1
     compatible:
     - 2.7.2
+    - 3.0.0
+    - 3.1.0
+    - 3.2.0
+    - 3.3.0
+    - 3.3.1
     recommended: 2.7.2
     deprecated: []
   dependencies:
@@ -3563,7 +3587,7 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 638259959460000000
   documentationUrl: 
   hasRepository: 1
   repository:
@@ -3601,10 +3625,21 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 1.0.0-preview.20
+    - 1.0.0
+    - 1.1.0
+    - 1.1.1
+    - 1.1.4
+    - 1.1.5
+    - 1.1.6
+    - 1.1.8
+    - 1.2.0
     - 1.2.2
+    - 1.2.3
     compatible:
     - 1.2.2
-    recommended: 1.2.2
+    - 1.2.3
+    recommended: 1.2.3
     deprecated: []
   dependencies:
   - name: com.unity.services.core
@@ -3641,7 +3676,7 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 638315008590000000
   documentationUrl: 
   hasRepository: 1
   repository:
