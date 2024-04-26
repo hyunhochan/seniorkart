@@ -217,6 +217,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &302831649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3100228066527277057, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115131555096183332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1134400924 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1255601028146933241, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
@@ -323,6 +329,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4791518904372089726, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8927127626328809617}
     - target: {fileID: 4972947818581369943, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_Pivot.x
@@ -423,6 +434,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5278628381015657905, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8927127626328809617}
+    - target: {fileID: 8110427915738256503, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8927127626328809617}
     - target: {fileID: 8525754393372423642, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_Name
@@ -501,11 +522,28 @@ PrefabInstance:
       propertyPath: mainRectTransform
       value: 
       objectReference: {fileID: 1134400924}
+    - target: {fileID: 3975062544905759638, guid: 14f1325003f75453ab15319a92572be8,
+        type: 3}
+      propertyPath: ChangeMapSequence
+      value: 
+      objectReference: {fileID: 302831649}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14f1325003f75453ab15319a92572be8, type: 3}
+--- !u!114 &8927127626328809617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3975062544905759638, guid: 14f1325003f75453ab15319a92572be8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8927127626328809616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41a62b7392f0456690fda2931fbd9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
