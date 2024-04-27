@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -225,6 +225,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &499782482
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3713324481893171379, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneManagerCollection
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440329190805155695, guid: 146e498e05558e64c8e518bfb3c99038,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 146e498e05558e64c8e518bfb3c99038, type: 3}
+--- !u!114 &499782483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8640210825538575129, guid: 146e498e05558e64c8e518bfb3c99038,
+    type: 3}
+  m_PrefabInstance: {fileID: 499782482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61233e889246bc48b1b42c61e0e69ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &527373099
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +579,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177560681249184658, guid: 75536717f33ca47e3a7d0adc5e865314,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 499782483}
+    - target: {fileID: 1177560681249184658, guid: 75536717f33ca47e3a7d0adc5e865314,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MultiToBootstrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177560681249184658, guid: 75536717f33ca47e3a7d0adc5e865314,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneManagerCollection, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3039575180111627921, guid: 75536717f33ca47e3a7d0adc5e865314,
         type: 3}
@@ -823,3 +918,4 @@ SceneRoots:
   - {fileID: 4127122123771652292}
   - {fileID: 527373101}
   - {fileID: 391515310}
+  - {fileID: 499782482}

@@ -140,8 +140,7 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 1.0.2
-  preloadedAssets:
-  - {fileID: -7543762344163032935, guid: d5627550e040d4fd9a0dd19506891330, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -961,11 +960,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: e07c1b93-333b-4ed4-8e38-58107d4a51d0
+  cloudProjectId: 1b9b947f-518a-4f1b-82a7-0319f4a191b4
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: seniorkartProject
-  organizationId: onlyindex
+  projectName: seniorkartProject (3)
+  organizationId: robindalnim
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

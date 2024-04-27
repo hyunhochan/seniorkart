@@ -5,24 +5,33 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/FirebaseAuthLogin.unity
-    guid: 3979ff76ba60cef4280ac04cb71e346c
-  - enabled: 0
-    path: Assets/Scenes/FirebaseRegister.unity
-    guid: 14c0800580d86ce46b0c755f5c419806
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: dad3f0aaf2b414267aaf4fb8daddada0
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/FirebaseAuthLogin.unity
+    guid: 3979ff76ba60cef4280ac04cb71e346c
+  - enabled: 1
+    path: Assets/Scenes/FirebaseRegister.unity
+    guid: 14c0800580d86ce46b0c755f5c419806
+  - enabled: 1
     path: Assets/Scenes/Garage.unity
     guid: 7c0bad4f39ef34170a5f69847803b8d5
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Racing.unity
     guid: 5e4a505467337413bad64093c8fb1e1b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleNetwork.unity
     guid: 343fa0e607238b0408868a2e30e68109
+  - enabled: 1
+    path: Assets/Scenes/Bootstrap.unity
+    guid: 91d9d686dfe3af345a649eaaaa9b1d6f
+  - enabled: 1
+    path: Assets/Scenes/LobbyList.unity
+    guid: f03cc5c66e5f48840a99b2d0f257dcfe
+  - enabled: 1
+    path: Assets/Scenes/room.unity
+    guid: 416d0449a33ac49ab94c0412fda8e0fb
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d5627550e040d4fd9a0dd19506891330,
       type: 2}
