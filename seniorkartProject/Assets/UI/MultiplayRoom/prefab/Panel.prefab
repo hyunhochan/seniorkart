@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 7122670905041964243}
   - component: {fileID: 8504340678161096718}
   - component: {fileID: 6212023529551637437}
+  - component: {fileID: 4147817917335389587}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -510,6 +511,35 @@ MonoBehaviour:
   lobbyItemParent: {fileID: 0}
   lobbyItemPrefab: {fileID: 2621454767557284695, guid: ccf5405dff1a4c7448a6b5a2a7a0f969,
     type: 3}
+--- !u!114 &4147817917335389587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2761287947978315532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11500000, guid: 3805885207b6e5047828158b2fd5a033, type: 3}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3153167348872562308
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -617,7 +617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -120}
+  m_AnchoredPosition: {x: -141, y: -298}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &983393530
@@ -1089,8 +1089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3805885207b6e5047828158b2fd5a033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyItemParent: {fileID: 0}
-  lobbyItemPrefab: {fileID: 0}
+  lobbyItemParent: {fileID: 983393529}
+  lobbyItemPrefab: {fileID: 9206560632619432075, guid: d3fe0fc828de14cc8b6bfc2a618ba69d,
+    type: 3}
 --- !u!1 &1889394368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,8 +1325,15 @@ PrefabInstance:
       propertyPath: lobbyItemParent
       value: 
       objectReference: {fileID: 983393529}
+    - target: {fileID: 6212023529551637437, guid: 7bea607a40b774cdd90bb4a246f76b89,
+        type: 3}
+      propertyPath: lobbyItemPrefab
+      value: 
+      objectReference: {fileID: 9206560632619432075, guid: d3fe0fc828de14cc8b6bfc2a618ba69d,
+        type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4585923006106303697, guid: 7bea607a40b774cdd90bb4a246f76b89, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bea607a40b774cdd90bb4a246f76b89, type: 3}

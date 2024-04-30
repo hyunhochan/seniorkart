@@ -462,6 +462,8 @@ GameObject:
   - component: {fileID: 7001262086913471316}
   - component: {fileID: 2757874068707924138}
   - component: {fileID: 2507797135374193323}
+  - component: {fileID: 9206560632619432075}
+  - component: {fileID: 7258709648369269491}
   m_Layer: 5
   m_Name: OneRoomFrame
   m_TagString: Untagged
@@ -531,6 +533,49 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9206560632619432075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136520930363215976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de0eb36ba7c6dd44a488d7f29a5d1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyNameText: {fileID: 775018689547856414}
+  lobbyPlayersText: {fileID: 146666656828427862}
+--- !u!114 &7258709648369269491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136520930363215976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9206560632619432075}
+          m_TargetAssemblyTypeName: LobbyItem, Assembly-CSharp
+          m_MethodName: Join
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7446235993416392687
 GameObject:
   m_ObjectHideFlags: 0

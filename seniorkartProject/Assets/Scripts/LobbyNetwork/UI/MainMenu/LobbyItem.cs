@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class LobbyItem : MonoBehaviour
 {
-    [SerializeField] private TMP_Text lobbyNameText;
-    [SerializeField] private TMP_Text lobbyPlayersText;
+    [SerializeField] public TMP_Text lobbyNameText;
+    [SerializeField] public TMP_Text lobbyPlayersText;
 
     private LobbiesList lobbiesList;
     private Lobby lobby;
