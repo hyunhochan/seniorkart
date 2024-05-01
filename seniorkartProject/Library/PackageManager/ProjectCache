@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638500566590000000
+      ticks: 638501451590000000
     m_Hash: 2307956479
   m_LockFileStatus:
     m_FilePath: /Users/hyunho/Documents/GitHub/seniorkart/seniorkartProject/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638500566590000000
+      ticks: 638501451590000000
     m_Hash: 3680468486
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -805,11 +805,13 @@ m_ResolvedPackages:
     - 1.1.1
     - 1.1.2
     - 1.2.0
+    - 1.2.1
     compatible:
     - 1.1.0
     - 1.1.1
     - 1.1.2
     - 1.2.0
+    - 1.2.1
     recommended: 1.1.2
     deprecated: []
   dependencies:
@@ -925,10 +927,14 @@ m_ResolvedPackages:
     - 1.1.0-pre.3
     - 1.1.1
     - 1.1.2
+    - 1.1.3
+    - 1.1.4
     compatible:
     - 1.1.1
     - 1.1.2
-    recommended: 1.1.2
+    - 1.1.3
+    - 1.1.4
+    recommended: 1.1.4
     deprecated: []
   dependencies:
   - name: com.unity.services.core
@@ -1036,10 +1042,14 @@ m_ResolvedPackages:
     - 1.1.0
     - 1.1.1
     - 1.2.0-exp.1
+    - 1.2.1
+    - 1.2.2
     compatible:
     - 1.1.0
     - 1.1.1
     - 1.2.0-exp.1
+    - 1.2.1
+    - 1.2.2
     recommended: 1.1.1
     deprecated: []
   dependencies:
@@ -1158,9 +1168,11 @@ m_ResolvedPackages:
     - 1.0.4
     - 1.0.5
     - 1.1.0
+    - 1.1.1
     compatible:
     - 1.0.5
     - 1.1.0
+    - 1.1.1
     recommended: 1.0.5
     deprecated: []
   dependencies:
