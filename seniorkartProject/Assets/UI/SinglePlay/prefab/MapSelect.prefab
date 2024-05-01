@@ -263,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 8838582132244511819}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 8366569628458651651}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -632,6 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 3878551897487212868}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 3819808645563204731}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -982,7 +984,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 6959168936712115972}
   targetImage: {fileID: 0}
-  targetTrackName: {fileID: 0}
+  thisTrackName: {fileID: 0}
+  targetTrackName: {fileID: 1798202019869533520}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
 --- !u!114 &820412392509938844
@@ -1468,6 +1471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 5052701732499888257}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 5306986286059482123}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -1894,6 +1898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 7521782966141848563}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 1473822411482629686}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -5712,6 +5717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 8022833030013447944}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 1354884191167161738}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -6320,7 +6326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 3875971889514689204}
   targetImage: {fileID: 0}
-  targetTrackName: {fileID: 0}
+  thisTrackName: {fileID: 0}
+  targetTrackName: {fileID: 7851718934603906726}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
 --- !u!114 &1759929739055370856
@@ -6775,6 +6782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 708492515896848184}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 8620043303026347067}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -7581,6 +7589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 8791350100136083562}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 8133345400947714422}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -8043,6 +8052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 5910850176505629915}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 9220055474704928311}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -8168,6 +8178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 6120754945195580779}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 6946704119593086476}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -9352,6 +9363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 7416931395304205591}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 8016622837497636282}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -9585,6 +9597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 203723669091477910}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 2338149657124452622}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -10489,6 +10502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 1273735842105482650}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 926715750461820190}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -10689,6 +10703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 7906941580827097116}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 4427463096572898025}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
@@ -13775,6 +13790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 4649174679562064900}
   targetImage: {fileID: 0}
+  thisTrackName: {fileID: 3255701084079806283}
   targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
