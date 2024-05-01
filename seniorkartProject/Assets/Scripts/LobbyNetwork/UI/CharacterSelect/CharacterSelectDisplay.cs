@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class CharacterSelectDisplay : NetworkBehaviour
 {
     [Header("References")]
-    [SerializeField] private CharacterDatabase characterDatabase;
-    [SerializeField] private Transform charactersHolder;
-    [SerializeField] private CharacterSelectButton selectButtonPrefab;
+    //[SerializeField] private CharacterDatabase characterDatabase;
+    //[SerializeField] private Transform charactersHolder;
+    //[SerializeField] private CharacterSelectButton selectButtonPrefab;
     [SerializeField] private PlayerCard[] playerCards;
-    [SerializeField] private GameObject characterInfoPanel;
-    [SerializeField] private TMP_Text characterNameText;
-    [SerializeField] private Transform introSpawnPoint;
-    [SerializeField] private TMP_Text joinCodeText;
+    //[SerializeField] private GameObject characterInfoPanel;
+    //[SerializeField] private TMP_Text characterNameText;
+    //[SerializeField] private Transform introSpawnPoint;
+    //[SerializeField] private TMP_Text joinCodeText;
     [SerializeField] private Button lockInButton;
 
     private GameObject introInstance;
@@ -30,14 +30,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
     {
         if (IsClient)
         {
-            Character[] allCharacters = characterDatabase.GetAllCharacters();
-
-            foreach (var character in allCharacters)
-            {
-                var selectbuttonInstance = Instantiate(selectButtonPrefab, charactersHolder);
-                selectbuttonInstance.SetCharacter(this, character);
-                characterButtons.Add(selectbuttonInstance);
-            }
+            
 
             players.OnListChanged += HandlePlayersStateChanged;
         }
@@ -55,7 +48,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
         if (IsHost)
         {
-            joinCodeText.text = HostSingleton.Instance.RelayHostData.JoinCode;
+           
         }
     }
 
@@ -102,16 +95,14 @@ public class CharacterSelectDisplay : NetworkBehaviour
             if (IsCharacterTaken(character.Id, false)) { return; }
         }
 
-        characterNameText.text = character.DisplayName;
-
-        characterInfoPanel.SetActive(true);
+        
 
         if (introInstance != null)
         {
             Destroy(introInstance);
         }
 
-        introInstance = Instantiate(character.IntroPrefab, introSpawnPoint);
+       
 
         SelectServerRpc(character.Id);
     }
@@ -123,7 +114,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         {
             if (players[i].ClientId != serverRpcParams.Receive.SenderClientId) { continue; }
 
-            if (!characterDatabase.IsValidCharacterId(characterId)) { return; }
+           
 
             if (IsCharacterTaken(characterId, true)) { return; }
 
@@ -147,7 +138,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         {
             if (players[i].ClientId != serverRpcParams.Receive.SenderClientId) { continue; }
 
-            if (!characterDatabase.IsValidCharacterId(players[i].CharacterId)) { return; }
+            
 
             if (IsCharacterTaken(players[i].CharacterId, true)) { return; }
 

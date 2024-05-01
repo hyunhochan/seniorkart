@@ -26,11 +26,11 @@ public class PlayerCard : MonoBehaviour
 
         playerNameText.text = state.IsLockedIn ? $"Player {state.ClientId}" : $"Player {state.ClientId} (Picking...)";
 
-        visuals.SetActive(true);
+        visuals.SetActive(false);
     }
 
     public void DisableDisplay()
     {
-        visuals.SetActive(false);
+        visuals.SetActive(true);
     }
 }
