@@ -51,15 +51,23 @@ public class MatchplayNetworkServer : IDisposable
 
     public async Task<SynchedServerData> ConfigureServer(GameInfo startingGameInfo)
     {
-        networkManager.SceneManager.LoadScene("room", LoadSceneMode.Single);
+        Debug.Log("Attempting to load the room scene...");
+        networkManager.SceneManager.LoadScene("Room", LoadSceneMode.Single);
+
 
         bool localNetworkedSceneLoaded = false;
         networkManager.SceneManager.OnLoadComplete += CreateAndSetSynchedServerData;
 
         void CreateAndSetSynchedServerData(ulong clientId, string sceneName, LoadSceneMode sceneMode)
         {
-            if (clientId != networkManager.LocalClientId) { return; }
+            Debug.Log($"Load Complete event fired: ClientId={clientId}, Scene={sceneName}, Mode={sceneMode}");
+            if (clientId != networkManager.LocalClientId)
+            {
+                Debug.LogWarning("Scene loaded event for non-local client ID.");
+                return;
+            }
             localNetworkedSceneLoaded = true;
+            Debug.Log("Local networked scene loaded successfully.");
             networkManager.SceneManager.OnLoadComplete -= CreateAndSetSynchedServerData;
         }
 
@@ -69,26 +77,22 @@ public class MatchplayNetworkServer : IDisposable
         {
             while (!localNetworkedSceneLoaded)
             {
-                await Task.Delay(50);
+                await Task.Delay(200);
             }
+            Debug.Log("Scene loaded confirmed through custom check.");
         }
 
-        if (await Task.WhenAny(waitTask, Task.Delay(5000)) != waitTask)
+        var completedTask = await Task.WhenAny(waitTask, Task.Delay(5000));
+        if (completedTask != waitTask)
         {
-            Debug.LogWarning($"Timed out waiting for Server Scene Loading: Not able to Load Scene");
+            Debug.LogWarning("Timed out waiting for Server Scene Loading: Not able to Load Scene");
             return null;
         }
 
+        // Instantiate and spawn the synchronized data object
         synchedServerData = GameObject.Instantiate(Resources.Load<SynchedServerData>("SynchedServerData"));
         synchedServerData.GetComponent<NetworkObject>().Spawn();
-
-        synchedServerData.map.Value = startingGameInfo.map;
-        synchedServerData.gameMode.Value = startingGameInfo.gameMode;
-        synchedServerData.gameQueue.Value = startingGameInfo.gameQueue;
-
-        Debug.Log(
-            $"Synched Server Values: {synchedServerData.map.Value} - {synchedServerData.gameMode.Value} - {synchedServerData.gameQueue.Value}",
-            synchedServerData.gameObject);
+        Debug.Log($"Synched Server Values: {synchedServerData.map.Value} - {synchedServerData.gameMode.Value} - {synchedServerData.gameQueue.Value}");
 
         return synchedServerData;
     }

@@ -27,16 +27,7 @@ public class MainMenuDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (isMatchmaking && !isCancelling)
-        {
-            timeInQueue += Time.deltaTime;
-            TimeSpan ts = TimeSpan.FromSeconds(timeInQueue);
-            queueTimerText.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
-        }
-        else
-        {
-            queueTimerText.text = string.Empty;
-        }
+
     }
 
     public async void FindMatchPressed()

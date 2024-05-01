@@ -10,4 +10,9 @@ public class SceneManagerCollection : MonoBehaviour
         SceneManager.LoadScene("Bootstrap");
     }
 
+    public void MainToRoom()
+    {
+        SceneManager.LoadScene("Room");
+    }
+
 }
