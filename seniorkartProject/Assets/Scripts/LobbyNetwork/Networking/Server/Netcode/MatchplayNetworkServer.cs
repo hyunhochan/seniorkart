@@ -52,7 +52,7 @@ public class MatchplayNetworkServer : IDisposable
     public async Task<SynchedServerData> ConfigureServer(GameInfo startingGameInfo)
     {
         Debug.Log("Attempting to load the room scene...");
-        networkManager.SceneManager.LoadScene("Room", LoadSceneMode.Single);
+        networkManager.SceneManager.LoadScene("room", LoadSceneMode.Single);
 
 
         bool localNetworkedSceneLoaded = false;
