@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace PUROPORO
 {
-    public class GoKartSharkController : MonoBehaviour
+    public class GoKartSharkController : NetworkBehaviour
     {
         private GoKartController m_Controller;
 
@@ -22,6 +23,11 @@ namespace PUROPORO
 
         private void LateUpdate()
         {
+            if (!IsOwner)
+            {
+                return;
+            }
+
             UpdateVisuals();
         }
 
