@@ -42,8 +42,8 @@ public class RevealMapDetailRoom : MonoBehaviour
             {
                 targetImage.sprite = trackImage.sprite;
                 targetTrackName.text = trackInfo.trackName; // 트랙 이름 업데이트
-                targetBestRecord.text = trackInfo.BestRecord1st; // 최고 기록 업데이트
-                targetBestKart.text = trackInfo.KartBody1st; // 최고 카트 업데이트
+                //targetBestRecord.text = trackInfo.BestRecord1st; // 최고 기록 업데이트
+                //targetBestKart.text = trackInfo.KartBody1st; // 최고 카트 업데이트
             }
             else
             {

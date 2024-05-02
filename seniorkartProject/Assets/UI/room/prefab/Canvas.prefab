@@ -606,6 +606,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5896428141070856437}
+    - targetCorrespondingSourceObject: {fileID: 7299790406584915776, guid: 0db9479b6b2be4142b8f757c611150b2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2680111222895643440}
     - targetCorrespondingSourceObject: {fileID: 6603251843217732193, guid: 0db9479b6b2be4142b8f757c611150b2,
         type: 3}
       insertIndex: -1
@@ -763,13 +767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1470675307
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
 --- !u!114 &4997120335492973957
@@ -790,7 +789,7 @@ MonoBehaviour:
   - {fileID: 8905803140473766120}
   - {fileID: 6879016764913487258}
   - {fileID: 5896428141070856437}
-  lockInButton: {fileID: 0}
+  lockInButton: {fileID: 4953402461780921579}
 --- !u!1 &3290254124304547343 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 522057636011283149, guid: 0db9479b6b2be4142b8f757c611150b2,
@@ -855,12 +854,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4953402461780921579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7938132406319145001, guid: 0db9479b6b2be4142b8f757c611150b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3069181254090108098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753907780349623170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5335599782012549233 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6961500341918913715, guid: 0db9479b6b2be4142b8f757c611150b2,
     type: 3}
   m_PrefabInstance: {fileID: 3069181254090108098}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5753907780349623170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7299790406584915776, guid: 0db9479b6b2be4142b8f757c611150b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3069181254090108098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2680111222895643440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753907780349623170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5978411238889003951 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8674066258875561837, guid: 0db9479b6b2be4142b8f757c611150b2,
@@ -1766,62 +1828,122 @@ PrefabInstance:
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 3967224614342382074}
+    - targetCorrespondingSourceObject: {fileID: 6176890390803991230, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5203447254797664988}
     - targetCorrespondingSourceObject: {fileID: 869101772195524505, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 8227489388612334984}
+    - targetCorrespondingSourceObject: {fileID: 869101772195524505, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5893518402181508204}
     - targetCorrespondingSourceObject: {fileID: 4169438635144223161, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 5011587420067179262}
+    - targetCorrespondingSourceObject: {fileID: 4169438635144223161, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 995483270305791238}
     - targetCorrespondingSourceObject: {fileID: 4375027418125649167, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 2345032609650442199}
+    - targetCorrespondingSourceObject: {fileID: 4375027418125649167, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 892367358536625230}
     - targetCorrespondingSourceObject: {fileID: 485934719462454075, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 4946802190937910354}
+    - targetCorrespondingSourceObject: {fileID: 485934719462454075, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9094068239750176684}
     - targetCorrespondingSourceObject: {fileID: 7155636684856255622, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 6727767152208879023}
+    - targetCorrespondingSourceObject: {fileID: 7155636684856255622, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3395489417293738707}
     - targetCorrespondingSourceObject: {fileID: 3925903548868637113, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 1600509123422146809}
+    - targetCorrespondingSourceObject: {fileID: 3925903548868637113, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6232267374117848756}
     - targetCorrespondingSourceObject: {fileID: 342030668091491203, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 5950329548191506474}
+    - targetCorrespondingSourceObject: {fileID: 342030668091491203, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8491998086322120070}
     - targetCorrespondingSourceObject: {fileID: 245060884329158680, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 1104113200508948112}
+    - targetCorrespondingSourceObject: {fileID: 245060884329158680, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7347363894345864740}
     - targetCorrespondingSourceObject: {fileID: 6364678260013268129, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 7561985125086824995}
+    - targetCorrespondingSourceObject: {fileID: 6364678260013268129, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1657117009679888047}
     - targetCorrespondingSourceObject: {fileID: 5398930879597351538, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 7068204228377726935}
+    - targetCorrespondingSourceObject: {fileID: 5398930879597351538, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2608769819265180096}
     - targetCorrespondingSourceObject: {fileID: 5112106530722590892, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 2035771148423841067}
+    - targetCorrespondingSourceObject: {fileID: 5112106530722590892, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5081496313655331024}
     - targetCorrespondingSourceObject: {fileID: 753292286687046794, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 718232123103603281}
+    - targetCorrespondingSourceObject: {fileID: 753292286687046794, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7737489610316953795}
     - targetCorrespondingSourceObject: {fileID: 9055591116111091036, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 1953771876727213310}
+    - targetCorrespondingSourceObject: {fileID: 9055591116111091036, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5914110786988999287}
     - targetCorrespondingSourceObject: {fileID: 5460562138746882092, guid: 667d9027624484866bfab0ae75bd39c8,
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 2943136350083180098}
+    - targetCorrespondingSourceObject: {fileID: 5460562138746882092, guid: 667d9027624484866bfab0ae75bd39c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5721169416965977546}
   m_SourcePrefab: {fileID: 100100000, guid: 667d9027624484866bfab0ae75bd39c8, type: 3}
 --- !u!1 &121213932227780036 stripped
 GameObject:
@@ -1847,6 +1969,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &3395489417293738707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121213932227780036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &175818008646069830 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6959168936712115972, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2069,6 +2236,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &5914110786988999287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254230760613719070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &2478775812146736454 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4649174679562064900, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2105,6 +2317,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &5081496313655331024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599305992129939950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &2665431408074793411 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5052701732499888257, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2141,6 +2398,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &2608769819265180096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886690595874941744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2964668863459570030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5460562138746882092, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2165,6 +2467,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &5721169416965977546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2964668863459570030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &3118035902319711561 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5306986286059482123, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2225,6 +2572,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &5203447254797664988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3989054435115070460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4229073483203757539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6364678260013268129, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2249,6 +2641,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &1657117009679888047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229073483203757539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &4796765107411812428 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2338149657124452622, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2297,6 +2734,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &6232267374117848756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095853753265359099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &6280684398571654134 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3875971889514689204, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2357,6 +2839,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &995483270305791238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575146139686805755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6797188077135002701 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4375027418125649167, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2381,6 +2908,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &892367358536625230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797188077135002701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &6886792112671511467 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4427463096572898025, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2429,6 +3001,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &7347363894345864740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027285961865683290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7231986910611704441 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 485934719462454075, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2453,6 +3070,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &9094068239750176684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7231986910611704441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7375891091372751553 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 342030668091491203, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2477,6 +3139,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &8491998086322120070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375891091372751553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7536621819451299272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 753292286687046794, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2501,6 +3208,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &7737489610316953795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7536621819451299272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &7725464440867542650 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 708492515896848184, guid: 667d9027624484866bfab0ae75bd39c8,
@@ -2549,6 +3301,51 @@ MonoBehaviour:
   targetTrackName: {fileID: 7595780778612776039}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
+--- !u!114 &5893518402181508204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993016050662758107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &8083624006622649544 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1354884191167161738, guid: 667d9027624484866bfab0ae75bd39c8,

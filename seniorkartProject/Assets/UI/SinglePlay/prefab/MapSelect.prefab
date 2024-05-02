@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 8838582132244511819}
   - component: {fileID: 2488005905087985699}
   - component: {fileID: 5819429594240326836}
+  - component: {fileID: 3397773439070351758}
   m_Layer: 5
   m_Name: Map10
   m_TagString: Untagged
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 10"
   trackNumber: 10
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -290,6 +291,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &3397773439070351758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245060884329158680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &290788650957068402
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +592,7 @@ GameObject:
   - component: {fileID: 3878551897487212868}
   - component: {fileID: 4031581820495049103}
   - component: {fileID: 6765074617536822668}
+  - component: {fileID: 3270460063233250962}
   m_Layer: 5
   m_Name: Map09
   m_TagString: Untagged
@@ -649,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 09"
   trackNumber: 9
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -660,6 +707,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &3270460063233250962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342030668091491203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &379375861459651879
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +989,7 @@ GameObject:
   - component: {fileID: 6959168936712115972}
   - component: {fileID: 7326789591258445597}
   - component: {fileID: 820412392509938844}
+  - component: {fileID: 5365089858962247739}
   m_Layer: 5
   m_Name: Map06
   m_TagString: Untagged
@@ -984,8 +1077,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 6959168936712115972}
   targetImage: {fileID: 0}
-  thisTrackName: {fileID: 0}
-  targetTrackName: {fileID: 1798202019869533520}
+  thisTrackName: {fileID: 1798202019869533520}
+  targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
 --- !u!114 &820412392509938844
@@ -1000,9 +1093,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 06"
   trackNumber: 6
-  UserName1st: "\uD669\uAE30\uD0DC"
+  UserName1st: "\uAC00\uB098\uB2E4"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
   BestRecord1st: 1:11:12
   UserName2nd: 
@@ -1011,6 +1104,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &5365089858962247739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485934719462454075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &529273994352206818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1522,7 @@ GameObject:
   - component: {fileID: 5052701732499888257}
   - component: {fileID: 5720439775826188832}
   - component: {fileID: 5858633656239667596}
+  - component: {fileID: 3811730910043060835}
   m_Layer: 5
   m_Name: Map14
   m_TagString: Untagged
@@ -1487,7 +1626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 14"
   trackNumber: 14
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -1498,6 +1637,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &3811730910043060835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753292286687046794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &768657737548804084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1995,7 @@ GameObject:
   - component: {fileID: 7521782966141848563}
   - component: {fileID: 7881372355015824708}
   - component: {fileID: 7881532550325466937}
+  - component: {fileID: 4712957067304022226}
   m_Layer: 5
   m_Name: Map03
   m_TagString: Untagged
@@ -1914,9 +2099,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 03"
   trackNumber: 3
-  UserName1st: "\uD669\uAE30\uD0DC"
+  UserName1st: "\uCD5C\uBBFC\uC218"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
   BestRecord1st: 1:11:12
   UserName2nd: 
@@ -1925,6 +2110,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &4712957067304022226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869101772195524505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &902332749224972988
 GameObject:
   m_ObjectHideFlags: 0
@@ -5630,6 +5860,7 @@ GameObject:
   - component: {fileID: 8022833030013447944}
   - component: {fileID: 6275786195995506952}
   - component: {fileID: 3865286321902508322}
+  - component: {fileID: 7213433522727266338}
   m_Layer: 5
   m_Name: Map08
   m_TagString: Untagged
@@ -5733,7 +5964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 08"
   trackNumber: 8
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -5744,6 +5975,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &7213433522727266338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925903548868637113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3944138809149872110
 GameObject:
   m_ObjectHideFlags: 0
@@ -6239,6 +6515,7 @@ GameObject:
   - component: {fileID: 3875971889514689204}
   - component: {fileID: 7854633196730508429}
   - component: {fileID: 1759929739055370856}
+  - component: {fileID: 3750413632600266398}
   m_Layer: 5
   m_Name: Map04
   m_TagString: Untagged
@@ -6326,8 +6603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 3875971889514689204}
   targetImage: {fileID: 0}
-  thisTrackName: {fileID: 0}
-  targetTrackName: {fileID: 7851718934603906726}
+  thisTrackName: {fileID: 7851718934603906726}
+  targetTrackName: {fileID: 0}
   targetBestRecord: {fileID: 0}
   targetBestKart: {fileID: 0}
 --- !u!114 &1759929739055370856
@@ -6342,9 +6619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 04"
   trackNumber: 4
-  UserName1st: "\uD669\uAE30\uD0DC"
+  UserName1st: "\uC774\uB3D9\uADDC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
   BestRecord1st: 1:11:12
   UserName2nd: 
@@ -6353,6 +6630,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &3750413632600266398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169438635144223161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4189371620161430254
 GameObject:
   m_ObjectHideFlags: 0
@@ -6695,6 +7017,7 @@ GameObject:
   - component: {fileID: 708492515896848184}
   - component: {fileID: 6125932517166307377}
   - component: {fileID: 6386595216445574646}
+  - component: {fileID: 8410730180922249452}
   m_Layer: 5
   m_Name: Map05
   m_TagString: Untagged
@@ -6798,9 +7121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 05"
   trackNumber: 5
-  UserName1st: "\uD669\uAE30\uD0DC"
+  UserName1st: "\uAC00\uB098\uB2E4"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
   BestRecord1st: 1:11:12
   UserName2nd: 
@@ -6809,6 +7132,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &8410730180922249452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4375027418125649167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4539183668660043558
 GameObject:
   m_ObjectHideFlags: 0
@@ -7502,6 +7870,7 @@ GameObject:
   - component: {fileID: 8791350100136083562}
   - component: {fileID: 9088898826904847853}
   - component: {fileID: 822073636497933298}
+  - component: {fileID: 752141755292028660}
   m_Layer: 5
   m_Name: Map13
   m_TagString: Untagged
@@ -7605,7 +7974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 13"
   trackNumber: 13
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -7616,6 +7985,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &752141755292028660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112106530722590892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5249136083175040007
 GameObject:
   m_ObjectHideFlags: 0
@@ -7965,6 +8379,7 @@ GameObject:
   - component: {fileID: 5910850176505629915}
   - component: {fileID: 7942730705008049619}
   - component: {fileID: 7892757135512740599}
+  - component: {fileID: 736270030456657592}
   m_Layer: 5
   m_Name: Map12
   m_TagString: Untagged
@@ -8068,7 +8483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 12"
   trackNumber: 12
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -8079,6 +8494,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &736270030456657592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5398930879597351538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5460562138746882092
 GameObject:
   m_ObjectHideFlags: 0
@@ -8091,6 +8551,7 @@ GameObject:
   - component: {fileID: 6120754945195580779}
   - component: {fileID: 931074171538591084}
   - component: {fileID: 3195977080539148837}
+  - component: {fileID: 8391339802088216280}
   m_Layer: 5
   m_Name: Map16
   m_TagString: Untagged
@@ -8194,7 +8655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 16"
   trackNumber: 16
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -8205,6 +8666,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &8391339802088216280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460562138746882092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5469196021948518935
 GameObject:
   m_ObjectHideFlags: 0
@@ -9276,6 +9782,7 @@ GameObject:
   - component: {fileID: 7416931395304205591}
   - component: {fileID: 6789939144367807597}
   - component: {fileID: 1682147895005866870}
+  - component: {fileID: 8819770189189418486}
   m_Layer: 5
   m_Name: Map02
   m_TagString: Untagged
@@ -9379,9 +9886,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uD3EC\uB808\uC2A4\uD2B8 \uC9C0\uADF8\uC7AC\uADF8"
+  trackName: "\uD2B8\uB799 \uC774\uB984 02"
   trackNumber: 1
-  UserName1st: "\uC720\uC0C1\uBBF8"
+  UserName1st: "\uC720\uD604\uC6B0"
   KartBody1st: "\uD55C\uC131\uD0DD\uC2DC"
   BestRecord1st: 2:31:26
   UserName2nd: 
@@ -9390,6 +9897,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &8819770189189418486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176890390803991230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6264560979740697472
 GameObject:
   m_ObjectHideFlags: 0
@@ -9510,6 +10062,7 @@ GameObject:
   - component: {fileID: 203723669091477910}
   - component: {fileID: 2390406017233190750}
   - component: {fileID: 4736558132938869563}
+  - component: {fileID: 8848748342524686961}
   m_Layer: 5
   m_Name: Map11
   m_TagString: Untagged
@@ -9613,7 +10166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 11"
   trackNumber: 11
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -9624,6 +10177,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &8848748342524686961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364678260013268129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6372507654907607025
 GameObject:
   m_ObjectHideFlags: 0
@@ -10415,6 +11013,7 @@ GameObject:
   - component: {fileID: 1273735842105482650}
   - component: {fileID: 3509092026187622017}
   - component: {fileID: 7024340619204654251}
+  - component: {fileID: 743281249648832212}
   m_Layer: 5
   m_Name: Map01
   m_TagString: Untagged
@@ -10518,9 +11117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 01"
   trackNumber: 0
-  UserName1st: "\uD669\uAE30\uD0DC"
+  UserName1st: "\uC720\uD604\uD638"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
   BestRecord1st: 1:11:12
   UserName2nd: 
@@ -10529,6 +11128,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &743281249648832212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7026332843491187475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7045401546387473800
 GameObject:
   m_ObjectHideFlags: 0
@@ -10616,6 +11260,7 @@ GameObject:
   - component: {fileID: 7906941580827097116}
   - component: {fileID: 436116323664481068}
   - component: {fileID: 3558818232020483278}
+  - component: {fileID: 3179996530635897063}
   m_Layer: 5
   m_Name: Map07
   m_TagString: Untagged
@@ -10719,7 +11364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 07"
   trackNumber: 7
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -10730,6 +11375,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &3179996530635897063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155636684856255622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7225868333980837239
 GameObject:
   m_ObjectHideFlags: 0
@@ -13703,6 +14393,7 @@ GameObject:
   - component: {fileID: 4649174679562064900}
   - component: {fileID: 4934034364132986622}
   - component: {fileID: 7036873875265545616}
+  - component: {fileID: 3720754159933350559}
   m_Layer: 5
   m_Name: Map15
   m_TagString: Untagged
@@ -13806,7 +14497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e0090c469d40808eb33262115c123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: "\uBE4C\uB9AC\uC9C0 \uACE0\uAC00\uC758 \uC9C8\uC8FC"
+  trackName: "\uD2B8\uB799 \uC774\uB984 15"
   trackNumber: 15
   UserName1st: "\uD669\uAE30\uD0DC"
   KartBody1st: "\uD55C\uC131\uBC84\uC2A4"
@@ -13817,6 +14508,51 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &3720754159933350559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055591116111091036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &9060943844969489282
 GameObject:
   m_ObjectHideFlags: 0
