@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -223,6 +223,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2115131555096183332}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &315384930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4953402461780921579, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115131555096183332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1134400924 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1255601028146933241, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
@@ -439,6 +451,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4997120335492973957, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: lockInButton
+      value: 
+      objectReference: {fileID: 315384930}
     - target: {fileID: 5278628381015657905, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

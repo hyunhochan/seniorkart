@@ -23,7 +23,7 @@ public class CharacterSelectButton : MonoBehaviour
 
     public void SelectCharacter()
     {
-        characterSelect.Select(Character);
+        //characterSelect.Select(Character);
     }
 
     public void SetDisabled()

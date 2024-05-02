@@ -10,7 +10,7 @@ public class ToggleSwitchButton : MonoBehaviour, IPointerDownHandler, IPointerUp
     public Sprite offPressedSprite; // OFF 상태에서 누를 때의 스프라이트
     public Sprite onPressedSprite; // ON 상태에서 누를 때의 스프라이트
 
-    private bool isOn = false; // 현재 ON 상태인지 여부(READY 상태가 ON임)
+    public bool isOn = false; // 현재 ON 상태인지 여부(READY 상태가 ON임)
 
     public void OnPointerDown(PointerEventData eventData)
     {

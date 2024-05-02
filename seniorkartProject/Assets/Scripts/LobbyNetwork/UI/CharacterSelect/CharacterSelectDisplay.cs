@@ -30,15 +30,6 @@ public class CharacterSelectDisplay : NetworkBehaviour
     {
         if (IsClient)
         {
-            //Character[] allCharacters = characterDatabase.GetAllCharacters();
-
-            /*foreach (var character in allCharacters)
-            {
-                var selectbuttonInstance = Instantiate(selectButtonPrefab, charactersHolder);
-                selectbuttonInstance.SetCharacter(this, character);
-                characterButtons.Add(selectbuttonInstance);
-            }*/
-
             players.OnListChanged += HandlePlayersStateChanged;
         }
 
@@ -57,6 +48,8 @@ public class CharacterSelectDisplay : NetworkBehaviour
         {
             //joinCodeText.text = HostSingleton.Instance.RelayHostData.JoinCode;
         }
+
+        lockInButton.onClick.AddListener(LockIn);
     }
 
     public override void OnNetworkDespawn()
@@ -70,7 +63,12 @@ public class CharacterSelectDisplay : NetworkBehaviour
         {
             NetworkManager.Singleton.OnClientConnectedCallback -= HandleClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback -= HandleClientDisconnected;
+            foreach (NetworkClient client in NetworkManager.Singleton.ConnectedClientsList)
+            {
+                HandleClientConnected(client.ClientId);
+            }
         }
+        lockInButton.onClick.RemoveListener(LockIn);
     }
 
     private void HandleClientConnected(ulong clientId)
@@ -89,86 +87,44 @@ public class CharacterSelectDisplay : NetworkBehaviour
         }
     }
 
-    public void Select(Character character)
-    {
-        for (int i = 0; i < players.Count; i++)
-        {
-            if (players[i].ClientId != NetworkManager.Singleton.LocalClientId) { continue; }
-
-            if (players[i].IsLockedIn) { return; }
-
-            if (players[i].CharacterId == character.Id) { return; }
-
-            if (IsCharacterTaken(character.Id, false)) { return; }
-        }
-
-        //characterNameText.text = character.DisplayName;
-
-        //characterInfoPanel.SetActive(true);
-
-        if (introInstance != null)
-        {
-            Destroy(introInstance);
-        }
-
-        //introInstance = Instantiate(character.IntroPrefab, introSpawnPoint);
-
-        SelectServerRpc(character.Id);
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void SelectServerRpc(int characterId, ServerRpcParams serverRpcParams = default)
-    {
-        for (int i = 0; i < players.Count; i++)
-        {
-            if (players[i].ClientId != serverRpcParams.Receive.SenderClientId) { continue; }
-
-            //if (!characterDatabase.IsValidCharacterId(characterId)) { return; }
-
-            if (IsCharacterTaken(characterId, true)) { return; }
-
-            players[i] = new CharacterSelectState(
-                players[i].ClientId,
-                characterId,
-                players[i].IsLockedIn
-            );
-        }
-    }
+   
 
     public void LockIn()
     {
         LockInServerRpc();
     }
 
+    
+
     [ServerRpc(RequireOwnership = false)]
     private void LockInServerRpc(ServerRpcParams serverRpcParams = default)
     {
         for (int i = 0; i < players.Count; i++)
         {
-            if (players[i].ClientId != serverRpcParams.Receive.SenderClientId) { continue; }
+            if (players[i].ClientId == serverRpcParams.Receive.SenderClientId)
+            {
+                // 기존의 플레이어 상태를 복사하여 새 상태를 
+                CharacterSelectState updatedState = new CharacterSelectState(players[i].ClientId, players[i].CharacterId, !players[i].IsLockedIn);
 
-            //if (!characterDatabase.IsValidCharacterId(players[i].CharacterId)) { return; }
-
-            if (IsCharacterTaken(players[i].CharacterId, true)) { return; }
-
-            players[i] = new CharacterSelectState(
-                players[i].ClientId,
-                players[i].CharacterId,
-                true
-            );
+                // 리스트에 업데이트된 상태를 할당
+                players[i] = updatedState;
+                break;
+            }
         }
-
+        bool allReady = true;
         foreach (var player in players)
         {
-            if (!player.IsLockedIn) { return; }
+            if (!player.IsLockedIn)
+            {
+                allReady = false;
+                break;
+            }
         }
 
-        foreach (var player in players)
+        if (allReady)
         {
-            MatchplayNetworkServer.Instance.SetCharacter(player.ClientId, player.CharacterId);
+            MatchplayNetworkServer.Instance.StartGame();
         }
-
-        MatchplayNetworkServer.Instance.StartGame();
     }
 
     private void HandlePlayersStateChanged(NetworkListEvent<CharacterSelectState> changeEvent)
@@ -185,53 +141,22 @@ public class CharacterSelectDisplay : NetworkBehaviour
             }
         }
 
-        foreach (var button in characterButtons)
-        {
-            if (button.IsDisabled) { continue; }
 
-            if (IsCharacterTaken(button.Character.Id, false))
-            {
-                button.SetDisabled();
-            }
-        }
-
-        foreach (var player in players)
-        {
-            if (player.ClientId != NetworkManager.Singleton.LocalClientId) { continue; }
-
-            if (player.IsLockedIn)
-            {
-                lockInButton.interactable = false;
-                break;
-            }
-
-            if (IsCharacterTaken(player.CharacterId, false))
-            {
-                lockInButton.interactable = false;
-                break;
-            }
-
-            lockInButton.interactable = true;
-
-            break;
-        }
+        UpdateLockInButtonInteractivity();
     }
 
-    private bool IsCharacterTaken(int characterId, bool checkAll)
+    private void UpdateLockInButtonInteractivity()
     {
+        bool anyNotReady = false;
         for (int i = 0; i < players.Count; i++)
         {
-            if (!checkAll)
+            if (!players[i].IsLockedIn)
             {
-                if (players[i].ClientId == NetworkManager.Singleton.LocalClientId) { continue; }
-            }
-
-            if (players[i].IsLockedIn && players[i].CharacterId == characterId)
-            {
-                return true;
+                anyNotReady = true;
+                break;
             }
         }
-
-        return false;
+        lockInButton.interactable = anyNotReady;
     }
+
 }
