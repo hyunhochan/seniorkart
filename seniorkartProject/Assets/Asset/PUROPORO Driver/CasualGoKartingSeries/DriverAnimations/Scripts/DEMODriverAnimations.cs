@@ -7,12 +7,12 @@ namespace PUROPORO
     public class DEMODriverAnimations : MonoBehaviour
     {
         [SerializeField] private Animator m_DriverAnimator;
-        [SerializeField] private Animator m_CabExampleAnimator;
+        //[SerializeField] private Animator m_CabExampleAnimator;
         private float m_Acceleration;
         private float m_Speed;
         private float m_Turn;
         private float m_Turning;
-        private float m_Multiplier = 2;
+        private float m_Multiplier = 8;
 
         private static bool m_IsDriving;
         public static bool isDriving
@@ -24,6 +24,8 @@ namespace PUROPORO
         private void OnEnable()
         {
             UIButton.OnClick += PlayAnimation;
+            m_IsDriving = true;
+            m_DriverAnimator.Play("Driving");
         }
 
         private void OnDisable()
@@ -38,7 +40,7 @@ namespace PUROPORO
                 m_Turn = Input.GetAxis("Horizontal");
                 m_Turning = Mathf.Lerp(m_Turning, m_Turn, Time.deltaTime * m_Multiplier);
                 m_DriverAnimator.SetFloat("Turning", m_Turning);
-                m_CabExampleAnimator.SetFloat("Turning", m_Turning);
+                //m_CabExampleAnimator.SetFloat("Turning", m_Turning);
 
                 if (Input.GetKey(KeyCode.Space))
                 {
