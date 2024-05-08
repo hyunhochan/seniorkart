@@ -22,7 +22,7 @@ public class audioPitch : MonoBehaviour
     void Update()
     {
         
-        Debug.Log(rigidbody.velocity.magnitude);
+        //Debug.Log(rigidbody.velocity.magnitude);
 
         float pitch = Mathf.Lerp(0.5f, 2.0f, rigidbody.velocity.magnitude / 10.0f);
         audioSource.pitch = pitch;

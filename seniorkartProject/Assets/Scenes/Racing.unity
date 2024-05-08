@@ -333,7 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kartController: {fileID: 1955149527}
   driverAnimations: {fileID: 738999602}
-  value: 0
+  value: 0.1
+  maxInputValue: 1
   isBrakeButton: 1
   isTurnButton: 0
 --- !u!1001 &573025126
@@ -1330,7 +1331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kartController: {fileID: 1955149527}
   driverAnimations: {fileID: 738999602}
-  value: -1
+  value: 0.018
+  maxInputValue: -1
   isBrakeButton: 0
   isTurnButton: 1
 --- !u!1 &1438100074
@@ -1642,7 +1644,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kartController: {fileID: 1955149527}
   driverAnimations: {fileID: 738999602}
-  value: 1
+  value: 0.018
+  maxInputValue: 1
   isBrakeButton: 0
   isTurnButton: 1
 --- !u!1 &2071496687
