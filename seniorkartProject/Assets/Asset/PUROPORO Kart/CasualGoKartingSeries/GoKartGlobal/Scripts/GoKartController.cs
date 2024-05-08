@@ -31,18 +31,52 @@ namespace PUROPORO
         public WheelCollider wheelColliderRL;
         public WheelCollider wheelColliderRR;
 
+        public float buttonSteering; // 버튼을 통한 스티어링 입력
+        public float buttonBrake;    // 버튼을 통한 브레이크 입력
+
         private void FixedUpdate()
         {
             GetInput();
+            HandleButtonInput(); // 추가된 메서드 호출
             HandleAcceleration();
             HandleSteering();
+            HandleBraking(); // 브레이킹 처리 메서드 분리
         }
 
         private void GetInput()
         {
-            inputSteering = Input.GetAxis(c_Horizontal);
+            inputSteering = Input.GetAxis(c_Horizontal) + buttonSteering;
             inputAcceleration = Input.GetAxis(c_Vertical);
-            isBraking = Input.GetKey(KeyCode.Space);
+            isBraking = Input.GetKey(KeyCode.Space) || buttonBrake > 0; // 버튼 입력 추가
+        }
+
+        // 추가된 메서드: 버튼 입력 처리
+        private void HandleButtonInput()
+        {
+            // inputSteering 값이 -1과 1 사이로 제한되도록 조정
+            inputSteering = Mathf.Clamp(inputSteering, -1f, 1f);
+        }
+
+
+        // 브레이킹 처리를 위한 메서드
+        private void HandleBraking()
+        {
+            currentBrakingForce = isBraking ? brakingForce : 0f;
+            switch (brakingSystem)
+            {
+                case Braking.AllWheels:
+                    wheelColliderFL.brakeTorque = currentBrakingForce;
+                    wheelColliderFR.brakeTorque = currentBrakingForce;
+                    wheelColliderRL.brakeTorque = currentBrakingForce;
+                    wheelColliderRR.brakeTorque = currentBrakingForce;
+                    break;
+                case Braking.Handbrake:
+                    wheelColliderRL.brakeTorque = currentBrakingForce;
+                    wheelColliderRR.brakeTorque = currentBrakingForce;
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void HandleAcceleration()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -210,8 +210,9 @@ GameObject:
   - component: {fileID: 210662422}
   - component: {fileID: 210662421}
   - component: {fileID: 210662423}
+  - component: {fileID: 210662424}
   m_Layer: 0
-  m_Name: back_background
+  m_Name: brake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,93 +319,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!1001 &244155664
-PrefabInstance:
+--- !u!114 &210662424
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1955149521}
-    m_Modifications:
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6744851142956000143, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      propertyPath: m_Name
-      value: SK_CasualGoKarting_DriverBasic_LOD_Variant_Built-In
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6744851142956000143, guid: a2f9dde7462ce414b86ccf750a1a8238,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 738999602}
-  m_SourcePrefab: {fileID: 100100000, guid: a2f9dde7462ce414b86ccf750a1a8238, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210662419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bdabe3d99904b5b99a1a815163ed0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kartController: {fileID: 1955149527}
+  driverAnimations: {fileID: 738999602}
+  value: 0
+  isBrakeButton: 1
+  isTurnButton: 0
 --- !u!1001 &573025126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -473,28 +404,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7005723220562399222, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7005723220562399222, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
-        type: 3}
-      propertyPath: motorSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 15cfc47a4c1bc154883dbfdd4bee79a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3386352308073289959, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 738999601}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3386352308073289955, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1955149510}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ea16e19ef6514cbc8aaba0772d8118c, type: 3}
 --- !u!1 &677272198
 GameObject:
@@ -936,37 +849,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd3e3c7634ec0cb458b268e7a8fdc687, type: 3}
---- !u!1 &738999600 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6744851142956000143, guid: a2f9dde7462ce414b86ccf750a1a8238,
-    type: 3}
-  m_PrefabInstance: {fileID: 244155664}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &738999601 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6255876793387448629, guid: a2f9dde7462ce414b86ccf750a1a8238,
-    type: 3}
-  m_PrefabInstance: {fileID: 244155664}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &738999602
+--- !u!114 &738999602 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 145328195407835430, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
+    type: 3}
+  m_PrefabInstance: {fileID: 573025126}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738999600}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1bf3249f6d8d4724bb04569b94c5a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DriverAnimator: {fileID: 738999604}
---- !u!95 &738999604 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 13926521266381647, guid: a2f9dde7462ce414b86ccf750a1a8238,
-    type: 3}
-  m_PrefabInstance: {fileID: 244155664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &868778818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1207,7 @@ GameObject:
   - component: {fileID: 1276725313}
   - component: {fileID: 1276725312}
   - component: {fileID: 1276725314}
+  - component: {fileID: 1276725315}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -1421,6 +1316,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1276725315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276725310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bdabe3d99904b5b99a1a815163ed0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kartController: {fileID: 1955149527}
+  driverAnimations: {fileID: 738999602}
+  value: -1
+  isBrakeButton: 0
+  isTurnButton: 1
 --- !u!1 &1438100074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,114 +1495,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1955149498 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3386352308073289955, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
+--- !u!114 &1955149527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3386352308073289956, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
     type: 3}
   m_PrefabInstance: {fileID: 573025126}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1955149510
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1955149498}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 15cfc47a4c1bc154883dbfdd4bee79a0, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.6
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1955149521 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3386352308073289959, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
-    type: 3}
-  m_PrefabInstance: {fileID: 573025126}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3045e12f0aa94f24a15e6a66a653ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988075687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,6 +1519,7 @@ GameObject:
   - component: {fileID: 1988075690}
   - component: {fileID: 1988075689}
   - component: {fileID: 1988075691}
+  - component: {fileID: 1988075692}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -1811,6 +1628,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1988075692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988075687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bdabe3d99904b5b99a1a815163ed0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kartController: {fileID: 1955149527}
+  driverAnimations: {fileID: 738999602}
+  value: 1
+  isBrakeButton: 0
+  isTurnButton: 1
 --- !u!1 &2071496687
 GameObject:
   m_ObjectHideFlags: 0
