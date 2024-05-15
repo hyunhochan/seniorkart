@@ -199,6 +199,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8834995866878680857, guid: 77f4e5f36eb6dd748ba8b284ba3b9f56,
+        type: 3}
+      propertyPath: NetworkConfig.PlayerPrefab
+      value: 
+      objectReference: {fileID: 8854747452121219810, guid: 4a9c010f46909b946bde41f826c0f327,
+        type: 3}
+    - target: {fileID: -8834995866878680857, guid: 77f4e5f36eb6dd748ba8b284ba3b9f56,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8834995866878680857, guid: 77f4e5f36eb6dd748ba8b284ba3b9f56,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 3386352308073289955, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
+        type: 3}
+    - target: {fileID: -8834995866878680857, guid: 77f4e5f36eb6dd748ba8b284ba3b9f56,
+        type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 3572850068603976259, guid: 51c417cafc5dde14ea5bd4b9f2593126,
+        type: 3}
     - target: {fileID: 1737787359814664890, guid: 77f4e5f36eb6dd748ba8b284ba3b9f56,
         type: 3}
       propertyPath: m_Name

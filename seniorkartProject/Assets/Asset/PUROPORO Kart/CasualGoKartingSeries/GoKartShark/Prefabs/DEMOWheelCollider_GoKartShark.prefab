@@ -53,6 +53,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DEMOWheelCollider_GoKartShark
       objectReference: {fileID: 0}
+    - target: {fileID: 4086257025619103329, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4086257025619103332, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
       propertyPath: m_Enabled
@@ -111,6 +116,16 @@ PrefabInstance:
     - target: {fileID: 4086257025619103333, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086257025619103334, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      propertyPath: cameraMountPoint
+      value: 
+      objectReference: {fileID: 3386352309290404679}
+    - target: {fileID: 4086257025619103335, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4086257025726339872, guid: 5d87bfa21e12b477e80fc96a351cf384,
@@ -191,15 +206,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4086257025619103329, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5576116292226088598}
-    - targetCorrespondingSourceObject: {fileID: 4086257025619103329, guid: 5d87bfa21e12b477e80fc96a351cf384,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7005723220562399222}
     - targetCorrespondingSourceObject: {fileID: 4086257025619103329, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2416872818166031349}
+    - targetCorrespondingSourceObject: {fileID: 4086257025619103329, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6368141294423237995}
   m_SourcePrefab: {fileID: 100100000, guid: 5d87bfa21e12b477e80fc96a351cf384, type: 3}
 --- !u!1 &3386352308073289955 stripped
 GameObject:
@@ -307,32 +322,6 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &5576116292226088598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3386352308073289955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f223fb3304720648a28dce0404a9d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 0
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  InLocalSpace: 0
-  Interpolate: 1
 --- !u!114 &7005723220562399222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,9 +431,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6368141294423237995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386352308073289955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!4 &3386352308073289959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4086257025619103333, guid: 5d87bfa21e12b477e80fc96a351cf384,
+    type: 3}
+  m_PrefabInstance: {fileID: 1606642016990582402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3386352309290404679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4086257024401464773, guid: 5d87bfa21e12b477e80fc96a351cf384,
     type: 3}
   m_PrefabInstance: {fileID: 1606642016990582402}
   m_PrefabAsset: {fileID: 0}

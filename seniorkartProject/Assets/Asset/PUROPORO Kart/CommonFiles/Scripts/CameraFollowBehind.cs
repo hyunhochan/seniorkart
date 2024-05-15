@@ -12,17 +12,20 @@ namespace PUROPORO
     {
         private Vector3 m_PositionOffset;
 
-        [SerializeField] private string m_TargetName = "Player";
         [SerializeField] private Transform m_Target;
         [SerializeField] private float m_FollowSpeed = 8f;
         [SerializeField] private float m_RotationSpeed = 4f;
+        [SerializeField] private Vector3 m_Offset = new Vector3(0, 3, -7); // 카메라의 위치 오프셋 설정
 
         private void Start()
         {
             if (m_Target == null)
-                m_Target = GameObject.FindGameObjectWithTag(m_TargetName).transform;
+            {
+                Debug.LogError("Target not set for CameraFollowBehind.");
+                return;
+            }
 
-            m_PositionOffset = transform.localPosition;
+            m_PositionOffset = m_Offset; // m_PositionOffset 초기화
         }
 
         private void FixedUpdate()
@@ -33,14 +36,20 @@ namespace PUROPORO
 
         private void HandlePosition()
         {
-            var targetPosition = m_Target.TransformPoint(m_PositionOffset);
+            var targetPosition = m_Target.position + m_Target.TransformDirection(m_PositionOffset);
             transform.position = Vector3.Lerp(transform.position, targetPosition, m_FollowSpeed * Time.deltaTime);
         }
+
         private void HandleRotation()
         {
             var direction = m_Target.position - transform.position;
             var rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, m_RotationSpeed * Time.deltaTime);
+        }
+
+        public void SetTarget(Transform target)
+        {
+            m_Target = target;
         }
     }
 }

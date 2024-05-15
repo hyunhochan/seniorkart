@@ -5,21 +5,35 @@ using UnityEngine;
 
 public class CharacterSpawner : NetworkBehaviour
 {
-    [Header("References")]
-    [SerializeField] private CharacterDatabase characterDatabase;
+    [SerializeField] private Vector3[] spawnPositions; // 플레이어 스폰 위치 목록
+    [SerializeField] private GameObject kartPrefab; // 카트 프리팹
 
     public override void OnNetworkSpawn()
     {
-        if (!IsServer) { return; }
+        if (!IsServer) return;
 
-        foreach (var client in MatchplayNetworkServer.Instance.ClientData)
+        int i = 0;
+        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
         {
-            var character = characterDatabase.GetCharacterById(client.Value.characterId);
-            if (character != null)
+            if (i >= spawnPositions.Length) break;
+
+            var spawnPos = spawnPositions[i++];
+
+            // 클라이언트 별로 카트를 생성하고 네트워크 오브젝트로 스폰
+            GameObject kart = Instantiate(kartPrefab, spawnPos, Quaternion.identity);
+            NetworkObject kartNetworkObject = kart.GetComponent<NetworkObject>();
+            if (kartNetworkObject != null)
             {
-                var spawnPos = new Vector3(Random.Range(-3f, 3f), 0f, Random.Range(-3f, 3f));
-                var characterInstance = Instantiate(character.GameplayPrefab, spawnPos, Quaternion.identity);
-                characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                kartNetworkObject.SpawnAsPlayerObject(client.ClientId);
+            }
+
+            // Rigidbody 초기화
+            var rigidbody = kart.GetComponent<Rigidbody>();
+            if (rigidbody != null)
+            {
+                rigidbody.velocity = Vector3.zero;         // 속도를 0으로 설정
+                rigidbody.angularVelocity = Vector3.zero;  // 각속도를 0으로 설정
+                rigidbody.isKinematic = false;            // Rigidbody를 운동 상태로 설정
             }
         }
     }

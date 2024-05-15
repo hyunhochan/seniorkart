@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Racing.unity
     guid: 5e4a505467337413bad64093c8fb1e1b
+  - enabled: 1
+    path: Assets/Coast_landscape/Coastland.unity
+    guid: 7af43ce60cf95bc4cb091c2ff9f8be6c
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d5627550e040d4fd9a0dd19506891330,
       type: 2}
