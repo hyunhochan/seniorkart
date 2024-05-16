@@ -21750,7 +21750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38, y: -15}
+  m_AnchoredPosition: {x: -44.5, y: -15}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &488794393
@@ -21825,7 +21825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 232.7
+  m_text: 232.9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5285bfe9e0507486e9648fd27c3f3080, type: 2}
   m_sharedMaterial: {fileID: 3138029172651187773, guid: 5285bfe9e0507486e9648fd27c3f3080,
@@ -21860,10 +21860,10 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 0.78
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -56267,6 +56267,7 @@ MonoBehaviour:
   - {x: 11, y: 0.5, z: -15}
   kartPrefab: {fileID: 3386352308073289955, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
     type: 3}
+  speedText: {fileID: 488794394}
 --- !u!1001 &1382590306
 PrefabInstance:
   m_ObjectHideFlags: 0
