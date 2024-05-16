@@ -1,0 +1,129 @@
+fileFormatVersion: 2
+guid: 212268195c5c3e84b9bc7297f3a7512e
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Camera
+    100002: //RootNode
+    100004: scheinwerfer_mast_01a
+    100006: scheinwerfer_mast_01b
+    100008: scheinwerfer_mast_01c
+    100010: scheinwerfer_mast_01d
+    400000: Camera
+    400002: //RootNode
+    400004: scheinwerfer_mast_01a
+    400006: scheinwerfer_mast_01b
+    400008: scheinwerfer_mast_01c
+    400010: scheinwerfer_mast_01d
+    2000000: Camera
+    2100000: scheinwerfer_mast_01_main
+    2100002: scheinwerfer_mast_01_lights
+    2300000: scheinwerfer_mast_01a
+    2300002: scheinwerfer_mast_01b
+    2300004: scheinwerfer_mast_01c
+    2300006: scheinwerfer_mast_01d
+    3300000: scheinwerfer_mast_01a
+    3300002: scheinwerfer_mast_01b
+    3300004: scheinwerfer_mast_01c
+    3300006: scheinwerfer_mast_01d
+    4300000: scheinwerfer_mast_01c
+    4300002: scheinwerfer_mast_01a
+    4300004: scheinwerfer_mast_01b
+    4300006: scheinwerfer_mast_01d
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scheinwerfer_mast_01_lights
+    second: {fileID: 2100000, guid: d4f517967a05c9d49a51fd5712832192, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scheinwerfer_mast_01_main
+    second: {fileID: 2100000, guid: f65793b4b7187c8459049bad574e8083, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 29
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 2
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 2
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

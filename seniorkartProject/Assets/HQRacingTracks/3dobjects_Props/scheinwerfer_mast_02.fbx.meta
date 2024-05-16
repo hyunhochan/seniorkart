@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 972e5806bce35da40ba875ee8c9810dd
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Camera
+    100002: //RootNode
+    100004: zaunblock_01_1er
+    100006: zaunblock_01_2er
+    100008: zaunblock_01_3er
+    100010: zaunblock_01_3er_lichtmast
+    400000: Camera
+    400002: //RootNode
+    400004: zaunblock_01_1er
+    400006: zaunblock_01_2er
+    400008: zaunblock_01_3er
+    400010: zaunblock_01_3er_lichtmast
+    2000000: Camera
+    2100000: zaunblock_main
+    2100002: zaunblock_zaun
+    2100004: zaunblock_light
+    2300000: zaunblock_01_1er
+    2300002: zaunblock_01_2er
+    2300004: zaunblock_01_3er
+    2300006: zaunblock_01_3er_lichtmast
+    3300000: zaunblock_01_1er
+    3300002: zaunblock_01_2er
+    3300004: zaunblock_01_3er
+    3300006: zaunblock_01_3er_lichtmast
+    4300000: zaunblock_01_3er_lichtmast
+    4300002: zaunblock_01_1er
+    4300004: zaunblock_01_2er
+    4300006: zaunblock_01_3er
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zaunblock_light
+    second: {fileID: 2100000, guid: 7b352a3df3dd2fe43b886427fb0c642e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zaunblock_main
+    second: {fileID: 2100000, guid: b89962ece04f76c4294f5e98d8ad75ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zaunblock_zaun
+    second: {fileID: 2100000, guid: 5eef47c4e6425bc439479464c479d191, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 29
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 2
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 2
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
