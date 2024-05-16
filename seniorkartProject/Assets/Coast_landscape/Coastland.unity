@@ -56268,6 +56268,8 @@ MonoBehaviour:
   kartPrefab: {fileID: 3386352308073289955, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
     type: 3}
   speedText: {fileID: 488794394}
+  tacoBack: {fileID: 2137888152}
+  tackLineBack: {fileID: 1862316542}
 --- !u!1001 &1382590306
 PrefabInstance:
   m_ObjectHideFlags: 0
