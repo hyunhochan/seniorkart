@@ -1,9 +1,13 @@
 using System.Collections;
+using Unity.Multiplayer.Samples.Utilities.ClientAuthority;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 namespace PUROPORO
 {
+    [RequireComponent(typeof(NetworkObject))]
+    [RequireComponent(typeof(ClientNetworkTransform))]
     public class GoKartController : NetworkBehaviour
     {
         [HideInInspector] public float inputAcceleration;
@@ -24,7 +28,7 @@ namespace PUROPORO
         public float accelerationForce = 1500f;
         public float brakingForce = 1000f;
         public float maxSteeringAngle = 30f;
-        public float autoDriveDelay = 3f; // 자동 전진 지연 시간
+        public float autoDriveDelay = 3f;
 
         [Header("Colliders")]
         public WheelCollider wheelColliderFL;
@@ -32,22 +36,22 @@ namespace PUROPORO
         public WheelCollider wheelColliderRL;
         public WheelCollider wheelColliderRR;
 
-        public float buttonSteering; // 버튼을 통한 스티어링 입력
-        public float buttonBrake;    // 버튼을 통한 브레이크 입력
+        public float buttonSteering;
+        public float buttonBrake;
 
         [Header("Camera")]
-        public GameObject cameraMountPoint; // 카메라가 장착될 지점
+        public GameObject cameraMountPoint;
         private Camera playerCamera;
 
         private bool autoDrive = false;
+        private Rigidbody rb;
 
-        // 네트워크 변수를 추가합니다.
-        private NetworkVariable<float> networkInputAcceleration = new NetworkVariable<float>(writePerm: NetworkVariableWritePermission.Owner);
-        private NetworkVariable<float> networkInputSteering = new NetworkVariable<float>(writePerm: NetworkVariableWritePermission.Owner);
-        private NetworkVariable<bool> networkIsBraking = new NetworkVariable<bool>(writePerm: NetworkVariableWritePermission.Owner);
+        private NetworkTransform networkTransform;
 
         private void Start()
         {
+            rb = GetComponent<Rigidbody>();
+            networkTransform = GetComponent<NetworkTransform>();
             StartCoroutine(StartAutoDriveAfterDelay());
             if (IsOwner)
             {
@@ -66,27 +70,15 @@ namespace PUROPORO
             if (IsOwner)
             {
                 GetInput();
-                HandleButtonInput(); // 추가된 메서드 호출
+                HandleButtonInput();
 
-                // 네트워크 변수 업데이트
-                networkInputAcceleration.Value = inputAcceleration;
-                networkInputSteering.Value = inputSteering;
-                networkIsBraking.Value = isBraking;
+                // 클라이언트 예측: 입력을 즉시 반영
+                HandleAcceleration(inputAcceleration);
+                HandleSteering(inputSteering);
+                HandleBraking(isBraking);
 
-                HandleAcceleration();
-                HandleSteering();
-                HandleBraking();
-            }
-            else
-            {
-                // 네트워크 변수를 사용하여 입력 처리
-                inputAcceleration = networkInputAcceleration.Value;
-                inputSteering = networkInputSteering.Value;
-                isBraking = networkIsBraking.Value;
-
-                HandleAcceleration();
-                HandleSteering();
-                HandleBraking();
+                // 서버에 입력을 보내는 코드 추가
+                SendInputToServer();
             }
         }
 
@@ -105,18 +97,15 @@ namespace PUROPORO
         {
             inputSteering = Input.GetAxis(c_Horizontal) + buttonSteering;
             inputAcceleration = Input.GetAxis(c_Vertical);
-            isBraking = Input.GetKey(KeyCode.Space) || buttonBrake > 0; // 버튼 입력 추가
+            isBraking = Input.GetKey(KeyCode.Space) || buttonBrake > 0;
         }
 
-        // 추가된 메서드: 버튼 입력 처리
         private void HandleButtonInput()
         {
-            // inputSteering 값이 -1과 1 사이로 제한되도록 조정
             inputSteering = Mathf.Clamp(inputSteering, -1f, 1f);
         }
 
-        // 브레이킹 처리를 위한 메서드
-        private void HandleBraking()
+        private void HandleBraking(bool isBraking)
         {
             currentBrakingForce = isBraking ? brakingForce : 0f;
             switch (brakingSystem)
@@ -136,7 +125,7 @@ namespace PUROPORO
             }
         }
 
-        private void HandleAcceleration()
+        private void HandleAcceleration(float inputAcceleration)
         {
             switch (drivetrain)
             {
@@ -157,53 +146,49 @@ namespace PUROPORO
                 default:
                     break;
             }
-
-            currentBrakingForce = isBraking ? brakingForce : 0f;
-            ApplyBraking();
         }
 
-        private void ApplyBraking()
-        {
-            switch (brakingSystem)
-            {
-                case Braking.AllWheels:
-                    wheelColliderFL.brakeTorque = currentBrakingForce;
-                    wheelColliderFR.brakeTorque = currentBrakingForce;
-                    wheelColliderRL.brakeTorque = currentBrakingForce;
-                    wheelColliderRR.brakeTorque = currentBrakingForce;
-                    break;
-                case Braking.Handbrake:
-                    wheelColliderRL.brakeTorque = currentBrakingForce;
-                    wheelColliderRR.brakeTorque = currentBrakingForce;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void HandleSteering()
+        private void HandleSteering(float inputSteering)
         {
             currentSteeringAngle = maxSteeringAngle * inputSteering;
             wheelColliderFL.steerAngle = currentSteeringAngle;
             wheelColliderFR.steerAngle = currentSteeringAngle;
         }
 
+        private void SendInputToServer()
+        {
+            var input = new KartInput
+            {
+                Acceleration = inputAcceleration,
+                Steering = inputSteering,
+                IsBraking = isBraking
+            };
+
+            SubmitInputServerRpc(input);
+        }
+
+        [ServerRpc]
+        private void SubmitInputServerRpc(KartInput input)
+        {
+            // 서버에서 입력을 처리하고 클라이언트의 상태를 보정
+            HandleAcceleration(input.Acceleration);
+            HandleSteering(input.Steering);
+            HandleBraking(input.IsBraking);
+        }
+
         private void SetupCamera()
         {
-            // 기존 카메라를 비활성화
             Camera mainCamera = Camera.main;
             if (mainCamera != null)
             {
                 mainCamera.enabled = false;
             }
 
-            // 새로운 카메라를 생성하고 카트에 장착
             playerCamera = new GameObject("PlayerCamera").AddComponent<Camera>();
             playerCamera.transform.SetParent(cameraMountPoint.transform);
             playerCamera.transform.localPosition = Vector3.zero;
             playerCamera.transform.localRotation = Quaternion.identity;
 
-            // 카메라에 따라다니도록 설정
             var cameraFollow = playerCamera.gameObject.AddComponent<CameraFollowBehind>();
             cameraFollow.SetTarget(cameraMountPoint.transform);
         }
@@ -215,7 +200,6 @@ namespace PUROPORO
             {
                 transform.position = checkpointTransform.position;
                 transform.rotation = checkpointTransform.rotation;
-                // Rigidbody의 속도를 초기화하여 차가 멈추도록 합니다.
                 Rigidbody rb = GetComponent<Rigidbody>();
                 if (rb != null)
                 {
@@ -223,6 +207,44 @@ namespace PUROPORO
                     rb.angularVelocity = Vector3.zero;
                 }
             }
+        }
+
+        private void ServerReconciliation()
+        {
+            // 서버 보정 로직: 클라이언트와 서버 간의 위치 및 상태 차이를 보정
+            if (IsServer)
+            {
+                foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+                {
+                    var clientKart = client.PlayerObject.GetComponent<GoKartController>();
+                    if (clientKart != null)
+                    {
+                        var serverKartPosition = clientKart.transform.position;
+                        var serverKartRotation = clientKart.transform.rotation;
+
+                        if (Vector3.Distance(clientKart.transform.position, serverKartPosition) > 0.1f ||
+                            Quaternion.Angle(clientKart.transform.rotation, serverKartRotation) > 5f)
+                        {
+                            clientKart.transform.position = serverKartPosition;
+                            clientKart.transform.rotation = serverKartRotation;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public struct KartInput : INetworkSerializable
+    {
+        public float Acceleration;
+        public float Steering;
+        public bool IsBraking;
+
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+        {
+            serializer.SerializeValue(ref Acceleration);
+            serializer.SerializeValue(ref Steering);
+            serializer.SerializeValue(ref IsBraking);
         }
     }
 }
