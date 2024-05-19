@@ -41,11 +41,11 @@ public class PlayerRankInGame : MonoBehaviour
             if (playerRankInfo.ClientId == localClientId)
             {
                 playerRank = playerRankInfo.Rank;
-                rankText.text += $"<b>{playerRankInfo.Rank}. {playerRankInfo.PlayerName} (You)</b>\n";
+                rankText.text += $"<b>{playerRankInfo.Rank}. Player{playerRankInfo.ClientId} (You)</b>\n";
             }
             else
             {
-                rankText.text += $"{playerRankInfo.Rank}. {playerRankInfo.PlayerName}\n";
+                rankText.text += $"{playerRankInfo.Rank}. Player{playerRankInfo.ClientId}\n";
             }
         }
 
