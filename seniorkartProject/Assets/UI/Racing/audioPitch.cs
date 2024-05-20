@@ -8,7 +8,6 @@ public class audioPitch : MonoBehaviour
 
     void Start()
     {
-        
         rigidbody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = motorSound;
