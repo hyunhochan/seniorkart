@@ -7,15 +7,9 @@ using UnityEngine.UI;
 public class CharacterSelectDisplay : NetworkBehaviour
 {
     [Header("References")]
-    //[SerializeField] private CharacterDatabase characterDatabase;
-    //[SerializeField] private Transform charactersHolder;
-    //[SerializeField] private CharacterSelectButton selectButtonPrefab;
-    [SerializeField] private PlayerCard[] playerCards;
-    //[SerializeField] private GameObject characterInfoPanel;
-    //[SerializeField] private TMP_Text characterNameText;
-    //[SerializeField] private Transform introSpawnPoint;
-    //[SerializeField] private TMP_Text joinCodeText;
-    [SerializeField] private Button lockInButton;
+    [SerializeField] private PlayerCard[] playerCards; // ?? ???? ?? ?? ??
+    [SerializeField] private MyCard myCard; // ?? ?????? ?? ??
+    [SerializeField] private Button lockInButton; // Lock In ??
 
     private GameObject introInstance;
     private List<CharacterSelectButton> characterButtons = new List<CharacterSelectButton>();
@@ -44,11 +38,6 @@ public class CharacterSelectDisplay : NetworkBehaviour
             }
         }
 
-        if (IsHost)
-        {
-            //joinCodeText.text = HostSingleton.Instance.RelayHostData.JoinCode;
-        }
-
         lockInButton.onClick.AddListener(LockIn);
     }
 
@@ -63,10 +52,6 @@ public class CharacterSelectDisplay : NetworkBehaviour
         {
             NetworkManager.Singleton.OnClientConnectedCallback -= HandleClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback -= HandleClientDisconnected;
-            foreach (NetworkClient client in NetworkManager.Singleton.ConnectedClientsList)
-            {
-                HandleClientConnected(client.ClientId);
-            }
         }
         lockInButton.onClick.RemoveListener(LockIn);
     }
@@ -80,21 +65,17 @@ public class CharacterSelectDisplay : NetworkBehaviour
     {
         for (int i = 0; i < players.Count; i++)
         {
-            if (players[i].ClientId != clientId) { continue; }
+            if (players[i].ClientId != clientId) continue;
 
             players.RemoveAt(i);
             break;
         }
     }
 
-   
-
     public void LockIn()
     {
         LockInServerRpc();
     }
-
-    
 
     [ServerRpc(RequireOwnership = false)]
     private void LockInServerRpc(ServerRpcParams serverRpcParams = default)
@@ -103,14 +84,12 @@ public class CharacterSelectDisplay : NetworkBehaviour
         {
             if (players[i].ClientId == serverRpcParams.Receive.SenderClientId)
             {
-                // 기존의 플레이어 상태를 복사하여 새 상태를 
                 CharacterSelectState updatedState = new CharacterSelectState(players[i].ClientId, players[i].CharacterId, !players[i].IsLockedIn);
-
-                // 리스트에 업데이트된 상태를 할당
                 players[i] = updatedState;
                 break;
             }
         }
+
         bool allReady = true;
         foreach (var player in players)
         {
@@ -129,18 +108,30 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
     private void HandlePlayersStateChanged(NetworkListEvent<CharacterSelectState> changeEvent)
     {
-        for (int i = 0; i < playerCards.Length; i++)
+        ulong localClientId = NetworkManager.Singleton.LocalClientId;
+        int playerCardIndex = 0;
+
+        for (int i = 0; i < players.Count; i++)
         {
-            if (players.Count > i)
+            if (players[i].ClientId == localClientId)
             {
-                playerCards[i].UpdateDisplay(players[i]);
+                myCard.UpdateDisplay(players[i]);
             }
             else
             {
-                playerCards[i].DisableDisplay();
+                if (playerCardIndex < playerCards.Length)
+                {
+                    playerCards[playerCardIndex].UpdateDisplay(players[i]);
+                    playerCardIndex++;
+                }
             }
         }
 
+        // Disable any remaining player cards if there are fewer players than slots
+        for (int i = playerCardIndex; i < playerCards.Length; i++)
+        {
+            playerCards[i].DisableDisplay();
+        }
 
         UpdateLockInButtonInteractivity();
     }
@@ -158,5 +149,4 @@ public class CharacterSelectDisplay : NetworkBehaviour
         }
         lockInButton.interactable = anyNotReady;
     }
-
 }
