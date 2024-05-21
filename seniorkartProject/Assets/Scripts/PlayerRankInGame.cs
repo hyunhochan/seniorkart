@@ -7,8 +7,8 @@ using TMPro;
 public class PlayerRankInGame : MonoBehaviour
 {
     public static PlayerRankInGame Instance;
-    public GameObject playerBackgroundPrefab; // 프리팹 참조
-    public Transform rankingUIParent; // RankingUI 부모 트랜스폼
+    public GameObject playerBackgroundPrefab; // ?????? ????
+    public Transform rankingUIParent; // RankingUI ???? ????????
 
     private ulong localClientId;
     private Dictionary<ulong, GameObject> playerRankUIs = new Dictionary<ulong, GameObject>();
@@ -57,34 +57,47 @@ public class PlayerRankInGame : MonoBehaviour
 
     public void UpdateRanks(RaceManager.PlayerRankInfo[] playerRankInfos)
     {
-        // 기존 랭킹 UI 삭제
+        // ?? ?? ?? ??
+        Dictionary<ulong, int> currentRanks = new Dictionary<ulong, int>();
+        foreach (var playerRankInfo in playerRankInfos)
+        {
+            currentRanks[playerRankInfo.ClientId] = playerRankInfo.Rank;
+        }
+
+        // ?? UI ???
         foreach (Transform child in rankingUIParent)
         {
             Destroy(child.gameObject);
         }
         playerRankUIs.Clear();
 
-        // 랭킹 정보 업데이트
+        // ??? UI ?? ? ????
         foreach (var playerRankInfo in playerRankInfos)
         {
             GameObject playerRankUI = Instantiate(playerBackgroundPrefab, rankingUIParent);
-            TMP_Text[] texts = playerRankUI.GetComponentsInChildren<TMP_Text>();
+            TMP_Text rankText = playerRankUI.transform.Find("Rank").GetComponent<TMP_Text>();
+            TMP_Text nameText = playerRankUI.transform.Find("Name").GetComponent<TMP_Text>();
 
-            if (texts.Length >= 2)
+            if (rankText != null)
             {
-                texts[0].text = $"{playerRankInfo.Rank}"; // Rank 텍스트
+                rankText.text = $"{playerRankInfo.Rank}"; // Rank ???
+            }
+
+            if (nameText != null)
+            {
                 if (playerRankInfo.ClientId == localClientId)
                 {
-                    texts[1].text = $"Player{playerRankInfo.ClientId} (You)"; // 플레이어 이름 텍스트
+                    nameText.text = $"Player{playerRankInfo.ClientId} (You)"; // ?? ????? ??
                 }
                 else
                 {
-                    texts[1].text = $"Player{playerRankInfo.ClientId}"; // 플레이어 이름 텍스트
+                    nameText.text = $"Player{playerRankInfo.ClientId}"; // ?? ????? ??
                 }
             }
 
             playerRankUIs[playerRankInfo.ClientId] = playerRankUI;
         }
+
 
         Debug.Log($"Your Rank: {GetLocalPlayerRank(playerRankInfos)}");
     }

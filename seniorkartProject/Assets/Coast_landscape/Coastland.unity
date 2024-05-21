@@ -12516,7 +12516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -520, y: 228}
+  m_AnchoredPosition: {x: -553, y: 163}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252580646
@@ -59081,6 +59081,7 @@ MonoBehaviour:
   kartPrefab: {fileID: 3386352308073289955, guid: 1ea16e19ef6514cbc8aaba0772d8118c,
     type: 3}
   speedText: {fileID: 488794394}
+  currentRecordText: {fileID: 1770961372}
   tacoBack: {fileID: 2137888152}
   tackLineBack: {fileID: 1862316542}
 --- !u!1001 &1382590306
@@ -62246,6 +62247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1464699297}
   - component: {fileID: 1464699299}
+  - component: {fileID: 1464699300}
   - component: {fileID: 1464699298}
   m_Layer: 5
   m_Name: minimapBackground
@@ -62313,6 +62315,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464699296}
   m_CullTransparentMesh: 1
+--- !u!114 &1464699300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464699296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3de6f490243428eb04eddc34683c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMountPosition: {x: 0, y: 10, z: 0}
+  orthographicSize: 50
+  miniMapParent: {fileID: 1464699297}
 --- !u!1001 &1467029198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75380,7 +75397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.600025, y: -44.2}
+  m_AnchoredPosition: {x: 99.9, y: -44.2}
   m_SizeDelta: {x: 211.1, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1770961372
@@ -75438,7 +75455,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -90740,7 +90757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 42.3}
+  m_AnchoredPosition: {x: 0, y: 42.30005}
   m_SizeDelta: {x: 529, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140488288

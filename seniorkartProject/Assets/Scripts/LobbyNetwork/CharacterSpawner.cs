@@ -10,12 +10,16 @@ public class CharacterSpawner : NetworkBehaviour
     [SerializeField] private Vector3[] spawnPositions; // 스폰 위치 배열
     [SerializeField] private GameObject kartPrefab; // 카트 프리팹
     public TextMeshProUGUI speedText; // 속도 표시할 TMP 텍스트
-    private List<GameObject> karts = new List<GameObject>(); // 생성된 카트를 참조할 리스트
+    public TextMeshProUGUI currentRecordText; // 현재 기록을 표시할 TMP 텍스트
     public Image tacoBack; // 불투명도를 조절할 이미지
     public Image tackLineBack; // 불투명도를 조절할 이미지
 
+    private List<GameObject> karts = new List<GameObject>(); // 생성된 카트를 참조할 리스트
     private const float maxSpeed = 150f; // 최대 속도
     private GameObject localKart; // 로컬 클라이언트의 카트를 참조할 변수
+
+    private float elapsedTime = 0f; // 경과 시간
+    private bool timerRunning = false; // 타이머 실행 상태
 
     public override void OnNetworkSpawn()
     {
@@ -45,6 +49,9 @@ public class CharacterSpawner : NetworkBehaviour
 
                 InitializeRigidbody(kart);
             }
+
+            // 모든 카트바디가 소환된 후 타이머 시작
+            StartCoroutine(StartTimer());
         }
         else
         {
@@ -93,6 +100,14 @@ public class CharacterSpawner : NetworkBehaviour
             // 로컬 클라이언트의 UI를 업데이트
             UpdateLocalSpeedUI(speed);
         }
+
+        // 서버에서 타이머 업데이트
+        if (IsServer && timerRunning)
+        {
+            elapsedTime += Time.deltaTime;
+            UpdateTimerUI(elapsedTime);
+            SyncTimerClientRpc(elapsedTime);
+        }
     }
 
     private void UpdateLocalSpeedUI(float speed)
@@ -118,6 +133,34 @@ public class CharacterSpawner : NetworkBehaviour
             Color color = tackLineBack.color;
             color.a = alpha;
             tackLineBack.color = color;
+        }
+    }
+
+    private IEnumerator StartTimer()
+    {
+        yield return new WaitForSeconds(1f); // 타이머 시작 전 1초 대기
+        elapsedTime = 0f;
+        timerRunning = true;
+    }
+
+    [ClientRpc]
+    private void SyncTimerClientRpc(float time)
+    {
+        if (!IsServer)
+        {
+            elapsedTime = time;
+            UpdateTimerUI(elapsedTime);
+        }
+    }
+
+    private void UpdateTimerUI(float time)
+    {
+        if (currentRecordText != null)
+        {
+            int minutes = Mathf.FloorToInt(time / 60f);
+            int seconds = Mathf.FloorToInt(time % 60f);
+            int milliseconds = Mathf.FloorToInt((time * 100f) % 100f); // 밀리초를 2자리로 표시
+            currentRecordText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
         }
     }
 }

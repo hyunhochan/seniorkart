@@ -3,12 +3,8 @@ using Unity.Netcode;
 using UnityEngine.UI;
 using System.Collections;
 
-public class KartCheckpoint : NetworkBehaviour
+public class MiniMapManager : NetworkBehaviour
 {
-    private Transform[] checkpoints;
-    public int currentCheckpoint = -1;
-    public float totalDistance;
-    public float distanceToNextCheckpoint;
 
     [Header("MiniMap Camera Settings")]
     public Vector3 cameraMountPosition = new Vector3(0, 10, 0); // ?????? ?????? ?????? ?????? ?? ???? ????
@@ -18,23 +14,11 @@ public class KartCheckpoint : NetworkBehaviour
     private RenderTexture miniMapRenderTexture; // ?????? ???? ??????
 
     [Header("MiniMap UI Settings")]
-    public Transform miniMapParent; // ??? ?? ??
+    public Transform miniMapParent; // 미니맵 부모 객체
 
-    public override void OnNetworkSpawn()
+
+    void Start()
     {
-        base.OnNetworkSpawn();
-        StartCoroutine(InitializeAfterRaceManager());
-    }
-
-    private IEnumerator InitializeAfterRaceManager()
-    {
-        // RaceManager?? ???????? ?????? ??????
-        while (RaceManager.Instance == null)
-        {
-            yield return null;
-        }
-
-        checkpoints = RaceManager.Instance.GetCheckpoints();
 
         if (IsOwner)
         {
@@ -48,43 +32,11 @@ public class KartCheckpoint : NetworkBehaviour
         }
     }
 
-    void Update()
-    {
-        if (checkpoints != null && checkpoints.Length > 0)
-        {
-            UpdateProgress();
-        }
-    }
 
-    void UpdateProgress()
-    {
-        if (currentCheckpoint < checkpoints.Length - 1)
-        {
-            float distance = Vector3.Distance(transform.position, checkpoints[currentCheckpoint + 1].position);
-            distanceToNextCheckpoint = distance;
-            totalDistance = CalculateTotalDistance();
-            RaceManager.Instance.UpdatePlayerProgress(gameObject, currentCheckpoint, distanceToNextCheckpoint);
-        }
-    }
+    void Update() {
+    
 
-    float CalculateTotalDistance()
-    {
-        float distance = Vector3.Distance(transform.position, checkpoints[currentCheckpoint + 1].position);
-        distance += currentCheckpoint * 1000;
-        return distance;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Checkpoint"))
-        {
-            Checkpoint checkpoint = other.GetComponent<Checkpoint>();
-            if (checkpoint != null && checkpoint.checkpointIndex == currentCheckpoint + 1)
-            {
-                currentCheckpoint = checkpoint.checkpointIndex;
-                RaceManager.Instance.PlayerPassedCheckpoint(gameObject, currentCheckpoint);
-            }
-        }
+    
     }
 
     private void SetupMiniMapCamera()
@@ -126,26 +78,32 @@ public class KartCheckpoint : NetworkBehaviour
     {
         Debug.Log("Setting up mini map UI for: " + gameObject.name);
 
-        // ?????? GameObject?? ???????? ???????? ????
+        // 미니맵 캔버스 객체 생성
         GameObject canvasObj = new GameObject("MiniMapCanvas");
         Canvas canvas = canvasObj.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvasObj.AddComponent<CanvasScaler>();
         canvasObj.AddComponent<GraphicRaycaster>();
 
-        // ?????? RawImage?? ???????? ?????? UI?? ????
+        // 미니맵 부모 객체의 자식으로 설정
+        if (miniMapParent != null)
+        {
+            canvasObj.transform.SetParent(miniMapParent, false);
+        }
+
+        // 미니맵 RawImage 객체 생성
         GameObject rawImageObj = new GameObject("MiniMapRawImage");
         rawImageObj.transform.SetParent(canvas.transform);
         RawImage rawImage = rawImageObj.AddComponent<RawImage>();
 
-        // RectTransform ????
+        // RectTransform 설정
         RectTransform rectTransform = rawImage.GetComponent<RectTransform>();
         rectTransform.anchorMin = new Vector2(0.75f, 0.75f);
         rectTransform.anchorMax = new Vector2(0.95f, 0.95f);
         rectTransform.offsetMin = Vector2.zero;
         rectTransform.offsetMax = Vector2.zero;
 
-        // RawImage ?????? ????
+        // RawImage 텍스처 설정
         rawImage.texture = miniMapRenderTexture;
     }
 }
