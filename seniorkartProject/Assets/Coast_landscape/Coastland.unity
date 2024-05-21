@@ -62249,6 +62249,8 @@ GameObject:
   - component: {fileID: 1464699299}
   - component: {fileID: 1464699300}
   - component: {fileID: 1464699298}
+  - component: {fileID: 1464699301}
+  - component: {fileID: 1464699302}
   m_Layer: 5
   m_Name: minimapBackground
   m_TagString: Untagged
@@ -62330,6 +62332,35 @@ MonoBehaviour:
   cameraMountPosition: {x: 0, y: 10, z: 0}
   orthographicSize: 50
   miniMapParent: {fileID: 1464699297}
+--- !u!114 &1464699301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464699296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 317887568
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1464699302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464699296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1001 &1467029198
 PrefabInstance:
   m_ObjectHideFlags: 0

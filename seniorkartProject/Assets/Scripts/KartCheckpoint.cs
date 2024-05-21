@@ -17,9 +17,6 @@ public class KartCheckpoint : NetworkBehaviour
     private Camera miniMapCamera; // ?????? ??????
     private RenderTexture miniMapRenderTexture; // ?????? ???? ??????
 
-    [Header("MiniMap UI Settings")]
-    public Transform miniMapParent; // ??? ?? ??
-
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
@@ -91,34 +88,34 @@ public class KartCheckpoint : NetworkBehaviour
     {
         Debug.Log("Setting up mini map camera for: " + gameObject.name);
 
-        // ???? ???????? ?????? ????????
+        // ?? ??? ????
         Camera mainCamera = Camera.main;
         if (mainCamera != null)
         {
             mainCamera.enabled = false;
         }
 
-        // ?????? GameObject?? ???????? ???????? ????
+        // ??? ??? ?? ??
         GameObject cameraObj = new GameObject("MiniMapCamera");
         cameraObj.transform.SetParent(transform);
         miniMapCamera = cameraObj.AddComponent<Camera>();
 
-        // ?????? ????
+        // ??? ??? ??
         miniMapCamera.transform.localPosition = cameraMountPosition;
         miniMapCamera.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
         miniMapCamera.orthographic = true;
         miniMapCamera.orthographicSize = orthographicSize;
 
-        // Render Texture ????
+        // Render Texture ??
         miniMapRenderTexture = new RenderTexture(256, 256, 16, RenderTextureFormat.ARGB32);
         miniMapCamera.targetTexture = miniMapRenderTexture;
 
-        // Culling Mask ????
-        miniMapCamera.cullingMask = LayerMask.GetMask("MiniMap"); // MiniMap ???????? ??????
+        // Culling Mask ??
+        miniMapCamera.cullingMask = LayerMask.GetMask("MiniMap"); // MiniMap ??? ??
         miniMapCamera.clearFlags = CameraClearFlags.SolidColor;
         miniMapCamera.backgroundColor = new Color(0, 0, 0, 0);
 
-        // ?????? ??????
+        // ??? ??? ???
         miniMapCamera.enabled = true;
     }
 
@@ -126,26 +123,22 @@ public class KartCheckpoint : NetworkBehaviour
     {
         Debug.Log("Setting up mini map UI for: " + gameObject.name);
 
-        // ?????? GameObject?? ???????? ???????? ????
-        GameObject canvasObj = new GameObject("MiniMapCanvas");
-        Canvas canvas = canvasObj.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvasObj.AddComponent<CanvasScaler>();
-        canvasObj.AddComponent<GraphicRaycaster>();
+        // ??? RawImage ?? ??
+        GameObject rawImageObj = new GameObject("MinimapImage");
+        Transform miniMapParent = GameObject.Find("UI").transform.Find("Canvas/minimapBackground");
 
-        // ?????? RawImage?? ???????? ?????? UI?? ????
-        GameObject rawImageObj = new GameObject("MiniMapRawImage");
-        rawImageObj.transform.SetParent(canvas.transform);
-        RawImage rawImage = rawImageObj.AddComponent<RawImage>();
+        if (miniMapParent != null)
+        {
+            rawImageObj.transform.SetParent(miniMapParent, false);
+            rawImageObj.transform.localScale = new Vector3(5f, 5f, 5f); // ??? ??
+            RawImage rawImage = rawImageObj.AddComponent<RawImage>();
 
-        // RectTransform ????
-        RectTransform rectTransform = rawImage.GetComponent<RectTransform>();
-        rectTransform.anchorMin = new Vector2(0.75f, 0.75f);
-        rectTransform.anchorMax = new Vector2(0.95f, 0.95f);
-        rectTransform.offsetMin = Vector2.zero;
-        rectTransform.offsetMax = Vector2.zero;
-
-        // RawImage ?????? ????
-        rawImage.texture = miniMapRenderTexture;
+            // RawImage ??? ??
+            rawImage.texture = miniMapRenderTexture;
+        }
+        else
+        {
+            Debug.LogError("MiniMap parent object not found.");
+        }
     }
 }
