@@ -217,6 +217,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &450051263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3958188327941407633, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115131555096183332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &717814141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -917,16 +923,11 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4507741646577144219, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+    - target: {fileID: 3165714559356734121, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4507741646577144219, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8927127626328809620}
     - target: {fileID: 4972947818581369943, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1027,11 +1028,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6100410312601484833, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8927127626328809620}
     - target: {fileID: 6498248451793938324, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 216.5
+      value: 216.49998
       objectReference: {fileID: 0}
+    - target: {fileID: 7883112888191936487, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8927127626328809620}
     - target: {fileID: 8525754393372423642, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_Name
@@ -1171,7 +1182,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ChangeMapSequence
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 450051263}
     m_RemovedComponents:
     - {fileID: 3017442993226569203, guid: 14f1325003f75453ab15319a92572be8, type: 3}
     m_RemovedGameObjects: []
@@ -1226,6 +1237,18 @@ MonoBehaviour:
   chatMessagePrefab: {fileID: 1452639214632837153, guid: ac0bceeebd8544692b2934af1b0a63a0,
     type: 3}
   scrollRect: {fileID: 2115131555096183336}
+--- !u!114 &8927127626328809620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3975062544905759638, guid: 14f1325003f75453ab15319a92572be8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8927127626328809616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927127626328809617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41a62b7392f0456690fda2931fbd9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
