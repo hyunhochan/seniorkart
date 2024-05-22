@@ -617,7 +617,7 @@ MonoBehaviour:
   currentCheckpoint: -1
   totalDistance: 0
   distanceToNextCheckpoint: 0
-  cameraMountPosition: {x: 0, y: 10, z: 0}
+  cameraMountPosition: {x: 0, y: 30, z: 0}
   orthographicSize: 50
 --- !u!1 &4086257025726339875
 GameObject:

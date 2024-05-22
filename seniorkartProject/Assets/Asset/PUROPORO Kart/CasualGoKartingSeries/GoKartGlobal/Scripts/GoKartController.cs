@@ -86,10 +86,10 @@ namespace PUROPORO
         {
             if (IsOwner)
             {
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    RespawnAtCheckpoint();
-                }
+                //if (Input.GetKeyDown(KeyCode.R))
+                //{
+                //    RespawnAtCheckpoint();
+                //}
             }
         }
 
@@ -192,7 +192,7 @@ namespace PUROPORO
             var cameraFollow = playerCamera.gameObject.AddComponent<CameraFollowBehind>();
             cameraFollow.SetTarget(cameraMountPoint.transform);
         }
-
+        /*
         private void RespawnAtCheckpoint()
         {
             Transform checkpointTransform = RaceManager.Instance.GetPlayerCheckpointTransform(gameObject);
@@ -207,7 +207,7 @@ namespace PUROPORO
                     rb.angularVelocity = Vector3.zero;
                 }
             }
-        }
+        }*/
 
         private void ServerReconciliation()
         {
