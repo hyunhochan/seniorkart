@@ -141,7 +141,7 @@ public class CharacterSpawner : NetworkBehaviour
 
     private IEnumerator StartTimer()
     {
-        yield return new WaitForSeconds(1f); // 타이머 시작 전 1초 대기
+        yield return new WaitForSeconds(1f);
         elapsedTime = 0f;
         timerRunning = true;
     }
@@ -162,14 +162,14 @@ public class CharacterSpawner : NetworkBehaviour
         {
             int minutes = Mathf.FloorToInt(time / 60f);
             int seconds = Mathf.FloorToInt(time % 60f);
-            int milliseconds = Mathf.FloorToInt((time * 100f) % 100f); // 밀리초를 2자리로 표시
+            int milliseconds = Mathf.FloorToInt((time * 100f) % 100f);
             currentRecordText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
         }
     }
 
     private void InitializeLocalKartAudioListener(GameObject kart)
     {
-        // 자식 오브젝트 이름으로 Camera Target을 찾아 AudioListener를 추가
+        
         Transform cameraTargetTransform = kart.transform.Find("Camera Target");
         if (cameraTargetTransform != null)
         {
