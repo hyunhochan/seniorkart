@@ -44,6 +44,7 @@ public class CharacterSpawner : NetworkBehaviour
                     if (client.ClientId == NetworkManager.Singleton.LocalClientId)
                     {
                         localKart = kart;
+                        InitializeLocalKartAudioListener(localKart); // 로컬 카트의 AudioListener 설정
                     }
                 }
 
@@ -69,6 +70,7 @@ public class CharacterSpawner : NetworkBehaviour
                 {
                     localKart = kart.gameObject;
                     InitializeRigidbody(localKart); // 로컬 카트의 리지드바디 초기화
+                    InitializeLocalKartAudioListener(localKart); // 로컬 카트의 AudioListener 설정
                     break;
                 }
             }
@@ -84,6 +86,7 @@ public class CharacterSpawner : NetworkBehaviour
             rigidbody.velocity = Vector3.zero;         // 속도 0으로 초기화
             rigidbody.angularVelocity = Vector3.zero;  // 각속도 0으로 초기화
             rigidbody.isKinematic = false;             // Rigidbody의 물리적 효과 활성화
+            rigidbody.position = new Vector3(rigidbody.position.x, 1.0f, rigidbody.position.z); // 초기 위치 조정
         }
     }
 
@@ -161,6 +164,23 @@ public class CharacterSpawner : NetworkBehaviour
             int seconds = Mathf.FloorToInt(time % 60f);
             int milliseconds = Mathf.FloorToInt((time * 100f) % 100f); // 밀리초를 2자리로 표시
             currentRecordText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+        }
+    }
+
+    private void InitializeLocalKartAudioListener(GameObject kart)
+    {
+        // 자식 오브젝트 이름으로 Camera Target을 찾아 AudioListener를 추가
+        Transform cameraTargetTransform = kart.transform.Find("Camera Target");
+        if (cameraTargetTransform != null)
+        {
+            if (cameraTargetTransform.GetComponent<AudioListener>() == null)
+            {
+                cameraTargetTransform.gameObject.AddComponent<AudioListener>();
+            }
+        }
+        else
+        {
+            Debug.LogError("'Camera Target' not found on local kart.");
         }
     }
 }
