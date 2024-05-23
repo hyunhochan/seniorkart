@@ -185,5 +185,12 @@ public class CharacterSelectDisplay : NetworkBehaviour
         }
     }
 
-    
+    [ClientRpc]
+    public void ConfirmSelectionClientRpc(int selectedTrackIndex)
+    {
+        toggleGroupManager.getNumbers(selectedTrackIndex);
+        Debug.Log("launched clientUpper trigger");
+    }
+
+
 }
