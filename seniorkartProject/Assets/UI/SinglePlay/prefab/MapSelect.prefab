@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 8838582132244511819}
   - component: {fileID: 2488005905087985699}
   - component: {fileID: 5819429594240326836}
+  - component: {fileID: 2461940480251483206}
   - component: {fileID: 3397773439070351758}
   m_Layer: 5
   m_Name: Map10
@@ -249,7 +250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 172062642096751819}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2461940480251483206}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2488005905087985699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +304,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &2461940480251483206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245060884329158680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3397773439070351758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +617,7 @@ GameObject:
   - component: {fileID: 3878551897487212868}
   - component: {fileID: 4031581820495049103}
   - component: {fileID: 6765074617536822668}
+  - component: {fileID: 2433431847946748755}
   - component: {fileID: 3270460063233250962}
   m_Layer: 5
   m_Name: Map09
@@ -665,7 +691,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4878878046721886898}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2433431847946748755}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4031581820495049103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +745,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &2433431847946748755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342030668091491203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3270460063233250962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,6 +1039,7 @@ GameObject:
   - component: {fileID: 6959168936712115972}
   - component: {fileID: 7326789591258445597}
   - component: {fileID: 820412392509938844}
+  - component: {fileID: 5242315609291077461}
   - component: {fileID: 5365089858962247739}
   m_Layer: 5
   m_Name: Map06
@@ -1062,7 +1113,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6020614713851265885}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5242315609291077461}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7326789591258445597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,6 +1167,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &5242315609291077461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485934719462454075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5365089858962247739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,6 +1597,7 @@ GameObject:
   - component: {fileID: 5052701732499888257}
   - component: {fileID: 5720439775826188832}
   - component: {fileID: 5858633656239667596}
+  - component: {fileID: 790161911920000606}
   - component: {fileID: 3811730910043060835}
   m_Layer: 5
   m_Name: Map14
@@ -1595,7 +1671,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5497788721906124773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 790161911920000606}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5720439775826188832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,6 +1725,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &790161911920000606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753292286687046794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3811730910043060835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1995,6 +2095,7 @@ GameObject:
   - component: {fileID: 7521782966141848563}
   - component: {fileID: 7881372355015824708}
   - component: {fileID: 7881532550325466937}
+  - component: {fileID: 5936812204229295098}
   - component: {fileID: 4712957067304022226}
   m_Layer: 5
   m_Name: Map03
@@ -2068,7 +2169,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1288157715905073512}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5936812204229295098}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7881372355015824708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2110,6 +2223,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &5936812204229295098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869101772195524505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4712957067304022226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3864,6 +3989,8 @@ GameObject:
   - component: {fileID: 5071387160693563471}
   - component: {fileID: 8205602710743523582}
   - component: {fileID: 8829736612396965420}
+  - component: {fileID: 3925637330765421000}
+  - component: {fileID: 8908722355108993054}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -3938,6 +4065,48 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3925637330765421000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294339393728623497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
+--- !u!114 &8908722355108993054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294339393728623497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b220d0c66d7a43acb702a0697662ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 0}
+  - {fileID: 2348707112524147501}
+  - {fileID: 5936812204229295098}
+  - {fileID: 2410998203638589207}
+  - {fileID: 6164782670984810957}
+  - {fileID: 5242315609291077461}
+  - {fileID: 3808742557653706370}
+  - {fileID: 9098863504660190628}
+  - {fileID: 2433431847946748755}
+  - {fileID: 2461940480251483206}
+  - {fileID: 3210923983108114176}
+  - {fileID: 4873937605184975163}
+  - {fileID: 7592274140076834358}
+  - {fileID: 790161911920000606}
+  - {fileID: 809847316948066503}
+  - {fileID: 2592592768132730189}
 --- !u!1 &2621357707135923558
 GameObject:
   m_ObjectHideFlags: 0
@@ -5860,6 +6029,7 @@ GameObject:
   - component: {fileID: 8022833030013447944}
   - component: {fileID: 6275786195995506952}
   - component: {fileID: 3865286321902508322}
+  - component: {fileID: 9098863504660190628}
   - component: {fileID: 7213433522727266338}
   m_Layer: 5
   m_Name: Map08
@@ -5933,7 +6103,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 608313614499861659}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9098863504660190628}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6275786195995506952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5975,6 +6157,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &9098863504660190628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925903548868637113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7213433522727266338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6515,6 +6709,7 @@ GameObject:
   - component: {fileID: 3875971889514689204}
   - component: {fileID: 7854633196730508429}
   - component: {fileID: 1759929739055370856}
+  - component: {fileID: 2410998203638589207}
   - component: {fileID: 3750413632600266398}
   m_Layer: 5
   m_Name: Map04
@@ -6588,7 +6783,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5461561783741078185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2410998203638589207}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7854633196730508429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6630,6 +6837,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &2410998203638589207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169438635144223161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3750413632600266398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7017,6 +7236,7 @@ GameObject:
   - component: {fileID: 708492515896848184}
   - component: {fileID: 6125932517166307377}
   - component: {fileID: 6386595216445574646}
+  - component: {fileID: 6164782670984810957}
   - component: {fileID: 8410730180922249452}
   m_Layer: 5
   m_Name: Map05
@@ -7090,7 +7310,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3664220635539919581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6164782670984810957}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6125932517166307377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7132,6 +7364,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &6164782670984810957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4375027418125649167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8410730180922249452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7870,6 +8114,7 @@ GameObject:
   - component: {fileID: 8791350100136083562}
   - component: {fileID: 9088898826904847853}
   - component: {fileID: 822073636497933298}
+  - component: {fileID: 7592274140076834358}
   - component: {fileID: 752141755292028660}
   m_Layer: 5
   m_Name: Map13
@@ -7943,7 +8188,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1850880498417195467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7592274140076834358}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9088898826904847853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7985,6 +8242,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &7592274140076834358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112106530722590892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &752141755292028660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8379,6 +8648,7 @@ GameObject:
   - component: {fileID: 5910850176505629915}
   - component: {fileID: 7942730705008049619}
   - component: {fileID: 7892757135512740599}
+  - component: {fileID: 4873937605184975163}
   - component: {fileID: 736270030456657592}
   m_Layer: 5
   m_Name: Map12
@@ -8452,7 +8722,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4230202652356176709}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4873937605184975163}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7942730705008049619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8494,6 +8776,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &4873937605184975163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5398930879597351538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &736270030456657592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8551,6 +8845,7 @@ GameObject:
   - component: {fileID: 6120754945195580779}
   - component: {fileID: 931074171538591084}
   - component: {fileID: 3195977080539148837}
+  - component: {fileID: 2592592768132730189}
   - component: {fileID: 8391339802088216280}
   m_Layer: 5
   m_Name: Map16
@@ -8624,7 +8919,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4516032002318701048}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2592592768132730189}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &931074171538591084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8666,6 +8973,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &2592592768132730189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460562138746882092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8391339802088216280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9782,6 +10101,7 @@ GameObject:
   - component: {fileID: 7416931395304205591}
   - component: {fileID: 6789939144367807597}
   - component: {fileID: 1682147895005866870}
+  - component: {fileID: 2348707112524147501}
   - component: {fileID: 8819770189189418486}
   m_Layer: 5
   m_Name: Map02
@@ -9855,7 +10175,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5742006468856553297}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2348707112524147501}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6789939144367807597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9897,6 +10229,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &2348707112524147501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176890390803991230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8819770189189418486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10062,6 +10406,7 @@ GameObject:
   - component: {fileID: 203723669091477910}
   - component: {fileID: 2390406017233190750}
   - component: {fileID: 4736558132938869563}
+  - component: {fileID: 3210923983108114176}
   - component: {fileID: 8848748342524686961}
   m_Layer: 5
   m_Name: Map11
@@ -10135,7 +10480,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6424591736188320006}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3210923983108114176}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2390406017233190750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10177,6 +10534,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &3210923983108114176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364678260013268129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8848748342524686961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11011,6 +11380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6594293325383706234}
   - component: {fileID: 1273735842105482650}
+  - component: {fileID: 9175547113396103281}
   - component: {fileID: 3509092026187622017}
   - component: {fileID: 7024340619204654251}
   - component: {fileID: 743281249648832212}
@@ -11086,7 +11456,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8626783771679063902}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9175547113396103281}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9175547113396103281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7026332843491187475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3509092026187622017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11260,6 +11654,7 @@ GameObject:
   - component: {fileID: 7906941580827097116}
   - component: {fileID: 436116323664481068}
   - component: {fileID: 3558818232020483278}
+  - component: {fileID: 3808742557653706370}
   - component: {fileID: 3179996530635897063}
   m_Layer: 5
   m_Name: Map07
@@ -11333,7 +11728,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6293491975938770773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3808742557653706370}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &436116323664481068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11375,6 +11782,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &3808742557653706370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155636684856255622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3179996530635897063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14393,6 +14812,7 @@ GameObject:
   - component: {fileID: 4649174679562064900}
   - component: {fileID: 4934034364132986622}
   - component: {fileID: 7036873875265545616}
+  - component: {fileID: 809847316948066503}
   - component: {fileID: 3720754159933350559}
   m_Layer: 5
   m_Name: Map15
@@ -14466,7 +14886,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6416639783115548863}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 809847316948066503}
+        m_TargetAssemblyTypeName: ButtonSelect, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4934034364132986622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14508,6 +14940,18 @@ MonoBehaviour:
   UserName3rd: 
   KartBody3rd: 
   BestRecord3rd: 
+--- !u!114 &809847316948066503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055591116111091036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3720754159933350559
 MonoBehaviour:
   m_ObjectHideFlags: 0

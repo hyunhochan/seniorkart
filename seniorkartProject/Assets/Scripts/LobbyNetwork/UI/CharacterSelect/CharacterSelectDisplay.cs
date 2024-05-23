@@ -10,6 +10,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
     [SerializeField] private PlayerCard[] playerCards; // ?? ???? ?? ?? ??
     [SerializeField] private MyCard myCard; // ?? ?????? ?? ??
     [SerializeField] private Button lockInButton; // Lock In ??
+    [SerializeField] private ToggleGroupManager toggleGroupManager; // ToggleGroupManager 레퍼런스 추가
 
     private GameObject introInstance;
     private List<CharacterSelectButton> characterButtons = new List<CharacterSelectButton>();
@@ -102,7 +103,8 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
         if (allReady)
         {
-            MatchplayNetworkServer.Instance.StartGame();
+            int selectedMapNumber = int.Parse(toggleGroupManager.GetCurrentlySelectedButtonTrackNumber());
+            MatchplayNetworkServer.Instance.StartGame(selectedMapNumber);
         }
     }
 
