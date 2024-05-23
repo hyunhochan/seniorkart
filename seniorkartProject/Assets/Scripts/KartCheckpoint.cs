@@ -22,6 +22,8 @@ public class KartCheckpoint : NetworkBehaviour
     private GameObject playerMarker; // 플레이어 위치를 나타낼 오브젝트
     private Dictionary<ulong, GameObject> otherPlayerMarkers = new Dictionary<ulong, GameObject>(); // 다른 플레이어 위치를 나타낼 오브젝트들
 
+    public GameObject ResultUI;
+
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();

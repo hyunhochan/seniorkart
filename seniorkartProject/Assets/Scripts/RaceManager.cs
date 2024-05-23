@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using TMPro;
 
 public class RaceManager : NetworkBehaviour
 {
@@ -9,7 +11,12 @@ public class RaceManager : NetworkBehaviour
     public List<Checkpoint> checkpoints = new List<Checkpoint>();
     private Dictionary<GameObject, int> playerCheckpoints = new Dictionary<GameObject, int>();
     private Dictionary<GameObject, float> playerDistances = new Dictionary<GameObject, float>();
-    private Dictionary<GameObject, bool> playerFinished = new Dictionary<GameObject, bool>(); // 추가
+    private Dictionary<GameObject, bool> playerFinished = new Dictionary<GameObject, bool>();
+    private Dictionary<GameObject, HashSet<int>> playerPassedCheckpoints = new Dictionary<GameObject, HashSet<int>>();
+    private Dictionary<GameObject, float> playerFinishTimes = new Dictionary<GameObject, float>();
+
+    public GameObject RaceResultUI; // 결과 창 UI
+    public TextMeshProUGUI countdownText; // 10초 카운트다운 텍스트
 
     private void Awake()
     {
@@ -38,19 +45,22 @@ public class RaceManager : NetworkBehaviour
         if (!playerCheckpoints.ContainsKey(player))
         {
             playerCheckpoints[player] = -1;
-            playerFinished[player] = false; // 추가
+            playerFinished[player] = false;
+            playerPassedCheckpoints[player] = new HashSet<int>();
         }
 
-        if (checkpointIndex > playerCheckpoints[player])
+        if (checkpointIndex == 0 && playerCheckpoints[player] == checkpoints.Count - 1)
+        {
+            playerCheckpoints[player] = 0;
+            playerFinished[player] = true;
+            float finishTime = Time.timeSinceLevelLoad;
+            playerFinishTimes[player] = finishTime;
+            PlayerFinishedRace(player, finishTime);
+        }
+        else if (checkpointIndex == playerCheckpoints[player] + 1)
         {
             playerCheckpoints[player] = checkpointIndex;
-
-            // 첫번째 체크포인트에 다시 도달하면 완주로 간주
-            if (checkpointIndex == 0 && playerCheckpoints[player] != -1)
-            {
-                playerFinished[player] = true;
-                PlayerFinishedRace(player);
-            }
+            playerPassedCheckpoints[player].Add(checkpointIndex);
         }
 
         UpdatePlayerRanks();
@@ -61,7 +71,8 @@ public class RaceManager : NetworkBehaviour
         if (!playerCheckpoints.ContainsKey(player))
         {
             playerCheckpoints[player] = checkpointIndex;
-            playerFinished[player] = false; // 추가
+            playerFinished[player] = false;
+            playerPassedCheckpoints[player] = new HashSet<int>();
         }
 
         playerDistances[player] = distanceToNextCheckpoint;
@@ -69,25 +80,64 @@ public class RaceManager : NetworkBehaviour
         UpdatePlayerRanks();
     }
 
-    private void PlayerFinishedRace(GameObject player)
+    private void PlayerFinishedRace(GameObject player, float finishTime)
     {
-        // 완주한 플레이어에게 메시지 보내기
         var networkObject = player.GetComponent<NetworkObject>();
         if (networkObject != null)
         {
-            PlayerFinishedClientRpc(networkObject.OwnerClientId);
+            PlayerFinishedServerRpc(networkObject.OwnerClientId, finishTime); // 수정: 서버 RPC 호출
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void PlayerFinishedServerRpc(ulong clientId, float finishTime)
+    {
+        GameObject player = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject.gameObject;
+        playerFinishTimes[player] = finishTime;
+        playerFinished[player] = true;
+
+        PlayerFinishedClientRpc(clientId, finishTime);
+
+        if (AllPlayersFinished())
+        {
+            StartCoroutine(ShowRaceResultAfterDelay(10f));
         }
     }
 
     [ClientRpc]
-    private void PlayerFinishedClientRpc(ulong clientId)
+    private void PlayerFinishedClientRpc(ulong clientId, float finishTime)
     {
-        // 클라이언트에서 완주 메시지 표시하는 로직
         if (NetworkManager.Singleton.LocalClientId == clientId)
         {
-            Debug.Log("You have finished the race!");
-            // UI 갱신 로직 추가 가능
+            Debug.Log($"You have finished the race! Your time: {finishTime:F2} seconds");
+            CharacterSpawner.Instance.UpdateFinishTimeUI(finishTime);
         }
+    }
+
+    private IEnumerator ShowRaceResultAfterDelay(float delay)
+    {
+        float countdown = delay;
+        while (countdown > 0)
+        {
+            countdownText.text = $"Results in {countdown:F0} seconds";
+            yield return new WaitForSeconds(1f);
+            countdown -= 1f;
+        }
+
+        RaceResultUI.SetActive(true);
+        countdownText.gameObject.SetActive(false);
+    }
+
+    private bool AllPlayersFinished()
+    {
+        foreach (var finished in playerFinished.Values)
+        {
+            if (!finished)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void UpdatePlayerRanks()
@@ -100,11 +150,11 @@ public class RaceManager : NetworkBehaviour
 
             if (finished1 && !finished2)
             {
-                return -1; // 완주한 플레이어가 더 높은 순위
+                return -1;
             }
             else if (!finished1 && finished2)
             {
-                return 1; // 완주하지 않은 플레이어가 더 낮은 순위
+                return 1;
             }
 
             int cp1 = playerCheckpoints.ContainsKey(p1) ? playerCheckpoints[p1] : -1;
@@ -114,9 +164,9 @@ public class RaceManager : NetworkBehaviour
             {
                 float dist1 = playerDistances.ContainsKey(p1) ? playerDistances[p1] : float.MaxValue;
                 float dist2 = playerDistances.ContainsKey(p2) ? playerDistances[p2] : float.MaxValue;
-                return dist1.CompareTo(dist2); // 더 가까운 사람이 높은 순위
+                return dist1.CompareTo(dist2);
             }
-            return cp2.CompareTo(cp1); // 더 높은 체크포인트가 높은 순위
+            return cp2.CompareTo(cp1);
         });
 
         List<PlayerRankInfo> playerRankInfos = new List<PlayerRankInfo>();
@@ -140,7 +190,6 @@ public class RaceManager : NetworkBehaviour
     [ClientRpc]
     private void UpdatePlayerRanksClientRpc(PlayerRankInfo[] playerRankInfos)
     {
-        // 클라이언트에서 순위를 갱신하는 로직
         PlayerRankInGame.Instance.UpdateRanks(playerRankInfos);
     }
 
