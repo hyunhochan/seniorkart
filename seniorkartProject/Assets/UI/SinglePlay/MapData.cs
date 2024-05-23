@@ -15,6 +15,7 @@ namespace MapData
         public string UserName3rd;
         public string KartBody3rd;
         public string BestRecord3rd;
+        public Sprite trackImage; // 트랙 이미지 추가
         public Sprite miniMap; // 미니맵 이미지 추가
     }
 }
