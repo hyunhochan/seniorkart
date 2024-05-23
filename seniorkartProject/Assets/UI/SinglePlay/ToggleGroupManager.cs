@@ -112,12 +112,12 @@ public class ToggleGroupManager : NetworkBehaviour
         StoreAsInitialState();
         UpdateTrackDetails(currentlySelectedButton);
 
-        Debug.Log("ishost = "+ IsHost);
+        Debug.Log("ishost = " + IsHost);
 
 
         characterselectdisplay.ConfirmSelectionClientRpc(initialSelectedTrackIndex);
         Debug.Log("launched host trigger");
-        
+
     }
 
     private void OnCancel()

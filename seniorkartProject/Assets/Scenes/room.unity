@@ -928,6 +928,16 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2800139242
       objectReference: {fileID: 0}
+    - target: {fileID: 4507741646577144219, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507741646577144219, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4972947818581369943, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1031,7 +1041,7 @@ PrefabInstance:
     - target: {fileID: 6498248451793938324, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 216.5
+      value: 216.50003
       objectReference: {fileID: 0}
     - target: {fileID: 8525754393372423642, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
