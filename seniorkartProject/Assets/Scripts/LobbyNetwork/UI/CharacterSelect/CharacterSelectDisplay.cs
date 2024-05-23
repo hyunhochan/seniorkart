@@ -7,14 +7,18 @@ using UnityEngine.UI;
 public class CharacterSelectDisplay : NetworkBehaviour
 {
     [Header("References")]
-    [SerializeField] private PlayerCard[] playerCards; // ?? ???? ?? ?? ??
-    [SerializeField] private MyCard myCard; // ?? ?????? ?? ??
-    [SerializeField] private Button lockInButton; // Lock In ??
-    [SerializeField] private ToggleGroupManager toggleGroupManager; // ToggleGroupManager 레퍼런스 추가
+    [SerializeField] private PlayerCard[] playerCards;
+    [SerializeField] private MyCard myCard;
+    [SerializeField] private Button lockInButton;
+    [SerializeField] private Button changeTrackButton;
+    [SerializeField] private ToggleGroupManager toggleGroupManager;
 
     private GameObject introInstance;
     private List<CharacterSelectButton> characterButtons = new List<CharacterSelectButton>();
     private NetworkList<CharacterSelectState> players;
+
+    public GameObject ChangeMapSequence;
+    private bool isopen = false;
 
     private void Awake()
     {
@@ -23,6 +27,8 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        Debug.Log("OnNetworkSpawn called");
+
         if (IsClient)
         {
             players.OnListChanged += HandlePlayersStateChanged;
@@ -37,6 +43,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
             {
                 HandleClientConnected(client.ClientId);
             }
+
         }
 
         lockInButton.onClick.AddListener(LockIn);
@@ -129,7 +136,6 @@ public class CharacterSelectDisplay : NetworkBehaviour
             }
         }
 
-        // Disable any remaining player cards if there are fewer players than slots
         for (int i = playerCardIndex; i < playerCards.Length; i++)
         {
             playerCards[i].DisableDisplay();
@@ -151,4 +157,33 @@ public class CharacterSelectDisplay : NetworkBehaviour
         }
         lockInButton.interactable = anyNotReady;
     }
+
+
+    public void appearChangeUI()
+    {
+        Debug.Log("ishost = " + IsHost);
+        if (IsHost)
+        {
+            if (isopen == false)
+            {
+                ChangeMapSequence.SetActive(!ChangeMapSequence.activeSelf);
+                isopen = true;
+            }
+        }
+
+    }
+
+    public void disappearChangeUI()
+    {
+        if (IsHost)
+        {
+            if (isopen == true)
+            {
+                ChangeMapSequence.SetActive(false);
+                isopen = false;
+            }
+        }
+    }
+
+    
 }

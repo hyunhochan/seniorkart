@@ -112,7 +112,7 @@ public class MatchplayNetworkServer : IDisposable
     {
         gameHasStarted = true;
 
-        switch(mapNumber)
+        switch (mapNumber)
         {
             case 0:
                 NetworkManager.Singleton.SceneManager.LoadScene("Coastland", LoadSceneMode.Single);
@@ -150,8 +150,8 @@ public class MatchplayNetworkServer : IDisposable
                 break;
         }
 
-        
-        
+
+
     }
 
     private void ApprovalCheck(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)

@@ -4006,6 +4006,7 @@ GameObject:
   - component: {fileID: 8829736612396965420}
   - component: {fileID: 3925637330765421000}
   - component: {fileID: 8908722355108993054}
+  - component: {fileID: 2632623644417178199}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -4124,8 +4125,31 @@ MonoBehaviour:
   - {fileID: 2592592768132730189}
   currentlySelectedButton: {fileID: 0}
   initiallySelectedButton: {fileID: 0}
+  initialTrackImage: {fileID: 0}
+  initialMiniMapImage: {fileID: 0}
+  initialTrackName: 
+  initialSelectedTrackIndex: 0
   confirmButton: {fileID: 1327798816776269109}
   cancelButton: {fileID: 3144139541869524211}
+  targetImage: {fileID: 0}
+  miniMap: {fileID: 0}
+  targetTrackName: {fileID: 0}
+--- !u!114 &2632623644417178199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294339393728623497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &2621357707135923558
 GameObject:
   m_ObjectHideFlags: 0

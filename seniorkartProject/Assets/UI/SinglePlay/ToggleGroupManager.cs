@@ -1,27 +1,25 @@
-using System;  // Array.Sort를 사용하기 위해 추가
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using MapData;
-using TMPro;  // TMP 텍스트 관련 네임스페이스 추가
+using Unity.Netcode;
 
-public class ToggleGroupManager : MonoBehaviour
+public class ToggleGroupManager : NetworkBehaviour
 {
     public ButtonSelect[] buttons;  // 수동으로 할당하는 버튼 배열
     public ButtonSelect currentlySelectedButton;
     public ButtonSelect initiallySelectedButton;
-    private Sprite initialTrackImage;
-    private Sprite initialMiniMapImage;
-    private string initialTrackName;
-    //private string initialBestRecord;
-    //private string initialBestKart;
+    public Sprite initialTrackImage;
+    public Sprite initialMiniMapImage;
+    public string initialTrackName;
+    public int initialSelectedTrackIndex;
 
     [SerializeField] private Button confirmButton;
     [SerializeField] private Button cancelButton;
     [SerializeField] private Image targetImage; // 덧씌울 이미지 컴포넌트를 지정할 공개 변수
     [SerializeField] private Image miniMap; // 덧씌울 이미지 컴포넌트를 지정할 공개 변수
     [SerializeField] private TextMeshProUGUI targetTrackName; // 트랙 이름을 표시할 TMP Text 컴포넌트
-    //[SerializeField] private TextMeshProUGUI targetBestRecord; // 최고 기록을 표시할 TMP Text 컴포넌트
-    //[SerializeField] private TextMeshProUGUI targetBestKart; // 최고 카트를 표시할 TMP Text 컴포넌트
 
     private void Awake()
     {
@@ -31,7 +29,7 @@ public class ToggleGroupManager : MonoBehaviour
         if (buttons.Length > 0)
         {
             initiallySelectedButton = buttons[0];
-            StoreInitialState();
+            StoreAsInitialState();
         }
     }
 
@@ -56,19 +54,15 @@ public class ToggleGroupManager : MonoBehaviour
         }
     }
 
-    private void StoreInitialState()
+    private void StoreAsInitialState()
     {
         if (initiallySelectedButton != null)
         {
-            TrackInfo trackInfo = initiallySelectedButton.GetComponentInParent<TrackInfo>();
-            if (trackInfo != null)
-            {
-                initialTrackImage = trackInfo.trackImage;
-                initialMiniMapImage = trackInfo.miniMap;
-                initialTrackName = trackInfo.trackName;
-                //initialBestRecord = trackInfo.BestRecord1st;
-                //initialBestKart = trackInfo.KartBody1st;
-            }
+            TrackInfo trackInfo = currentlySelectedButton.GetComponent<TrackInfo>();
+            initialTrackImage = trackInfo.trackImage;
+            initialMiniMapImage = trackInfo.miniMap;
+            initialTrackName = trackInfo.trackName;
+            initialSelectedTrackIndex = initiallySelectedButton.trackNumber;
         }
     }
 
@@ -95,15 +89,10 @@ public class ToggleGroupManager : MonoBehaviour
 
     private void UpdateTrackDetails(ButtonSelect selectedButton)
     {
-        TrackInfo trackInfo = selectedButton.GetComponentInParent<TrackInfo>();
-        if (trackInfo != null)
-        {
-            targetImage.sprite = trackInfo.trackImage;
-            miniMap.sprite = trackInfo.miniMap;
-            targetTrackName.text = trackInfo.trackName;
-            //targetBestRecord.text = trackInfo.BestRecord1st;
-            //targetBestKart.text = trackInfo.KartBody1st;
-        }
+        TrackInfo trackInfo = selectedButton.GetComponent<TrackInfo>();
+        targetImage.sprite = trackInfo.trackImage;
+        miniMap.sprite = trackInfo.miniMap;
+        targetTrackName.text = trackInfo.trackName;
     }
 
     public int GetCurrentlySelectedButtonTrackNumber()
@@ -119,7 +108,15 @@ public class ToggleGroupManager : MonoBehaviour
     {
         // 현재 상태를 유지하고, 초기 상태를 업데이트
         initiallySelectedButton = currentlySelectedButton;
-        StoreInitialState();
+        StoreAsInitialState();
+        UpdateTrackDetails(currentlySelectedButton);
+
+        Debug.Log("ishost = "+ IsHost);
+        
+            // 모든 클라이언트가 실행되도록 트리거함 
+            ConfirmSelectionClientRpc(initialSelectedTrackIndex); //initialSelectedTrackIndex가 최종 선택된 트랙의 인덱스이고 이것만 전달해주면 끝남 
+        Debug.Log("launched host trigger");
+        
     }
 
     private void OnCancel()
@@ -131,10 +128,16 @@ public class ToggleGroupManager : MonoBehaviour
             targetImage.sprite = initialTrackImage;
             miniMap.sprite = initialMiniMapImage;
             targetTrackName.text = initialTrackName;
-            //targetBestRecord.text = initialBestRecord;
-            //targetBestKart.text = initialBestKart;
 
             SetSelectedButton(initiallySelectedButton);
         }
+    }
+
+    [ClientRpc]
+    private void ConfirmSelectionClientRpc(int selectedTrackIndex)
+    {
+        initiallySelectedButton = buttons[selectedTrackIndex]; //initialSelectedTrackIndex를 받아와서 트랙 번호에 맞는 버튼을 찾아서 initiallySelectedButton에 대입해준다.
+        StoreAsInitialState(); //initiallySelectedButton에 저장된 맵 데이터를 기반으로 화면 우측의 맵 정보를 업데이트하는 함수 
+        Debug.Log("launched client trigger");
     }
 }
