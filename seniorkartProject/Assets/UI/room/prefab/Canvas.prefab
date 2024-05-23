@@ -243,12 +243,12 @@ PrefabInstance:
     - target: {fileID: 1448289025988443481, guid: 0db9479b6b2be4142b8f757c611150b2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1448289025988443481, guid: 0db9479b6b2be4142b8f757c611150b2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1448289025988443481, guid: 0db9479b6b2be4142b8f757c611150b2,
         type: 3}
@@ -436,6 +436,16 @@ PrefabInstance:
       propertyPath: targetTrackName
       value: 
       objectReference: {fileID: 7595780778612776039}
+    - target: {fileID: 3332372646071877134, guid: 0db9479b6b2be4142b8f757c611150b2,
+        type: 3}
+      propertyPath: currentlySelectedButton
+      value: 
+      objectReference: {fileID: 26229840643105443}
+    - target: {fileID: 3332372646071877134, guid: 0db9479b6b2be4142b8f757c611150b2,
+        type: 3}
+      propertyPath: initiallySelectedButton
+      value: 
+      objectReference: {fileID: 26229840643105443}
     - target: {fileID: 3371062906817921816, guid: 0db9479b6b2be4142b8f757c611150b2,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1001,6 +1011,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6800958794595488310}
   m_SourcePrefab: {fileID: 100100000, guid: 0db9479b6b2be4142b8f757c611150b2, type: 3}
+--- !u!114 &26229840643105443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3083492331779264097, guid: 0db9479b6b2be4142b8f757c611150b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3069181254090108098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46fecab30ac6462f86a8743a481f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &335829690327732940 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3332372646071877134, guid: 0db9479b6b2be4142b8f757c611150b2,
