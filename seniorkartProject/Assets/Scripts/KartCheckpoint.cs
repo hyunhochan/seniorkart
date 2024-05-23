@@ -221,7 +221,7 @@ public class KartCheckpoint : NetworkBehaviour
         // 플레이어 마커 위치 및 회전 업데이트
         if (playerMarker != null)
         {
-            playerMarker.transform.position = new Vector3(transform.position.x, 15, transform.position.z);
+            playerMarker.transform.position = new Vector3(transform.position.x, transform.position.y + 20, transform.position.z);
             playerMarker.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, 0f);
         }
 
@@ -235,7 +235,7 @@ public class KartCheckpoint : NetworkBehaviour
                 var otherPlayerObject = networkClient.PlayerObject;
                 if (otherPlayerObject != null)
                 {
-                    marker.transform.position = new Vector3(otherPlayerObject.transform.position.x, 15, otherPlayerObject.transform.position.z);
+                    marker.transform.position = new Vector3(otherPlayerObject.transform.position.x, otherPlayerObject.transform.position.y+20, otherPlayerObject.transform.position.z);
                     marker.transform.rotation = Quaternion.Euler(90f, otherPlayerObject.transform.eulerAngles.y, 0f);
                 }
             }
