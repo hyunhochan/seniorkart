@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MapData
 {
-    public class TrackInfo : MonoBehaviour // MonoBehaviour 상속
+    public class TrackInfo : MonoBehaviour
     {
         public string trackName;
         public string trackNumber;
@@ -15,5 +15,6 @@ namespace MapData
         public string UserName3rd;
         public string KartBody3rd;
         public string BestRecord3rd;
+        public Sprite miniMap; // 미니맵 이미지 추가
     }
 }

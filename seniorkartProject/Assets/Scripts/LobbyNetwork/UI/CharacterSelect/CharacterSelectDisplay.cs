@@ -103,7 +103,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
         if (allReady)
         {
-            int selectedMapNumber = int.Parse(toggleGroupManager.GetCurrentlySelectedButtonTrackNumber());
+            int selectedMapNumber = toggleGroupManager.GetCurrentlySelectedButtonTrackNumber();
             MatchplayNetworkServer.Instance.StartGame(selectedMapNumber);
         }
     }
