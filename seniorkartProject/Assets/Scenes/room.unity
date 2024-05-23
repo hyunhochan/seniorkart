@@ -217,6 +217,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &332990118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7595780778612776039, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115131555096183332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &438199316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3466620192142660571, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115131555096183332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &450051263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3958188327941407633, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
@@ -596,6 +620,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1597379885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8583465794285440914, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115131555096183332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1975832399
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +954,21 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 943248100
       objectReference: {fileID: 0}
+    - target: {fileID: 335829690327732940, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: miniMap
+      value: 
+      objectReference: {fileID: 438199316}
+    - target: {fileID: 335829690327732940, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: targetImage
+      value: 
+      objectReference: {fileID: 1597379885}
+    - target: {fileID: 335829690327732940, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
+        type: 3}
+      propertyPath: targetTrackName
+      value: 
+      objectReference: {fileID: 332990118}
     - target: {fileID: 834926164553963894, guid: 17102f4cc6e3c4d9cb945e108a15ab12,
         type: 3}
       propertyPath: m_Value
