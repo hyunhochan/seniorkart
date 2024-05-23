@@ -3167,18 +3167,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 7
   m_MaxDistance: 7
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1 &13603494
@@ -3900,18 +3900,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 7
   m_MaxDistance: 7
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &22642323
@@ -5854,18 +5854,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 7
   m_MaxDistance: 7
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &58479543
@@ -5989,18 +5989,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 15
   m_MaxDistance: 15
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &60630361
@@ -6108,18 +6108,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &62203983
@@ -6979,18 +6979,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 6
   m_MaxDistance: 6
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &90810362
@@ -8884,18 +8884,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 6
   m_MaxDistance: 6
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &133975518
@@ -11634,18 +11634,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 15
   m_MaxDistance: 15
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &199271391
@@ -11927,18 +11927,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 7
   m_MaxDistance: 7
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &208038473
@@ -12468,18 +12468,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &222692776
@@ -12579,18 +12579,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &225507061
@@ -17786,18 +17786,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &337231897
@@ -18015,18 +18015,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &342910694
@@ -31852,18 +31852,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 15
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &675890353
@@ -36076,18 +36076,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &779101153
@@ -38346,18 +38346,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &825496934
@@ -40115,18 +40115,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &865138093
@@ -40463,18 +40463,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &876316204
@@ -40890,18 +40890,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1 &888122961
@@ -44178,18 +44178,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &961799351
@@ -47794,18 +47794,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1028221037
@@ -47929,18 +47929,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1029149293
@@ -49436,18 +49436,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 7
   m_MaxDistance: 7
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1057099244
@@ -50203,18 +50203,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1073865194
@@ -52041,18 +52041,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1107918327
@@ -53500,18 +53500,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 12
   m_MaxDistance: 16
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1126543969
@@ -55556,18 +55556,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1167729487
@@ -61292,18 +61292,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1287788556
@@ -65334,18 +65334,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1371838931
@@ -65682,18 +65682,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1377395420
@@ -71440,18 +71440,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1493232781
@@ -74078,18 +74078,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 15
   m_MaxDistance: 15
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1554453142
@@ -76967,18 +76967,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 15
   m_MaxDistance: 15
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1613547373
@@ -80891,18 +80891,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1686791372
@@ -81120,18 +81120,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1691018673
@@ -82540,18 +82540,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1726356555
@@ -85784,18 +85784,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 8
   m_MaxDistance: 12
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1799662226
@@ -87272,18 +87272,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 6
   m_MaxDistance: 9
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1 &1823116272
@@ -90725,18 +90725,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1894419686
@@ -91729,18 +91729,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1917258072
@@ -91836,18 +91836,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &1923425172
@@ -92542,18 +92542,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1 &1940626151
@@ -95529,18 +95529,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &2002186542
@@ -97700,18 +97700,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 9
   m_MaxDistance: 13
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &2055773500
@@ -99483,18 +99483,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &2106211655
@@ -99688,18 +99688,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 7
   m_MaxDistance: 7
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1 &2107949662
@@ -99744,18 +99744,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &2107957122
@@ -100414,18 +100414,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &2115688926
@@ -100600,18 +100600,18 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 7
   m_MaxDistance: 10
-  m_ReverbPreset: 1
+  m_ReverbPreset: 4
   m_Room: -1000
-  m_RoomHF: -100
+  m_RoomHF: -1200
   m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_Reflections: -2602
+  m_DecayHFRatio: 0.54
+  m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 200
+  m_Reverb: 1030
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
-  m_Density: 100
+  m_Density: 60
   m_LFReference: 250
   m_RoomLF: 0
 --- !u!1001 &2120079216
