@@ -17,6 +17,7 @@ public class RaceManager : NetworkBehaviour
 
     public GameObject RaceResultUI; // 결과 창 UI
     public TextMeshProUGUI countdownText; // 10초 카운트다운 텍스트
+    private bool IsCountdownStarted = false;
 
     private void Awake()
     {
@@ -85,22 +86,27 @@ public class RaceManager : NetworkBehaviour
         var networkObject = player.GetComponent<NetworkObject>();
         if (networkObject != null)
         {
-            PlayerFinishedServerRpc(networkObject.OwnerClientId, finishTime); // 수정: 서버 RPC 호출
+            Debug.Log($"Player {networkObject.OwnerClientId} finished the race with time {finishTime}");
+            PlayerFinishedServerRpc(networkObject.OwnerClientId, finishTime);
         }
     }
 
     [ServerRpc(RequireOwnership = false)]
     private void PlayerFinishedServerRpc(ulong clientId, float finishTime)
     {
+        Debug.Log($"Server received finish time from client {clientId}: {finishTime}");
         GameObject player = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject.gameObject;
         playerFinishTimes[player] = finishTime;
         playerFinished[player] = true;
 
         PlayerFinishedClientRpc(clientId, finishTime);
 
-        if (AllPlayersFinished())
+        // 첫 번째 플레이어가 결승점을 통과할 때 카운트다운 시작
+        if (!IsCountdownStarted)
         {
+            IsCountdownStarted = true;
             StartCoroutine(ShowRaceResultAfterDelay(10f));
+            StartCountdownClientRpc(10f);
         }
     }
 
@@ -109,21 +115,31 @@ public class RaceManager : NetworkBehaviour
     {
         if (NetworkManager.Singleton.LocalClientId == clientId)
         {
-            Debug.Log($"You have finished the race! Your time: {finishTime:F2} seconds");
+            Debug.Log($"Client {clientId} has finished the race with time {finishTime}");
             CharacterSpawner.Instance.UpdateFinishTimeUI(finishTime);
         }
     }
 
+    [ClientRpc]
+    private void StartCountdownClientRpc(float delay)
+    {
+        Debug.Log("Starting countdown on client");
+        StartCoroutine(ShowRaceResultAfterDelay(delay));
+    }
+
     private IEnumerator ShowRaceResultAfterDelay(float delay)
     {
+        Debug.Log("Starting countdown to show race results");
         float countdown = delay;
         while (countdown > 0)
         {
+            Debug.Log($"Countdown: {countdown}");
             countdownText.text = $"Results in {countdown:F0} seconds";
             yield return new WaitForSeconds(1f);
             countdown -= 1f;
         }
 
+        Debug.Log("Showing race results");
         RaceResultUI.SetActive(true);
         countdownText.gameObject.SetActive(false);
     }
@@ -231,6 +247,38 @@ public class RaceManager : NetworkBehaviour
             return checkpoints[playerCheckpoints[player]].transform;
         }
         return null;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ResetPlayerToCheckpointServerRpc(ulong clientId)
+    {
+        if (IsServer)
+        {
+            GameObject player = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject.gameObject;
+            Transform checkpointTransform = GetPlayerCheckpointTransform(player);
+
+            if (checkpointTransform != null)
+            {
+                ResetPlayerToCheckpointClientRpc(clientId, checkpointTransform.position, checkpointTransform.rotation);
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void ResetPlayerToCheckpointClientRpc(ulong clientId, Vector3 position, Quaternion rotation)
+    {
+        if (NetworkManager.Singleton.LocalClientId == clientId)
+        {
+            GameObject player = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientId).gameObject;
+            player.transform.position = position;
+            player.transform.rotation = rotation;
+            Rigidbody rb = player.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+        }
     }
 
     [System.Serializable]

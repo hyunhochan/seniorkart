@@ -82,6 +82,12 @@ public class KartCheckpoint : NetworkBehaviour
             RespawnAtCheckpoint();
         }
 
+        // 높이가 -20 이하일 때 체크포인트로 이동
+        if (IsOwner && transform.position.y < -20)
+        {
+            RespawnAtCheckpoint();
+        }
+
         if (IsOwner)
         {
             UpdateMiniMapElements(); // 미니맵 요소들 업데이트
@@ -123,24 +129,8 @@ public class KartCheckpoint : NetworkBehaviour
     {
         if (IsOwner)
         {
-            Transform checkpointTransform = RaceManager.Instance.GetPlayerCheckpointTransform(gameObject);
-            if (checkpointTransform != null)
-            {
-                TeleportToCheckpoint(checkpointTransform.position, checkpointTransform.rotation);
-            }
-            else
-            {
-                Debug.LogWarning("Checkpoint transform is null");
-            }
+            RaceManager.Instance.ResetPlayerToCheckpointServerRpc(NetworkManager.Singleton.LocalClientId);
         }
-    }
-
-    private void TeleportToCheckpoint(Vector3 position, Quaternion rotation)
-    {
-        transform.position = position;
-        transform.rotation = rotation;
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
     }
 
     private void SetupMiniMapCamera()
@@ -237,7 +227,7 @@ public class KartCheckpoint : NetworkBehaviour
                 var otherPlayerObject = networkClient.PlayerObject;
                 if (otherPlayerObject != null)
                 {
-                    marker.transform.position = new Vector3(otherPlayerObject.transform.position.x, otherPlayerObject.transform.position.y+20, otherPlayerObject.transform.position.z);
+                    marker.transform.position = new Vector3(otherPlayerObject.transform.position.x, otherPlayerObject.transform.position.y + 20, otherPlayerObject.transform.position.z);
                     marker.transform.rotation = Quaternion.Euler(90f, otherPlayerObject.transform.eulerAngles.y, 0f);
                 }
             }
