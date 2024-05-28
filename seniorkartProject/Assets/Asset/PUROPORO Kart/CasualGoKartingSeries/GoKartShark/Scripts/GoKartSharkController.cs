@@ -28,24 +28,24 @@ namespace PUROPORO
                 return;
             }
 
-            //UpdateVisuals();
+            UpdateVisuals();
         }
 
-        //private void UpdateVisuals()
-        //{
-        //    if (m_VisualWheelFL != null) { UpdateSingleWheel(m_Controller.wheelColliderFL, m_VisualWheelFL); }
-        //    if (m_VisualWheelFR != null) { UpdateSingleWheel(m_Controller.wheelColliderFR, m_VisualWheelFR); }
-        //    if (m_VisualWheelRL != null) { UpdateSingleWheel(m_Controller.wheelColliderRL, m_VisualWheelRL); }
-        //    if (m_VisualWheelRR != null) { UpdateSingleWheel(m_Controller.wheelColliderRR, m_VisualWheelRR); }
+        private void UpdateVisuals()
+        {
+            if (m_VisualWheelFL != null) { UpdateSingleWheel(m_Controller.wheelColliderFL, m_VisualWheelFL); }
+            if (m_VisualWheelFR != null) { UpdateSingleWheel(m_Controller.wheelColliderFR, m_VisualWheelFR); }
+            if (m_VisualWheelRL != null) { UpdateSingleWheel(m_Controller.wheelColliderRL, m_VisualWheelRL); }
+            if (m_VisualWheelRR != null) { UpdateSingleWheel(m_Controller.wheelColliderRR, m_VisualWheelRR); }
 
-        //    if (m_VisualSteeringWheel != null)
-        //    {
-        //        m_VisualSteeringWheel.localEulerAngles = new Vector3(
-        //            m_VisualSteeringWheel.localEulerAngles.x,
-        //            m_VisualSteeringWheel.localEulerAngles.y,
-        //            -m_Controller.currentSteeringAngle);
-        //    }
-        //}
+            if (m_VisualSteeringWheel != null)
+            {
+                m_VisualSteeringWheel.localEulerAngles = new Vector3(
+                    m_VisualSteeringWheel.localEulerAngles.x,
+                    m_VisualSteeringWheel.localEulerAngles.y,
+                    -m_Controller.currentSteeringAngle);
+            }
+        }
 
         private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform)
         {

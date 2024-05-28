@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 695790237906963357}
   - component: {fileID: 4614848953043289759}
   - component: {fileID: 3181546716547646491}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2193783680611477983}
   - component: {fileID: 1621713942392649706}
   - component: {fileID: 4658336945846782062}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CheckPoint
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 695790237906963357}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee7ef31de383684da5431d4c925e577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointIndex: 3
+  checkpointIndex: 0
 --- !u!65 &4658336945846782062
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8185911007442685270}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CenterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
