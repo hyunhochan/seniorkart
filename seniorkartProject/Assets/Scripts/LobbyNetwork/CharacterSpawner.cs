@@ -16,15 +16,19 @@ public class CharacterSpawner : NetworkBehaviour
     public GameObject RaceResultUI; // 추가: 결과 창 UI
     public Image tacoBack;
     public Image tackLineBack;
+    
 
     private List<GameObject> karts = new List<GameObject>();
-    private const float maxSpeed = 150f;
+    private const float maxSpeed = 300f;
     private GameObject localKart;
 
     private float elapsedTime = 0f;
     private bool timerRunning = false;
 
     public static CharacterSpawner Instance { get; private set; }
+
+    private Vector3 previousPosition;
+    public Vector3 Velocity { get; private set; }
 
     private void Awake()
     {
@@ -50,6 +54,9 @@ public class CharacterSpawner : NetworkBehaviour
                 var spawnPos = spawnPositions[i++];
 
                 GameObject kart = Instantiate(kartPrefab, spawnPos, Quaternion.identity);
+                
+                // 여기에서 스케일을 설정합니다.
+                kart.transform.localScale = new Vector3(2.0f, 0.7f, 2.5f);
                 NetworkObject kartNetworkObject = kart.GetComponent<NetworkObject>();
                 if (kartNetworkObject != null)
                 {
@@ -59,7 +66,9 @@ public class CharacterSpawner : NetworkBehaviour
                     if (client.ClientId == NetworkManager.Singleton.LocalClientId)
                     {
                         localKart = kart;
+
                         InitializeLocalKartAudioListener(localKart);
+                        previousPosition = localKart.transform.position; // 초기화 추가
                     }
                 }
 
@@ -85,10 +94,12 @@ public class CharacterSpawner : NetworkBehaviour
                     localKart = kart.gameObject;
                     InitializeRigidbody(localKart);
                     InitializeLocalKartAudioListener(localKart);
+                    previousPosition = localKart.transform.position; // 초기화 추가
+                    
                     break;
                 }
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -99,25 +110,26 @@ public class CharacterSpawner : NetworkBehaviour
         {
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
-            rigidbody.isKinematic = false;
+            rigidbody.isKinematic = true;
+            rigidbody.useGravity = false;
             rigidbody.position = new Vector3(rigidbody.position.x, 1.0f, rigidbody.position.z);
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (localKart == null) return;
 
-        var rigidbody = localKart.GetComponent<Rigidbody>();
-        if (rigidbody != null)
-        {
-            float speed = rigidbody.velocity.magnitude * 3.6f;
-            UpdateLocalSpeedUI(speed);
-        }
+        Velocity = (localKart.transform.position - previousPosition) / Time.fixedDeltaTime;
+        previousPosition = localKart.transform.position;
+
+        // 속도의 크기를 구합니다.
+        float speed = Velocity.magnitude * 3.6f;
+        UpdateLocalSpeedUI(speed);
 
         if (IsServer && timerRunning)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.fixedDeltaTime;
             UpdateTimerUI(elapsedTime);
             SyncTimerClientRpc(elapsedTime);
         }
