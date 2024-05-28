@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 20745f4a02e394da89bf7155e786e13d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7087085
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 20745f4a02e394da89bf7155e786e13d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.7142856
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 20745f4a02e394da89bf7155e786e13d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.47537088
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 20745f4a02e394da89bf7155e786e13d,
         type: 3}
@@ -36,12 +36,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 20745f4a02e394da89bf7155e786e13d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.26157147
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 20745f4a02e394da89bf7155e786e13d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.055459697
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 20745f4a02e394da89bf7155e786e13d,
         type: 3}
@@ -142,4 +142,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DriverAnimator: {fileID: 13926521266381647}
-  buttonTurning: 0
