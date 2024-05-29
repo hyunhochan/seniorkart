@@ -129,6 +129,7 @@ public class RaceManager : NetworkBehaviour
 
     private IEnumerator ShowRaceResultAfterDelay(float delay)
     {
+        countdownText.gameObject.SetActive(true);
         Debug.Log("Starting countdown to show race results");
         float countdown = delay;
         while (countdown > 0)
