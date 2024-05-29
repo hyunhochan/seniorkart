@@ -7,9 +7,6 @@ TagManager:
   - Checkpoint
   - RoadOnly
   - Echo
-  - Ground
-  - Wall
-  - Fence
   layers:
   - Default
   - TransparentFX

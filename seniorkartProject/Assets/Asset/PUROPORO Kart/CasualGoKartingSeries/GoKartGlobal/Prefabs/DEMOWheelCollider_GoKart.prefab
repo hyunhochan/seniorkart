@@ -357,14 +357,13 @@ MonoBehaviour:
   maxSteeringAngle: 24
   autoDriveDelay: 3
   rotationSpeed: 150
-  brakeLerpSpeed: 0.75
+  brakeLerpSpeed: 1
   accelLerpSpeed: 1
   turnDecelerationFactor: 0.1
   recoverySpeed: 1
   buttonSteering: 0
   buttonBrake: 0
   steeringLerpSpeed: 5
-  rotationRecoverySpeed: 1
   cameraMountPoint: {fileID: 4086257024401464773}
   isGrounded: 0
 --- !u!114 &114379150990462451
