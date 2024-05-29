@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4086257024477109968
 Transform:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4086257025619103329}
   serializedVersion: 4
-  m_Mass: 4000
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -299,10 +299,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 0.9, z: 3}
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!64 &7529893177884575378
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4086257025619103329}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9a5adae8e27c47e1bb9e5bcc0cfce7c, type: 3}
   m_Name: 
@@ -351,22 +351,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputAcceleration: 0
   inputSteering: 0
-  currentSteeringAngle: 0
-  currentBrakingForce: 0
   isBraking: 0
-  drivetrain: 2
-  brakingSystem: 0
-  accelerationForce: 1500
-  brakingForce: 1000
-  maxSteeringAngle: 30
+  accelerationForce: 10
+  brakingForce: 8
+  maxSteeringAngle: 24
   autoDriveDelay: 3
-  wheelColliderFL: {fileID: 4086257025834455475}
-  wheelColliderFR: {fileID: 4086257024868392116}
-  wheelColliderRL: {fileID: 4086257024249116061}
-  wheelColliderRR: {fileID: 4086257025726339872}
+  rotationSpeed: 150
   buttonSteering: 0
   buttonBrake: 0
   cameraMountPoint: {fileID: 4086257024401464773}
+  isGrounded: 0
 --- !u!114 &114379150990462451
 MonoBehaviour:
   m_ObjectHideFlags: 0
