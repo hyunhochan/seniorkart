@@ -21,13 +21,16 @@ namespace PUROPORO
 
         [Header("Settings")]
         public float accelerationForce = 10f;
-        public float brakingForce = 8f;
+        public float brakingForce = 15f;
         public float maxSteeringAngle = 25f;
         public float autoDriveDelay = 3f;
         public float rotationSpeed = 150f;
+        public float brakeLerpSpeed = 1f; // Variable to control the lerp speed for braking
+        public float accelLerpSpeed = 1f; // Variable to control the lerp speed for accelerating
 
         public float buttonSteering;
         public float buttonBrake;
+        public float steeringLerpSpeed = 2f; // Variable to control the lerp speed for steering
 
         [Header("Camera")]
         public GameObject cameraMountPoint;
@@ -35,8 +38,10 @@ namespace PUROPORO
 
         private bool isbrake = false;
         private bool autoDrive = false;
-        public bool isGrounded = false; // 땅에 닿아있는지 여부를 저장
+        public bool isGrounded = false; // Flag to check if the kart is grounded
         private Rigidbody rb;
+        private float currentBrakeForce = 0f; // Variable to track the current braking force
+        private float currentAccelForce = 0f; // Variable to track the current acceleration force
 
         private NetworkTransform networkTransform;
 
@@ -129,35 +134,31 @@ namespace PUROPORO
 
                 if (isGrounded)
                 {
-                    // 땅에 닿아있을 때만 움직임 처리
+                    // Only handle movement when the kart is grounded
                     if (autoDrive)
                     {
-                        inputAcceleration = 1f; // 자동 전진
+                        inputAcceleration = 1f; // Auto drive forward
                     }
 
                     HandleMovement(inputAcceleration, inputSteering, isBraking);
 
-                    // 서버에 입력을 보내는 코드 추가
+                    // Send input to the server
                     SendInputToServer();
                 }
             }
         }
 
-
         private void Update()
         {
             if (IsOwner)
             {
-                // if (Input.GetKeyDown(KeyCode.R))
-                // {
-                //     RespawnAtCheckpoint();
-                // }
+                // Additional update logic for the owner
             }
         }
 
         private void GetInput()
         {
-            inputSteering = Input.GetAxis(c_Horizontal) + buttonSteering;
+            inputSteering = Mathf.Lerp(inputSteering, Input.GetAxis(c_Horizontal) + buttonSteering, Time.deltaTime * steeringLerpSpeed);
             inputAcceleration = Input.GetAxis(c_Vertical);
             isBraking = Input.GetKey(KeyCode.Space) || buttonBrake > 0;
         }
@@ -169,18 +170,34 @@ namespace PUROPORO
 
         private void HandleMovement(float inputAcceleration, float inputSteering, bool isBraking)
         {
-            Vector3 moveDirection = transform.forward * inputAcceleration * accelerationForce * Time.fixedDeltaTime;
+            Vector3 moveDirection = transform.forward * currentAccelForce * Time.fixedDeltaTime;
 
             // Forward/Backward Movement
-            if (inputAcceleration != 0)
+            if (inputAcceleration > 0)
             {
+                currentAccelForce = Mathf.Lerp(currentAccelForce, inputAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
                 rb.MovePosition(rb.position + moveDirection);
+            }
+            else if (inputAcceleration < 0)
+            {
+                currentAccelForce = Mathf.Lerp(currentAccelForce, inputAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
+                rb.MovePosition(rb.position + moveDirection);
+            }
+            else
+            {
+                currentAccelForce = Mathf.Lerp(currentAccelForce, 0, Time.fixedDeltaTime * accelLerpSpeed);
             }
 
             // Braking
             if (isbrake)
             {
-                rb.MovePosition(rb.position - moveDirection / 2);
+                currentBrakeForce = Mathf.Lerp(currentBrakeForce, brakingForce, Time.fixedDeltaTime * brakeLerpSpeed);
+                rb.MovePosition(rb.position - transform.forward * currentBrakeForce * Time.fixedDeltaTime);
+            }
+            else
+            {
+                currentBrakeForce = Mathf.Lerp(currentBrakeForce, 0, Time.fixedDeltaTime * brakeLerpSpeed);
+                rb.MovePosition(rb.position - transform.forward * currentBrakeForce * Time.fixedDeltaTime);
             }
 
             // Steering
@@ -207,7 +224,7 @@ namespace PUROPORO
         [ServerRpc]
         private void SubmitInputServerRpc(KartInput input)
         {
-            // 서버에서 입력을 처리하고 클라이언트의 상태를 보정
+            // Process input on the server and correct client state
             HandleMovement(input.Acceleration, input.Steering, input.IsBraking);
         }
 
@@ -228,9 +245,18 @@ namespace PUROPORO
             cameraFollow.SetTarget(cameraMountPoint.transform);
         }
 
+        public void ResetKart() // This method will be called from the GoKartReset script
+        {
+            currentAccelForce = 0f;
+            currentBrakeForce = 0f;
+            inputAcceleration = 0f;
+            inputSteering = 0f;
+            isBraking = false;
+        }
+
         private void ServerReconciliation()
         {
-            // 서버 보정 로직: 클라이언트와 서버 간의 위치 및 상태 차이를 보정
+            // Server reconciliation logic to correct differences between client and server states
             if (IsServer)
             {
                 foreach (var client in NetworkManager.Singleton.ConnectedClientsList)

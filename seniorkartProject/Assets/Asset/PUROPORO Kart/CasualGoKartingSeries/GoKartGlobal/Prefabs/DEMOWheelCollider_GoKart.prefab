@@ -353,12 +353,14 @@ MonoBehaviour:
   inputSteering: 0
   isBraking: 0
   accelerationForce: 10
-  brakingForce: 8
+  brakingForce: 15
   maxSteeringAngle: 24
   autoDriveDelay: 3
   rotationSpeed: 150
+  brakeLerpSpeed: 1
   buttonSteering: 0
   buttonBrake: 0
+  steeringLerpSpeed: 5
   cameraMountPoint: {fileID: 4086257024401464773}
   isGrounded: 0
 --- !u!114 &114379150990462451
