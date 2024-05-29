@@ -53,7 +53,6 @@ public class CharacterSpawner : NetworkBehaviour
                 var spawnPos = spawnPositions[i++];
 
                 GameObject kart = Instantiate(kartPrefab, spawnPos, Quaternion.identity);
-                kart.transform.position = spawnPos;
                 NetworkObject kartNetworkObject = kart.GetComponent<NetworkObject>();
                 if (kartNetworkObject != null)
                 {
