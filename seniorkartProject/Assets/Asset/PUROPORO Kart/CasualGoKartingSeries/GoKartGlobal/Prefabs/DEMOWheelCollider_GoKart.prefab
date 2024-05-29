@@ -355,7 +355,7 @@ MonoBehaviour:
   accelerationForce: 11
   brakingForce: 16
   maxSteeringAngle: 24
-  autoDriveDelay: 3
+  autoDriveDelay: 5
   rotationSpeed: 150
   brakeLerpSpeed: 0.75
   accelLerpSpeed: 1

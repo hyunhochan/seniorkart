@@ -23,7 +23,7 @@ namespace PUROPORO
         public float accelerationForce = 11f;
         public float brakingForce = 16f;
         public float maxSteeringAngle = 24f;
-        public float autoDriveDelay = 3f;
+        public float autoDriveDelay = 300f;
         public float rotationSpeed = 150f;
         public float brakeLerpSpeed = 1f; // Variable to control the lerp speed for braking
         public float accelLerpSpeed = 1f; // Variable to control the lerp speed for accelerating
