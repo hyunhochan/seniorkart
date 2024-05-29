@@ -279,9 +279,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &4086257025619103332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -352,15 +352,12 @@ MonoBehaviour:
   inputAcceleration: 0
   inputSteering: 0
   isBraking: 0
-  accelerationForce: 11
-  brakingForce: 16
+  accelerationForce: 10
+  brakingForce: 15
   maxSteeringAngle: 24
   autoDriveDelay: 3
   rotationSpeed: 150
   brakeLerpSpeed: 1
-  accelLerpSpeed: 1
-  turnDecelerationFactor: 0.1
-  recoverySpeed: 1
   buttonSteering: 0
   buttonBrake: 0
   steeringLerpSpeed: 5

@@ -20,15 +20,13 @@ namespace PUROPORO
         private const string c_Vertical = "Vertical";
 
         [Header("Settings")]
-        public float accelerationForce = 11f;
-        public float brakingForce = 16f;
-        public float maxSteeringAngle = 24f;
+        public float accelerationForce = 10f;
+        public float brakingForce = 15f;
+        public float maxSteeringAngle = 25f;
         public float autoDriveDelay = 3f;
         public float rotationSpeed = 150f;
         public float brakeLerpSpeed = 1f; // Variable to control the lerp speed for braking
         public float accelLerpSpeed = 1f; // Variable to control the lerp speed for accelerating
-        public float turnDecelerationFactor = 0.1f; // Factor to reduce acceleration when turning
-        public float recoverySpeed = 1f; // Speed at which acceleration recovers after turning
 
         public float buttonSteering;
         public float buttonBrake;
@@ -177,22 +175,12 @@ namespace PUROPORO
             // Forward/Backward Movement
             if (inputAcceleration > 0)
             {
-                float adjustedAcceleration = inputAcceleration;
-                if (inputSteering != 0)
-                {
-                    adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); // Reduce acceleration when turning proportionally to steering
-                }
-                currentAccelForce = Mathf.Lerp(currentAccelForce, adjustedAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
+                currentAccelForce = Mathf.Lerp(currentAccelForce, inputAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
                 rb.MovePosition(rb.position + moveDirection);
             }
             else if (inputAcceleration < 0)
             {
-                float adjustedAcceleration = inputAcceleration;
-                if (inputSteering != 0)
-                {
-                    adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); // Reduce acceleration when turning proportionally to steering
-                }
-                currentAccelForce = Mathf.Lerp(currentAccelForce, adjustedAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
+                currentAccelForce = Mathf.Lerp(currentAccelForce, inputAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
                 rb.MovePosition(rb.position + moveDirection);
             }
             else
@@ -218,12 +206,6 @@ namespace PUROPORO
                 float turn = inputSteering * maxSteeringAngle * Time.fixedDeltaTime;
                 Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
                 rb.MoveRotation(Quaternion.Lerp(rb.rotation, rb.rotation * turnRotation, rotationSpeed * Time.fixedDeltaTime));
-            }
-
-            // Recovery of acceleration after steering
-            if (inputSteering == 0 && currentAccelForce < accelerationForce)
-            {
-                currentAccelForce = Mathf.Lerp(currentAccelForce, accelerationForce, Time.fixedDeltaTime * recoverySpeed);
             }
         }
 

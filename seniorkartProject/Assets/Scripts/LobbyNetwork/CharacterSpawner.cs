@@ -26,9 +26,6 @@ public class CharacterSpawner : NetworkBehaviour
 
     public static CharacterSpawner Instance { get; private set; }
 
-    private Vector3 previousPosition;
-    public Vector3 Velocity { get; private set; }
-
     private void Awake()
     {
         if (Instance == null)
@@ -107,25 +104,24 @@ public class CharacterSpawner : NetworkBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (localKart == null) return;
 
-        Velocity = (localKart.transform.position - previousPosition) / Time.fixedDeltaTime;
-        previousPosition = localKart.transform.position;
-
-        // 속도의 크기를 구합니다.
-        float speed = Velocity.magnitude * 3.6f;
-        UpdateLocalSpeedUI(speed);
+        var rigidbody = localKart.GetComponent<Rigidbody>();
+        if (rigidbody != null)
+        {
+            float speed = rigidbody.velocity.magnitude * 3.6f;
+            UpdateLocalSpeedUI(speed);
+        }
 
         if (IsServer && timerRunning)
         {
-            elapsedTime += Time.fixedDeltaTime;
+            elapsedTime += Time.deltaTime;
             UpdateTimerUI(elapsedTime);
             SyncTimerClientRpc(elapsedTime);
         }
     }
-
 
     private void UpdateLocalSpeedUI(float speed)
     {
