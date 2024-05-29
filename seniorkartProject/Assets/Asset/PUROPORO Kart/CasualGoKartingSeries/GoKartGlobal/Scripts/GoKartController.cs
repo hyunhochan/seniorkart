@@ -3,8 +3,6 @@ using Unity.Multiplayer.Samples.Utilities.ClientAuthority;
 using Unity.Netcode;
 using Unity.Netcode.Components;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 namespace PUROPORO
 {
@@ -14,17 +12,29 @@ namespace PUROPORO
     {
         [HideInInspector] public float inputAcceleration;
         [HideInInspector] public float inputSteering;
+        [HideInInspector] public float currentSteeringAngle;
+        [HideInInspector] public float currentBrakingForce;
         [HideInInspector] public bool isBraking;
+
+        public enum Drivetrain { FWD, RWD, AWD };
+        public enum Braking { AllWheels, Handbrake };
 
         private const string c_Horizontal = "Horizontal";
         private const string c_Vertical = "Vertical";
 
         [Header("Settings")]
-        public float accelerationForce = 10f;
-        public float brakingForce = 8f;
-        public float maxSteeringAngle = 25f;
+        public Drivetrain drivetrain;
+        public Braking brakingSystem;
+        public float accelerationForce = 1500f;
+        public float brakingForce = 1000f;
+        public float maxSteeringAngle = 30f;
         public float autoDriveDelay = 3f;
-        public float rotationSpeed = 150f;
+
+        [Header("Colliders")]
+        public WheelCollider wheelColliderFL;
+        public WheelCollider wheelColliderFR;
+        public WheelCollider wheelColliderRL;
+        public WheelCollider wheelColliderRR;
 
         public float buttonSteering;
         public float buttonBrake;
@@ -33,9 +43,7 @@ namespace PUROPORO
         public GameObject cameraMountPoint;
         private Camera playerCamera;
 
-        private bool isbrake = false;
         private bool autoDrive = false;
-        public bool isGrounded = false; // 땅에 닿아있는지 여부를 저장
         private Rigidbody rb;
 
         private NetworkTransform networkTransform;
@@ -48,70 +56,7 @@ namespace PUROPORO
             if (IsOwner)
             {
                 SetupCamera();
-                SetupButtonControls();
             }
-        }
-
-        private void SetupButtonControls()
-        {
-            GameObject leftButton = GameObject.Find("Gamepad/Left");
-            GameObject rightButton = GameObject.Find("Gamepad/Right");
-            GameObject brakeButton = GameObject.Find("Gamepad/brake");
-
-            if (leftButton != null && rightButton != null && brakeButton != null)
-            {
-                EventTrigger leftTrigger = leftButton.AddComponent<EventTrigger>();
-                EventTrigger.Entry leftPressEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
-                leftPressEntry.callback.AddListener((data) => { OnLeftButtonPress(); });
-                leftTrigger.triggers.Add(leftPressEntry);
-
-                EventTrigger.Entry leftReleaseEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerUp };
-                leftReleaseEntry.callback.AddListener((data) => { OnButtonRelease(); });
-                leftTrigger.triggers.Add(leftReleaseEntry);
-
-                EventTrigger rightTrigger = rightButton.AddComponent<EventTrigger>();
-                EventTrigger.Entry rightPressEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
-                rightPressEntry.callback.AddListener((data) => { OnRightButtonPress(); });
-                rightTrigger.triggers.Add(rightPressEntry);
-
-                EventTrigger.Entry rightReleaseEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerUp };
-                rightReleaseEntry.callback.AddListener((data) => { OnButtonRelease(); });
-                rightTrigger.triggers.Add(rightReleaseEntry);
-
-                EventTrigger brakeTrigger = brakeButton.AddComponent<EventTrigger>();
-                EventTrigger.Entry brakePressEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
-                brakePressEntry.callback.AddListener((data) => { OnBrakeButtonPress(); });
-                brakeTrigger.triggers.Add(brakePressEntry);
-
-                EventTrigger.Entry brakeReleaseEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerUp };
-                brakeReleaseEntry.callback.AddListener((data) => { OnBrakeButtonRelease(); });
-                brakeTrigger.triggers.Add(brakeReleaseEntry);
-            }
-        }
-
-        private void OnLeftButtonPress()
-        {
-            buttonSteering = -1f;
-        }
-
-        private void OnRightButtonPress()
-        {
-            buttonSteering = 1f;
-        }
-
-        private void OnButtonRelease()
-        {
-            buttonSteering = 0f;
-        }
-
-        private void OnBrakeButtonPress()
-        {
-            isbrake = true;
-        }
-
-        private void OnBrakeButtonRelease()
-        {
-            isbrake = false;
         }
 
         private IEnumerator StartAutoDriveAfterDelay()
@@ -127,31 +72,24 @@ namespace PUROPORO
                 GetInput();
                 HandleButtonInput();
 
-                if (isGrounded)
-                {
-                    // 땅에 닿아있을 때만 움직임 처리
-                    if (autoDrive)
-                    {
-                        inputAcceleration = 1f; // 자동 전진
-                    }
+                // 클라이언트 예측: 입력을 즉시 반영
+                HandleAcceleration(inputAcceleration);
+                HandleSteering(inputSteering);
+                HandleBraking(isBraking);
 
-                    HandleMovement(inputAcceleration, inputSteering, isBraking);
-
-                    // 서버에 입력을 보내는 코드 추가
-                    SendInputToServer();
-                }
+                // 서버에 입력을 보내는 코드 추가
+                SendInputToServer();
             }
         }
-
 
         private void Update()
         {
             if (IsOwner)
             {
-                // if (Input.GetKeyDown(KeyCode.R))
-                // {
-                //     RespawnAtCheckpoint();
-                // }
+                //if (Input.GetKeyDown(KeyCode.R))
+                //{
+                //    RespawnAtCheckpoint();
+                //}
             }
         }
 
@@ -167,29 +105,54 @@ namespace PUROPORO
             inputSteering = Mathf.Clamp(inputSteering, -1f, 1f);
         }
 
-        private void HandleMovement(float inputAcceleration, float inputSteering, bool isBraking)
+        private void HandleBraking(bool isBraking)
         {
-            Vector3 moveDirection = transform.forward * inputAcceleration * accelerationForce * Time.fixedDeltaTime;
-
-            // Forward/Backward Movement
-            if (inputAcceleration != 0)
+            currentBrakingForce = isBraking ? brakingForce : 0f;
+            switch (brakingSystem)
             {
-                rb.MovePosition(rb.position + moveDirection);
+                case Braking.AllWheels:
+                    wheelColliderFL.brakeTorque = currentBrakingForce;
+                    wheelColliderFR.brakeTorque = currentBrakingForce;
+                    wheelColliderRL.brakeTorque = currentBrakingForce;
+                    wheelColliderRR.brakeTorque = currentBrakingForce;
+                    break;
+                case Braking.Handbrake:
+                    wheelColliderRL.brakeTorque = currentBrakingForce;
+                    wheelColliderRR.brakeTorque = currentBrakingForce;
+                    break;
+                default:
+                    break;
             }
+        }
 
-            // Braking
-            if (isbrake)
+        private void HandleAcceleration(float inputAcceleration)
+        {
+            switch (drivetrain)
             {
-                rb.MovePosition(rb.position - moveDirection / 2);
+                case Drivetrain.FWD:
+                    wheelColliderFL.motorTorque = inputAcceleration * accelerationForce;
+                    wheelColliderFR.motorTorque = inputAcceleration * accelerationForce;
+                    break;
+                case Drivetrain.RWD:
+                    wheelColliderRL.motorTorque = inputAcceleration * accelerationForce;
+                    wheelColliderRR.motorTorque = inputAcceleration * accelerationForce;
+                    break;
+                case Drivetrain.AWD:
+                    wheelColliderFL.motorTorque = inputAcceleration * accelerationForce;
+                    wheelColliderFR.motorTorque = inputAcceleration * accelerationForce;
+                    wheelColliderRL.motorTorque = inputAcceleration * accelerationForce;
+                    wheelColliderRR.motorTorque = inputAcceleration * accelerationForce;
+                    break;
+                default:
+                    break;
             }
+        }
 
-            // Steering
-            if (inputSteering != 0)
-            {
-                float turn = inputSteering * maxSteeringAngle * Time.fixedDeltaTime;
-                Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-                rb.MoveRotation(Quaternion.Lerp(rb.rotation, rb.rotation * turnRotation, rotationSpeed * Time.fixedDeltaTime));
-            }
+        private void HandleSteering(float inputSteering)
+        {
+            currentSteeringAngle = maxSteeringAngle * inputSteering;
+            wheelColliderFL.steerAngle = currentSteeringAngle;
+            wheelColliderFR.steerAngle = currentSteeringAngle;
         }
 
         private void SendInputToServer()
@@ -208,7 +171,9 @@ namespace PUROPORO
         private void SubmitInputServerRpc(KartInput input)
         {
             // 서버에서 입력을 처리하고 클라이언트의 상태를 보정
-            HandleMovement(input.Acceleration, input.Steering, input.IsBraking);
+            HandleAcceleration(input.Acceleration);
+            HandleSteering(input.Steering);
+            HandleBraking(input.IsBraking);
         }
 
         private void SetupCamera()
@@ -227,6 +192,22 @@ namespace PUROPORO
             var cameraFollow = playerCamera.gameObject.AddComponent<CameraFollowBehind>();
             cameraFollow.SetTarget(cameraMountPoint.transform);
         }
+        /*
+        private void RespawnAtCheckpoint()
+        {
+            Transform checkpointTransform = RaceManager.Instance.GetPlayerCheckpointTransform(gameObject);
+            if (checkpointTransform != null)
+            {
+                transform.position = checkpointTransform.position;
+                transform.rotation = checkpointTransform.rotation;
+                Rigidbody rb = GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
+            }
+        }*/
 
         private void ServerReconciliation()
         {
@@ -249,34 +230,6 @@ namespace PUROPORO
                         }
                     }
                 }
-            }
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            // 태그가 "Ground"인 오브젝트와 닿았을 때
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                isGrounded = true;
-                Debug.Log("Grounded");
-            }
-        }
-
-        private void OnCollisionStay(Collision collision)
-        {
-            // 태그가 "Ground"인 오브젝트와 닿아있을 때
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                isGrounded = true;
-            }
-        }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            // 태그가 "Ground"인 오브젝트에서 떨어졌을 때
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                isGrounded = false;
             }
         }
     }
