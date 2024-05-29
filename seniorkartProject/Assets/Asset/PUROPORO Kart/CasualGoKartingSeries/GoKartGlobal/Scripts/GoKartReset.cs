@@ -69,13 +69,6 @@ namespace PUROPORO
             {
                 m_AudioPitch.ResetGoKart();
             }
-
-            // GoKartController의 ResetKart 호출
-            var kartController = GetComponent<GoKartController>();
-            if (kartController != null)
-            {
-                kartController.ResetKart();
-            }
         }
     }
 }
