@@ -15,8 +15,8 @@ public class RaceManager : NetworkBehaviour
     private Dictionary<GameObject, HashSet<int>> playerPassedCheckpoints = new Dictionary<GameObject, HashSet<int>>();
     private Dictionary<GameObject, float> playerFinishTimes = new Dictionary<GameObject, float>();
 
-    public GameObject RaceResultUI; // 결과 창 UI
-    public TextMeshProUGUI countdownText; // 10초 카운트다운 텍스트
+    public GameObject RaceResultUI; // ???? ?? UI
+    public TextMeshProUGUI countdownText; // 10?? ?????????? ??????
     private bool IsCountdownStarted = false;
 
     private void Awake()
@@ -101,7 +101,7 @@ public class RaceManager : NetworkBehaviour
 
         PlayerFinishedClientRpc(clientId, finishTime);
 
-        // 첫 번째 플레이어가 결승점을 통과할 때 카운트다운 시작
+        // ?? ???? ?????????? ???????? ?????? ?? ?????????? ????
         if (!IsCountdownStarted)
         {
             IsCountdownStarted = true;
