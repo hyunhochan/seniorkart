@@ -33,6 +33,8 @@ namespace PUROPORO
         public float buttonSteering;
         public float buttonBrake;
         public float steeringLerpSpeed = 2f; // Variable to control the lerp speed for steering
+        public float rotationRecoverySpeed = 1f; // Speed at which z-rotation recovers
+
 
         [Header("Camera")]
         public GameObject cameraMountPoint;
@@ -124,6 +126,7 @@ namespace PUROPORO
         private IEnumerator StartAutoDriveAfterDelay()
         {
             yield return new WaitForSeconds(autoDriveDelay);
+            currentAccelForce = 0;
             autoDrive = true;
         }
 
@@ -147,6 +150,8 @@ namespace PUROPORO
                     // Send input to the server
                     SendInputToServer();
                 }
+                // Always recover Z rotation towards 0
+                RecoverZRotation();
             }
         }
 
@@ -156,6 +161,14 @@ namespace PUROPORO
             {
                 // Additional update logic for the owner
             }
+        }
+
+
+        private void RecoverZRotation()
+        {
+            Quaternion currentRotation = rb.rotation;
+            Quaternion targetRotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y, 0);
+            rb.MoveRotation(Quaternion.Lerp(currentRotation, targetRotation, Time.fixedDeltaTime * rotationRecoverySpeed));
         }
 
         private void GetInput()
@@ -304,6 +317,20 @@ namespace PUROPORO
                 isGrounded = true;
                 Debug.Log("Grounded");
             }
+            // 태그가 "Wall"인 오브젝트와 닿았을 때
+            else if (collision.gameObject.CompareTag("Wall"))
+            {
+                // 충돌 처리:
+
+                currentAccelForce = currentAccelForce * 0.5f; // 가속도를 0으로
+            }
+            else if (collision.gameObject.CompareTag("Fence"))
+            {
+                // 충돌 처리:
+
+                currentAccelForce = currentAccelForce*0.7f; // 가속도를 0으로
+            }
+
         }
 
         private void OnCollisionStay(Collision collision)
@@ -312,6 +339,17 @@ namespace PUROPORO
             if (collision.gameObject.CompareTag("Ground"))
             {
                 isGrounded = true;
+            }
+            else if (collision.gameObject.CompareTag("Wall"))
+            {
+                currentAccelForce = currentAccelForce * 0.8f; // 가속도를 0으로
+
+            }
+            else if (collision.gameObject.CompareTag("Fence"))
+            {
+                // 충돌 처리:
+
+                currentAccelForce = currentAccelForce * 0.95f; // 가속도를 점진적으로 죽임
             }
         }
 
