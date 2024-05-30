@@ -42,36 +42,50 @@ public class CharacterSpawner : NetworkBehaviour
     {
         if (IsServer)
         {
-            int i = 0;
-            foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
-            {
-                if (i >= spawnPositions.Length) break;
-
-                var spawnPos = spawnPositions[i++];
-
-                GameObject kart = Instantiate(kartPrefab, spawnPos, Quaternion.identity);
-                NetworkObject kartNetworkObject = kart.GetComponent<NetworkObject>();
-                if (kartNetworkObject != null)
-                {
-                    kartNetworkObject.SpawnAsPlayerObject(client.ClientId);
-                    karts.Add(kart);
-
-                    if (client.ClientId == NetworkManager.Singleton.LocalClientId)
-                    {
-                        localKart = kart;
-                        InitializeLocalKartAudioListener(localKart);
-                    }
-                }
-
-                InitializeRigidbody(kart);
-            }
-
-            StartCoroutine(StartTimer());
+            StartCoroutine(CountdownAndSpawnKarts());
         }
         else
         {
             StartCoroutine(FindLocalKart());
         }
+    }
+
+    private IEnumerator CountdownAndSpawnKarts()
+    {
+        float countdown = 10f;
+        while (countdown > 0)
+        {
+            
+            countdown -= Time.deltaTime;
+            yield return null;
+        }
+
+
+        int i = 0;
+        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+        {
+            if (i >= spawnPositions.Length) break;
+
+            var spawnPos = spawnPositions[i++];
+
+            GameObject kart = Instantiate(kartPrefab, spawnPos, Quaternion.identity);
+            NetworkObject kartNetworkObject = kart.GetComponent<NetworkObject>();
+            if (kartNetworkObject != null)
+            {
+                kartNetworkObject.SpawnAsPlayerObject(client.ClientId);
+                karts.Add(kart);
+
+                if (client.ClientId == NetworkManager.Singleton.LocalClientId)
+                {
+                    localKart = kart;
+                    InitializeLocalKartAudioListener(localKart);
+                }
+            }
+
+            InitializeRigidbody(kart);
+        }
+
+        StartCoroutine(StartTimer());
     }
 
     private IEnumerator FindLocalKart()

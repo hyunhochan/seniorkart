@@ -17,7 +17,11 @@ public class RaceManager : NetworkBehaviour
 
     public GameObject RaceResultUI; // 결과 창 UI
     public TextMeshProUGUI countdownText; // 10초 카운트다운 텍스트
-    private bool IsCountdownStarted = false;
+
+    public GameObject PlayerResultPrefab; // 플레이어 결과 프리팹
+    public Transform ResultsContainer; // 결과를 담을 컨테이너
+
+    private bool IsCountdownStarted = false; // 카운트다운 시작 여부
 
     private void Awake()
     {
@@ -140,8 +144,46 @@ public class RaceManager : NetworkBehaviour
         }
 
         Debug.Log("Showing race results");
+        ShowRaceResults(); // 결과창 업데이트
         RaceResultUI.SetActive(true);
         countdownText.gameObject.SetActive(false);
+    }
+
+    private void ShowRaceResults()
+    {
+        // 기존 결과 클리어
+        foreach (Transform child in ResultsContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        List<KeyValuePair<GameObject, float>> sortedPlayers = new List<KeyValuePair<GameObject, float>>(playerFinishTimes);
+        sortedPlayers.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
+
+        foreach (var playerRecord in sortedPlayers)
+        {
+            GameObject player = playerRecord.Key;
+            float finishTime = playerRecord.Value;
+
+            GameObject resultEntry = Instantiate(PlayerResultPrefab, ResultsContainer);
+            TextMeshProUGUI playerNameText = resultEntry.transform.Find("CharName").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI playerTimeText = resultEntry.transform.Find("FinalRecord").GetComponent<TextMeshProUGUI>();
+
+            var networkObject = player.GetComponent<NetworkObject>();
+            if (networkObject != null)
+            {
+                playerNameText.text = "Player " + networkObject.OwnerClientId;
+            }
+
+            if (playerFinished[player])
+            {
+                playerTimeText.text = $"{finishTime:F2} seconds";
+            }
+            else
+            {
+                playerTimeText.text = "탈락";
+            }
+        }
     }
 
     private bool AllPlayersFinished()

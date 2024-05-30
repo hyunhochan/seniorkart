@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4086257024477109968
 Transform:
   m_ObjectHideFlags: 0
@@ -221,10 +221,10 @@ GameObject:
   - component: {fileID: 4086257025619103332}
   - component: {fileID: 7529893177884575378}
   - component: {fileID: 4086257025619103338}
+  - component: {fileID: 6304259357467997618}
   - component: {fileID: 4086257025619103334}
   - component: {fileID: 114379150990462451}
   - component: {fileID: 2544692133701483075}
-  - component: {fileID: 6304259357467997618}
   - component: {fileID: 5960711470118373494}
   - component: {fileID: 509122051952923898}
   - component: {fileID: 1894681145618279025}
@@ -263,7 +263,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4086257025619103329}
   serializedVersion: 4
-  m_Mass: 4000
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -299,10 +299,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 0.9, z: 3}
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!64 &7529893177884575378
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -337,6 +337,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a5adae8e27c47e1bb9e5bcc0cfce7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6304259357467997618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086257025619103329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3610682862
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &4086257025619103334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,22 +372,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputAcceleration: 0
   inputSteering: 0
-  currentSteeringAngle: 0
-  currentBrakingForce: 0
   isBraking: 0
-  drivetrain: 2
-  brakingSystem: 0
-  accelerationForce: 1500
-  brakingForce: 1000
-  maxSteeringAngle: 30
-  autoDriveDelay: 3
-  wheelColliderFL: {fileID: 4086257025834455475}
-  wheelColliderFR: {fileID: 4086257024868392116}
-  wheelColliderRL: {fileID: 4086257024249116061}
-  wheelColliderRR: {fileID: 4086257025726339872}
+  accelerationForce: 11
+  brakingForce: 16
+  maxSteeringAngle: 24
+  autoDriveDelay: 5
+  rotationSpeed: 150
+  brakeLerpSpeed: 0.75
+  accelLerpSpeed: 1
+  turnDecelerationFactor: 0.1
+  recoverySpeed: 1
   buttonSteering: 0
   buttonBrake: 0
+  steeringLerpSpeed: 5
+  rotationRecoverySpeed: 1
   cameraMountPoint: {fileID: 4086257024401464773}
+  isGrounded: 0
+  currentBrakeForce: 0
+  currentAccelForce: 0
 --- !u!114 &114379150990462451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,22 +474,6 @@ MonoBehaviour:
   m_VisualWheelRL: {fileID: 1209321745359876061}
   m_VisualWheelRR: {fileID: 1213685556881481124}
   m_VisualSteeringWheel: {fileID: 7517704327996019958}
---- !u!114 &6304259357467997618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4086257025619103329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &5960711470118373494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f223fb3304720648a28dce0404a9d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
   SyncPositionX: 1
   SyncPositionY: 1
   SyncPositionZ: 1
@@ -600,8 +608,12 @@ MonoBehaviour:
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 1
+  SlerpPosition: 0
 --- !u!114 &2754667931004486874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,7 +629,7 @@ MonoBehaviour:
   currentCheckpoint: -1
   totalDistance: 0
   distanceToNextCheckpoint: 0
-  cameraMountPosition: {x: 0, y: 30, z: 0}
+  cameraMountPosition: {x: 0, y: 60, z: 0}
   orthographicSize: 50
   ResultUI: {fileID: 0}
 --- !u!1 &4086257025726339875
