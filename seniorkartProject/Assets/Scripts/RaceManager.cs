@@ -15,13 +15,13 @@ public class RaceManager : NetworkBehaviour
     private Dictionary<GameObject, HashSet<int>> playerPassedCheckpoints = new Dictionary<GameObject, HashSet<int>>();
     private Dictionary<GameObject, float> playerFinishTimes = new Dictionary<GameObject, float>();
 
-    public GameObject RaceResultUI; // 결과 창 UI
-    public TextMeshProUGUI countdownText; // 10초 카운트다운 텍스트
+    public GameObject RaceResultUI; // ???? ?? UI
+    public TextMeshProUGUI countdownText; // 10?? ?????????? ??????
 
-    public GameObject PlayerResultPrefab; // 플레이어 결과 프리팹
-    public Transform ResultsContainer; // 결과를 담을 컨테이너
+    public GameObject PlayerResultPrefab; // ???????? ???? ??????
+    public Transform ResultsContainer; // ?????? ???? ????????
 
-    private bool IsCountdownStarted = false; // 카운트다운 시작 여부
+    private bool IsCountdownStarted = false; // ?????????? ???? ????
 
     private void Awake()
     {
@@ -105,7 +105,7 @@ public class RaceManager : NetworkBehaviour
 
         PlayerFinishedClientRpc(clientId, finishTime);
 
-        // 첫 번째 플레이어가 결승점을 통과할 때 카운트다운 시작
+        // ?? ???? ?????????? ???????? ?????? ?? ?????????? ????
         if (!IsCountdownStarted)
         {
             IsCountdownStarted = true;
@@ -137,6 +137,7 @@ public class RaceManager : NetworkBehaviour
         float countdown = delay;
         while (countdown > 0)
         {
+            countdownText.gameObject.SetActive(true);
             Debug.Log($"Countdown: {countdown}");
             countdownText.text = $"Results in {countdown:F0} seconds";
             yield return new WaitForSeconds(1f);
@@ -144,14 +145,14 @@ public class RaceManager : NetworkBehaviour
         }
 
         Debug.Log("Showing race results");
-        ShowRaceResults(); // 결과창 업데이트
+        ShowRaceResults(); // ?????? ????????
         RaceResultUI.SetActive(true);
         countdownText.gameObject.SetActive(false);
     }
 
     private void ShowRaceResults()
     {
-        // 기존 결과 클리어
+        // ???? ???? ??????
         foreach (Transform child in ResultsContainer)
         {
             Destroy(child.gameObject);
@@ -181,7 +182,7 @@ public class RaceManager : NetworkBehaviour
             }
             else
             {
-                playerTimeText.text = "탈락";
+                playerTimeText.text = "????";
             }
         }
     }

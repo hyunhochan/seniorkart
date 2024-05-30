@@ -368,14 +368,14 @@ MonoBehaviour:
   inputAcceleration: 0
   inputSteering: 0
   isBraking: 0
-  accelerationForce: 22
-  brakingForce: 32
+  accelerationForce: 100
+  brakingForce: 200
   maxSteeringAngle: 24
   autoDriveDelay: 5
   rotationSpeed: 300
   brakeLerpSpeed: 0.75
   accelLerpSpeed: 1
-  turnDecelerationFactor: 0.1
+  turnDecelerationFactor: 0.2
   recoverySpeed: 1
   buttonSteering: 0
   buttonBrake: 0
