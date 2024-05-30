@@ -16,6 +16,7 @@ public class CharacterSpawner : NetworkBehaviour
     public GameObject RaceResultUI; // 추가: 결과 창 UI
     public Image tacoBack;
     public Image tackLineBack;
+    public GameObject checkmyspeed; // 추가: SpeedManager가 붙어있는 오브젝트
 
     private List<GameObject> karts = new List<GameObject>();
     private const float maxSpeed = 150f;
@@ -23,11 +24,10 @@ public class CharacterSpawner : NetworkBehaviour
 
     private float elapsedTime = 0f;
     private bool timerRunning = false;
+    public float speedtest;
 
     public static CharacterSpawner Instance { get; private set; }
 
-    private Vector3 previousPosition;
-    public Vector3 Velocity { get; private set; }
 
     private void Awake()
     {
@@ -55,10 +55,10 @@ public class CharacterSpawner : NetworkBehaviour
 
     private IEnumerator CountdownAndSpawnKarts()
     {
-        float countdown = 10f;
+        float countdown = 6f;
         while (countdown > 0)
         {
-            
+
             countdown -= Time.deltaTime;
             yield return null;
         }
@@ -81,8 +81,9 @@ public class CharacterSpawner : NetworkBehaviour
                 if (client.ClientId == NetworkManager.Singleton.LocalClientId)
                 {
                     localKart = kart;
+                    //audiopitch = localKart.GetComponent<audioPitch>();
                     InitializeLocalKartAudioListener(localKart);
-                    previousPosition = localKart.transform.position; // 초기화 추가
+
 
                 }
             }
@@ -104,7 +105,7 @@ public class CharacterSpawner : NetworkBehaviour
                     localKart = kart.gameObject;
                     InitializeRigidbody(localKart);
                     InitializeLocalKartAudioListener(localKart);
-                    previousPosition = localKart.transform.position; // 초기화 추가
+                    //audiopitch = localKart.GetComponent<audioPitch>();
                     break;
                 }
             }
@@ -127,14 +128,12 @@ public class CharacterSpawner : NetworkBehaviour
     private void FixedUpdate()
     {
         if (localKart == null) return;
-
-        Velocity = (localKart.transform.position - previousPosition) / Time.fixedDeltaTime;
-        previousPosition = localKart.transform.position;
-
-        // 속도의 크기를 구합니다.
-        float speed = Velocity.magnitude * 3.6f;
-        UpdateLocalSpeedUI(speed);
-
+        var speedManager = checkmyspeed.GetComponent<SpeedManager>();
+        if (speedManager != null)
+        {
+            speedtest = speedManager.speed;
+            UpdateLocalSpeedUI(speedManager.speed);
+        }
         if (IsServer && timerRunning)
         {
             elapsedTime += Time.fixedDeltaTime;

@@ -166,12 +166,7 @@ namespace PUROPORO
         }
         private void FixedUpdate()
         {
-            if (IsHost && HostDelay)
-            {
-                HostDelay = false;
-                return;
-            }
-            if (IsOwner && !HostDelay)
+            if (IsOwner)
             {
                 GetInput();
                 HandleButtonInput();
@@ -187,14 +182,10 @@ namespace PUROPORO
                     HandleMovement(inputAcceleration, inputSteering, isBraking);
 
                     // Send input to the server
-                    SendInputToServer();
+                    //SendInputToServer();
                 }
                 // Always recover Z rotation towards 0
                 RecoverZRotation();
-                if (IsHost)
-                {
-                    HostDelay = true;
-                }
             }
         }
 
@@ -352,10 +343,12 @@ namespace PUROPORO
             }
         }
 
+
+
         private void OnCollisionEnter(Collision collision)
         {
-            // 태그가 "Ground"인 오브젝트와 닿았을 때
-            if (collision.gameObject.CompareTag("Ground"))
+            // 태그가 "Ground" 또는 "Grass"인 오브젝트와 닿았을 때
+            if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Grass"))
             {
                 isGrounded = true;
                 Debug.Log("Grounded");
@@ -378,8 +371,8 @@ namespace PUROPORO
 
         private void OnCollisionStay(Collision collision)
         {
-            // 태그가 "Ground"인 오브젝트와 닿아있을 때
-            if (collision.gameObject.CompareTag("Ground"))
+            // 태그가 "Ground" 또는 "Gress"인 오브젝트와 닿았을 때
+            if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Grass"))
             {
                 isGrounded = true;
             }
