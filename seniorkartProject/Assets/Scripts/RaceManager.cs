@@ -15,13 +15,13 @@ public class RaceManager : NetworkBehaviour
     private Dictionary<GameObject, HashSet<int>> playerPassedCheckpoints = new Dictionary<GameObject, HashSet<int>>();
     private Dictionary<GameObject, float> playerFinishTimes = new Dictionary<GameObject, float>();
 
-    public GameObject RaceResultUI; // ???? ?? UI
-    public TextMeshProUGUI countdownText; // 10?? ?????????? ??????
+    public GameObject RaceResultUI; // 경주 결과 UI
+    public TextMeshProUGUI countdownText; // 10초 카운트다운 텍스트
 
-    public GameObject PlayerResultPrefab; // ???????? ???? ??????
-    public Transform ResultsContainer; // ?????? ???? ????????
+    public GameObject PlayerResultPrefab; // 플레이어 결과 프리팹
+    public Transform ResultsContainer; // 결과를 표시할 컨테이너
 
-    private bool IsCountdownStarted = false; // ?????????? ???? ????
+    private bool IsCountdownStarted = false; // 카운트다운 시작 여부
 
     private void Awake()
     {
@@ -105,7 +105,7 @@ public class RaceManager : NetworkBehaviour
 
         PlayerFinishedClientRpc(clientId, finishTime);
 
-        // ?? ???? ?????????? ???????? ?????? ?? ?????????? ????
+        // 첫 번째 플레이어가 결승선에 도착하면 카운트다운을 시작
         if (!IsCountdownStarted)
         {
             IsCountdownStarted = true;
@@ -145,14 +145,14 @@ public class RaceManager : NetworkBehaviour
         }
 
         Debug.Log("Showing race results");
-        ShowRaceResults(); // ?????? ????????
+        ShowRaceResults(); // 결과 표시
         RaceResultUI.SetActive(true);
         countdownText.gameObject.SetActive(false);
     }
 
     private void ShowRaceResults()
     {
-        // ???? ???? ??????
+        // 결과 UI 초기화
         foreach (Transform child in ResultsContainer)
         {
             Destroy(child.gameObject);
@@ -161,14 +161,17 @@ public class RaceManager : NetworkBehaviour
         List<KeyValuePair<GameObject, float>> sortedPlayers = new List<KeyValuePair<GameObject, float>>(playerFinishTimes);
         sortedPlayers.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
 
+        int rank = 1;
         foreach (var playerRecord in sortedPlayers)
         {
             GameObject player = playerRecord.Key;
             float finishTime = playerRecord.Value;
 
             GameObject resultEntry = Instantiate(PlayerResultPrefab, ResultsContainer);
+            resultEntry.transform.localPosition = new Vector3(0, -rank * 50, 0); // 순위에 따라 아래로 배치
             TextMeshProUGUI playerNameText = resultEntry.transform.Find("CharName").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI playerTimeText = resultEntry.transform.Find("FinalRecord").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI playerRankText = resultEntry.transform.Find("Rank").GetComponent<TextMeshProUGUI>();
 
             var networkObject = player.GetComponent<NetworkObject>();
             if (networkObject != null)
@@ -176,13 +179,41 @@ public class RaceManager : NetworkBehaviour
                 playerNameText.text = "Player " + networkObject.OwnerClientId;
             }
 
-            if (playerFinished[player])
+            playerRankText.text = rank + "위";
+
+            if (playerFinished.ContainsKey(player) && playerFinished[player])
             {
                 playerTimeText.text = $"{finishTime:F2} seconds";
             }
             else
             {
-                playerTimeText.text = "????";
+                playerTimeText.text = "완주실패";
+            }
+
+            rank++;
+        }
+
+        // 타임아웃된 플레이어 추가
+        foreach (var player in playerCheckpoints.Keys)
+        {
+            if (!playerFinishTimes.ContainsKey(player))
+            {
+                GameObject resultEntry = Instantiate(PlayerResultPrefab, ResultsContainer);
+                resultEntry.transform.localPosition = new Vector3(0, -rank * 50, 0); // 순위에 따라 아래로 배치
+                TextMeshProUGUI playerNameText = resultEntry.transform.Find("CharName").GetComponent<TextMeshProUGUI>();
+                TextMeshProUGUI playerTimeText = resultEntry.transform.Find("FinalRecord").GetComponent<TextMeshProUGUI>();
+                TextMeshProUGUI playerRankText = resultEntry.transform.Find("Rank").GetComponent<TextMeshProUGUI>();
+
+                var networkObject = player.GetComponent<NetworkObject>();
+                if (networkObject != null)
+                {
+                    playerNameText.text = "Player " + networkObject.OwnerClientId;
+                }
+
+                playerRankText.text = rank + "위";
+                playerTimeText.text = "완주실패";
+
+                rank++;
             }
         }
     }
