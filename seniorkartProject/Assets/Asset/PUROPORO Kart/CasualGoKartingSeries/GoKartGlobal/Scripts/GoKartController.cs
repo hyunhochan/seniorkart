@@ -54,22 +54,15 @@ namespace PUROPORO
         {
             rb = GetComponent<Rigidbody>();
             networkTransform = GetComponent<NetworkTransform>();
-            StartCoroutine(StartAutoDriveAfterDelay());
+            //StartCoroutine(StartAutoDriveAfterDelay());
+            currentAccelForce = 0;
+            autoDrive = true;
             if (IsOwner)
             {
                 SetupCamera();
-                StartCoroutine(SetupButtonControlsWithDelay());
+                SetupButtonControls();
             }
         }
-
-        private IEnumerator SetupButtonControlsWithDelay()
-        {
-            yield return new WaitForSeconds(4f); // 3초 기다림
-
-            SetupButtonControls();
-            Debug.Log("button found.");
-        }
-
         private void SetupButtonControls()
         {
 

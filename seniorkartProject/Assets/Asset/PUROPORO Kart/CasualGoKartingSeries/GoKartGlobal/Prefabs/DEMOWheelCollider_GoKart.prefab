@@ -349,13 +349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3610682862
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
 --- !u!114 &4086257025619103334
@@ -373,11 +368,11 @@ MonoBehaviour:
   inputAcceleration: 0
   inputSteering: 0
   isBraking: 0
-  accelerationForce: 11
-  brakingForce: 16
+  accelerationForce: 22
+  brakingForce: 32
   maxSteeringAngle: 24
   autoDriveDelay: 5
-  rotationSpeed: 150
+  rotationSpeed: 300
   brakeLerpSpeed: 0.75
   accelLerpSpeed: 1
   turnDecelerationFactor: 0.1
@@ -595,7 +590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f223fb3304720648a28dce0404a9d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseUnreliableDeltas: 0
   SyncPositionX: 1
   SyncPositionY: 1
   SyncPositionZ: 1
@@ -608,12 +602,8 @@ MonoBehaviour:
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 1
-  SlerpPosition: 0
 --- !u!114 &2754667931004486874
 MonoBehaviour:
   m_ObjectHideFlags: 0
