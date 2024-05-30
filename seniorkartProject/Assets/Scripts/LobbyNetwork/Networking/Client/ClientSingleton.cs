@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Unity.Netcode;
 using UnityEngine;
 
 public class ClientSingleton : MonoBehaviour
@@ -54,5 +55,14 @@ public class ClientSingleton : MonoBehaviour
     private void OnDestroy()
     {
         gameManager?.Dispose();
+    }
+    public void Shutdown()
+    {
+        // 클라이언트 관련 종료 처리
+        if (NetworkManager.Singleton.IsClient)
+        {
+            NetworkManager.Singleton.Shutdown();
+            Destroy(gameObject);
+        }
     }
 }
