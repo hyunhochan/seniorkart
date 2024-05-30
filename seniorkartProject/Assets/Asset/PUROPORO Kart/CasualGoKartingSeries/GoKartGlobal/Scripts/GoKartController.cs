@@ -360,7 +360,7 @@ namespace PUROPORO
 
                 currentAccelForce = currentAccelForce * 0.5f; // 가속도를 0으로
             }
-            else if (collision.gameObject.CompareTag("Fence"))
+            else if (collision.gameObject.CompareTag("Fence") || collision.gameObject.CompareTag("Player")) 
             {
                 // 충돌 처리:
 
@@ -381,7 +381,7 @@ namespace PUROPORO
                 currentAccelForce = currentAccelForce * 0.8f; // 가속도를 0으로
 
             }
-            else if (collision.gameObject.CompareTag("Fence"))
+            else if (collision.gameObject.CompareTag("Fence") || collision.gameObject.CompareTag("Player"))
             {
                 // 충돌 처리:
 
