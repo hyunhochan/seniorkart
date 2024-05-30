@@ -20,15 +20,15 @@ namespace PUROPORO
         private const string c_Vertical = "Vertical";
 
         [Header("Settings")]
-        public float accelerationForce = 11f;
-        public float brakingForce = 16f;
-        public float maxSteeringAngle = 24f;
-        public float autoDriveDelay = 300f;
-        public float rotationSpeed = 150f;
-        public float brakeLerpSpeed = 1f; // Variable to control the lerp speed for braking
-        public float accelLerpSpeed = 1f; // Variable to control the lerp speed for accelerating
-        public float turnDecelerationFactor = 0.1f; // Factor to reduce acceleration when turning
-        public float recoverySpeed = 1f; // Speed at which acceleration recovers after turning
+        private float accelerationForce;
+        private float brakingForce;
+        private float maxSteeringAngle;
+        private float autoDriveDelay;
+        private float rotationSpeed;
+        public float brakeLerpSpeed; // Variable to control the lerp speed for braking
+        private float accelLerpSpeed; // Variable to control the lerp speed for accelerating
+        private float turnDecelerationFactor; // Factor to reduce acceleration when turning
+        private float recoverySpeed; // Speed at which acceleration recovers after turning
 
         public float buttonSteering;
         public float buttonBrake;
@@ -48,8 +48,12 @@ namespace PUROPORO
         private Rigidbody rb;
         public float currentBrakeForce = 0f; // Variable to track the current braking force
         public float currentAccelForce = 0f; // Variable to track the current acceleration force
+        private bool resetandbeforelanding; // to prevent acceling in the air right after resetting
+        private int mapnumber;
 
         private NetworkTransform networkTransform;
+
+        private bool ableBoost = true;
 
         private void Start()
         {
@@ -63,6 +67,41 @@ namespace PUROPORO
                 SetupCamera();
                 SetupButtonControls();
             }
+
+
+            GameObject boostButton = GameObject.Find("Gamepad/boost");
+            Image buttonImage = boostButton.GetComponent<Image>();
+                buttonImage.fillAmount = 0;
+
+                GameObject mapcheck = GameObject.Find("MapCheck");
+                mapnumber = mapcheck.GetComponent<WhichMap>().MapNumber;
+            switch (mapnumber)
+            {
+                case 0:
+                    accelerationForce = 25f;
+                    brakingForce = 40f;
+                    maxSteeringAngle = 40f;
+                    autoDriveDelay = 5f;
+                    rotationSpeed = 400f;
+                    brakeLerpSpeed = 0.75f;
+                    accelLerpSpeed = 1f;
+                    turnDecelerationFactor = 0.2f;
+                    recoverySpeed = 1f;
+                    break;
+                case 1:
+                    accelerationForce = 35f;
+                    brakingForce = 60f;
+                    maxSteeringAngle = 50f;
+                    autoDriveDelay = 5f;
+                    rotationSpeed = 600f;
+                    brakeLerpSpeed = 0.75f;
+                    accelLerpSpeed = 1f;
+                    turnDecelerationFactor = 0.3f;
+                    recoverySpeed = 1f;
+                    break;
+                default:
+                    break;
+            }
         }
         private void SetupButtonControls()
         {
@@ -71,6 +110,7 @@ namespace PUROPORO
             GameObject rightButton = GameObject.Find("Gamepad/Right");
             GameObject brakeButton = GameObject.Find("Gamepad/brake");
             GameObject resetButton = GameObject.Find("Gamepad/reset");
+            GameObject boostButton = GameObject.Find("Gamepad/boost");
 
             if (leftButton != null && rightButton != null && brakeButton != null)
             {
@@ -105,6 +145,11 @@ namespace PUROPORO
                 EventTrigger.Entry resetPressEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
                 resetPressEntry.callback.AddListener((data) => { OnResetButtonPress(); });
                 resetTrigger.triggers.Add(resetPressEntry);
+
+                EventTrigger boostTrigger = boostButton.AddComponent<EventTrigger>();
+                EventTrigger.Entry boostPressEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
+                boostPressEntry.callback.AddListener((data) => { OnboostButtonPress(); });
+                boostTrigger.triggers.Add(boostPressEntry);
             }
         }
 
@@ -137,16 +182,77 @@ namespace PUROPORO
         {
             if (IsOwner)
             {
+                resetandbeforelanding = true;
+                isGrounded = false;
                 RespawnAtCheckpoint();
+                currentAccelForce = 0;
             }
         }
 
-
-        private IEnumerator StartAutoDriveAfterDelay()
+        private void OnboostButtonPress()
         {
-            yield return new WaitForSeconds(autoDriveDelay);
-            currentAccelForce = 0;
-            autoDrive = true;
+            if (ableBoost)
+            {
+                ableBoost = false;
+                boost();
+                StartCoroutine(EnableBoostAfterDelay(5f));
+            }
+        }
+
+        private IEnumerator EnableBoostAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            ableBoost = true;
+            
+        }
+
+        private void boost()
+        {
+            // 현재 카트의 진행 방향을 기준으로 전방 30도 각도를 계산
+            Vector3 forwardDirection = Quaternion.Euler(-10, 0, 0) * transform.forward;
+            switch (mapnumber) {
+                case 0:
+                    // AddForce를 통해 카트를 앞으로 가볍게 날림
+                    rb.AddForce(forwardDirection * 7000f, ForceMode.Impulse);
+                    break;
+                case 1:
+                    // AddForce를 통해 카트를 앞으로 가볍게 날림
+                    rb.AddForce(forwardDirection * 10000f, ForceMode.Impulse);
+                    break;
+                default:
+                    break;
+            }
+
+            GameObject boostButton = GameObject.Find("Gamepad/boost");
+            boostButton.GetComponent<Button>().interactable = false;
+            if (boostButton != null)
+            {
+                Image buttonImage = boostButton.GetComponent<Image>();
+                if (buttonImage != null)
+                {
+                    // fillAmount를 0으로 설정하고 코루틴 시작
+                    buttonImage.fillAmount = 1;
+                    StartCoroutine(FillButtonImage(buttonImage, 5f));
+                    
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Boost button not found!");
+            }
+        }
+
+        private IEnumerator FillButtonImage(Image buttonImage, float duration)
+        {
+            float elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                buttonImage.fillAmount = Mathf.Clamp01(1 - (elapsedTime / duration));
+                yield return null;
+            }
+            GameObject boostButton = GameObject.Find("Gamepad/boost");
+            boostButton.GetComponent<Button>().interactable = true;
         }
 
         private void RespawnAtCheckpoint()
@@ -156,11 +262,13 @@ namespace PUROPORO
             {
                 transform.position = checkpointTransform.position;
                 transform.rotation = checkpointTransform.rotation;
+                isGrounded = false;
                 Rigidbody rb = GetComponent<Rigidbody>();
                 if (rb != null)
                 {
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = Vector3.zero;
+
                 }
             }
         }
@@ -184,6 +292,7 @@ namespace PUROPORO
                     // Send input to the server
                     //SendInputToServer();
                 }
+                
                 // Always recover Z rotation towards 0
                 RecoverZRotation();
             }
@@ -222,13 +331,14 @@ namespace PUROPORO
             Vector3 moveDirection = transform.forward * currentAccelForce * Time.fixedDeltaTime;
 
             // Forward/Backward Movement
-            if (inputAcceleration > 0)
+            if (inputAcceleration > 0 && isGrounded)
             {
                 float adjustedAcceleration = inputAcceleration;
                 if (inputSteering != 0)
                 {
                     adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); // Reduce acceleration when turning proportionally to steering
                 }
+                if(resetandbeforelanding) { adjustedAcceleration = 0;}
                 currentAccelForce = Mathf.Lerp(currentAccelForce, adjustedAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
                 rb.MovePosition(rb.position + moveDirection);
             }
@@ -352,6 +462,7 @@ namespace PUROPORO
             {
                 isGrounded = true;
                 Debug.Log("Grounded");
+                resetandbeforelanding = false;
             }
             // 태그가 "Wall"인 오브젝트와 닿았을 때
             else if (collision.gameObject.CompareTag("Wall"))
@@ -375,6 +486,7 @@ namespace PUROPORO
             if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Grass"))
             {
                 isGrounded = true;
+                resetandbeforelanding = false;
             }
             else if (collision.gameObject.CompareTag("Wall"))
             {
