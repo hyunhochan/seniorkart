@@ -7,7 +7,14 @@ using UnityEngine.UI;
 
 public class CharacterSpawner : NetworkBehaviour
 {
-    [SerializeField] private Vector3[] spawnPositions;
+    [System.Serializable]
+    public struct SpawnPoint
+    {
+        public Vector3 Position;
+        public Vector3 Rotation;
+    }
+
+    [SerializeField] private SpawnPoint[] spawnPoints;
     [SerializeField] private GameObject kartPrefab;
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI currentRecordText;
@@ -67,11 +74,13 @@ public class CharacterSpawner : NetworkBehaviour
         int i = 0;
         foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
         {
-            if (i >= spawnPositions.Length) break;
+            if (i >= spawnPoints.Length) break;
 
-            var spawnPos = spawnPositions[i++];
+            var spawnPoint = spawnPoints[i++];
+            var spawnPos = spawnPoint.Position;
+            var spawnRot = Quaternion.Euler(spawnPoint.Rotation);
 
-            GameObject kart = Instantiate(kartPrefab, spawnPos, Quaternion.identity);
+            GameObject kart = Instantiate(kartPrefab, spawnPos, spawnRot);
             NetworkObject kartNetworkObject = kart.GetComponent<NetworkObject>();
             if (kartNetworkObject != null)
             {
