@@ -41,6 +41,7 @@ namespace PUROPORO
         public GameObject cameraMountPoint;
         private Camera playerCamera;
 
+        private bool isreset = false;
         private bool isbrake = false;
         private bool autoDrive = false;
         public bool isGrounded = false; // Flag to check if the kart is grounded
@@ -69,6 +70,7 @@ namespace PUROPORO
             GameObject leftButton = GameObject.Find("Gamepad/Left");
             GameObject rightButton = GameObject.Find("Gamepad/Right");
             GameObject brakeButton = GameObject.Find("Gamepad/brake");
+            GameObject resetButton = GameObject.Find("Gamepad/reset");
 
             if (leftButton != null && rightButton != null && brakeButton != null)
             {
@@ -98,6 +100,11 @@ namespace PUROPORO
                 EventTrigger.Entry brakeReleaseEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerUp };
                 brakeReleaseEntry.callback.AddListener((data) => { OnBrakeButtonRelease(); });
                 brakeTrigger.triggers.Add(brakeReleaseEntry);
+
+                EventTrigger resetTrigger = resetButton.AddComponent<EventTrigger>();
+                EventTrigger.Entry resetPressEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
+                resetPressEntry.callback.AddListener((data) => { OnResetButtonPress(); });
+                resetTrigger.triggers.Add(resetPressEntry);
             }
         }
 
@@ -126,6 +133,15 @@ namespace PUROPORO
             isbrake = false;
         }
 
+        private void OnResetButtonPress()
+        {
+            if (IsOwner)
+            {
+                RespawnAtCheckpoint();
+            }
+        }
+
+
         private IEnumerator StartAutoDriveAfterDelay()
         {
             yield return new WaitForSeconds(autoDriveDelay);
@@ -133,6 +149,21 @@ namespace PUROPORO
             autoDrive = true;
         }
 
+        private void RespawnAtCheckpoint()
+        {
+            Transform checkpointTransform = RaceManager.Instance.GetPlayerCheckpointTransform(gameObject);
+            if (checkpointTransform != null)
+            {
+                transform.position = checkpointTransform.position;
+                transform.rotation = checkpointTransform.rotation;
+                Rigidbody rb = GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
+            }
+        }
         private void FixedUpdate()
         {
             if (IsHost && HostDelay)
