@@ -63,13 +63,43 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4972797786885797699, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      propertyPath: m_Name
+      value: BottomSound
+      objectReference: {fileID: 0}
     - target: {fileID: 6304259357467997618, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
       propertyPath: GlobalObjectIdHash
       value: 951099334
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7195369675629201481, guid: 5d87bfa21e12b477e80fc96a351cf384, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4086257025619103329, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7384609957718474310}
   m_SourcePrefab: {fileID: 100100000, guid: 5d87bfa21e12b477e80fc96a351cf384, type: 3}
+--- !u!1 &3386352308073289955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4086257025619103329, guid: 5d87bfa21e12b477e80fc96a351cf384,
+    type: 3}
+  m_PrefabInstance: {fileID: 1606642016990582402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7384609957718474310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386352308073289955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4864e43e6bc88f94cb6d3cbca63437ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadSound: {fileID: 8300000, guid: f0e9923b99b5c4daab22db0f8486d388, type: 3}
+  grassSound: {fileID: 8300000, guid: 80d194dde15ba42699ff5ad9b13f99bc, type: 3}
