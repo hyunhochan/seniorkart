@@ -8,6 +8,7 @@ namespace PUROPORO
     public class GoKartSharkController : NetworkBehaviour
     {
         private GoKartController m_Controller;
+        private audioPitch m_AudioPitch;
 
         [Header("Visuals")]
         [SerializeField] private Transform m_VisualWheelFL;
@@ -19,6 +20,7 @@ namespace PUROPORO
         private void Awake()
         {
             m_Controller = GetComponent<GoKartController>();
+            m_AudioPitch = GetComponent<audioPitch>();
         }
 
         private void LateUpdate()
@@ -33,27 +35,47 @@ namespace PUROPORO
 
         private void UpdateVisuals()
         {
-            //if (m_VisualWheelFL != null) { UpdateSingleWheel(m_Controller.wheelColliderFL, m_VisualWheelFL); }
-            //if (m_VisualWheelFR != null) { UpdateSingleWheel(m_Controller.wheelColliderFR, m_VisualWheelFR); }
-            //if (m_VisualWheelRL != null) { UpdateSingleWheel(m_Controller.wheelColliderRL, m_VisualWheelRL); }
-            //if (m_VisualWheelRR != null) { UpdateSingleWheel(m_Controller.wheelColliderRR, m_VisualWheelRR); }
+            if (m_VisualWheelFL != null) { UpdateSingleWheel(m_Controller.wheelColliderFL, m_VisualWheelFL, true); }
+            if (m_VisualWheelFR != null) { UpdateSingleWheel(m_Controller.wheelColliderFR, m_VisualWheelFR, true); }
+            if (m_VisualWheelRL != null) { UpdateSingleWheel(m_Controller.wheelColliderRL, m_VisualWheelRL, false); }
+            if (m_VisualWheelRR != null) { UpdateSingleWheel(m_Controller.wheelColliderRR, m_VisualWheelRR, false); }
 
-            //if (m_VisualSteeringWheel != null)
-            //{
-            //    m_VisualSteeringWheel.localEulerAngles = new Vector3(
-            //        m_VisualSteeringWheel.localEulerAngles.x,
-            //        m_VisualSteeringWheel.localEulerAngles.y,
-            //        -m_Controller.currentSteeringAngle);
-            //}
+            if (m_VisualSteeringWheel != null)
+            {
+                m_VisualSteeringWheel.localEulerAngles = new Vector3(
+                    m_VisualSteeringWheel.localEulerAngles.x,
+                    m_VisualSteeringWheel.localEulerAngles.y,
+                    -m_Controller.currentsteerAngle);
+            }
         }
 
-        private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform)
+        private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform, bool isFrontWheel)
         {
             Vector3 pos;
             Quaternion rot;
             wheelCollider.GetWorldPose(out pos, out rot);
-            wheelTransform.rotation = rot;
+
+            // Update wheel's visual position
             wheelTransform.position = pos;
+
+            // Calculate rotation angle based on the audioPitch speed
+            float wheelRotationSpeed = m_AudioPitch.speed / (2 * Mathf.PI * wheelCollider.radius) * 360;
+            float wheelRotationAngle = wheelRotationSpeed * Time.deltaTime;
+
+            // Apply rotation based on whether it's a front or rear wheel
+            if (isFrontWheel)
+            {
+                // For front wheels, use steering rotation
+                wheelTransform.rotation = rot;
+
+                // Apply rolling rotation around the local right axis
+                wheelTransform.Rotate(Vector3.right, wheelRotationAngle, Space.Self);
+            }
+            else
+            {
+                // For rear wheels, only use rolling rotation around the local right axis
+                wheelTransform.rotation = rot * Quaternion.Euler(wheelRotationAngle, 0, 0);
+            }
         }
     }
 }

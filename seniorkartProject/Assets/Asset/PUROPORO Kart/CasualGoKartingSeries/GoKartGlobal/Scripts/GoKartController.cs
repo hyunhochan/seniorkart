@@ -55,6 +55,14 @@ namespace PUROPORO
 
         private bool ableBoost = true;
 
+        [Header("Colliders")]
+        public WheelCollider wheelColliderFL;
+        public WheelCollider wheelColliderFR;
+        public WheelCollider wheelColliderRL;
+        public WheelCollider wheelColliderRR;
+
+        public float currentsteerAngle;
+
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
@@ -71,10 +79,10 @@ namespace PUROPORO
 
             GameObject boostButton = GameObject.Find("Gamepad/boost");
             Image buttonImage = boostButton.GetComponent<Image>();
-                buttonImage.fillAmount = 0;
+            buttonImage.fillAmount = 0;
 
-                GameObject mapcheck = GameObject.Find("MapCheck");
-                mapnumber = mapcheck.GetComponent<WhichMap>().MapNumber;
+            GameObject mapcheck = GameObject.Find("MapCheck");
+            mapnumber = mapcheck.GetComponent<WhichMap>().MapNumber;
             switch (mapnumber)
             {
                 case 0:
@@ -166,6 +174,10 @@ namespace PUROPORO
         private void OnButtonRelease()
         {
             buttonSteering = 0f;
+            // 앞바퀴를 정면으로 돌림
+            currentsteerAngle = 0f;
+            wheelColliderFL.steerAngle = 0f;
+            wheelColliderFR.steerAngle = 0f;
         }
 
         private void OnBrakeButtonPress()
@@ -185,7 +197,11 @@ namespace PUROPORO
                 resetandbeforelanding = true;
                 isGrounded = false;
                 RespawnAtCheckpoint();
+
+                currentsteerAngle = 0;
                 currentAccelForce = 0;
+                wheelColliderFL.steerAngle = 0;
+                wheelColliderFR.steerAngle = 0;
             }
         }
 
@@ -203,14 +219,15 @@ namespace PUROPORO
         {
             yield return new WaitForSeconds(delay);
             ableBoost = true;
-            
+
         }
 
         private void boost()
         {
             // 현재 카트의 진행 방향을 기준으로 전방 30도 각도를 계산
-            Vector3 forwardDirection = Quaternion.Euler(-10, 0, 0) * transform.forward;
-            switch (mapnumber) {
+            Vector3 forwardDirection = Quaternion.Euler(-25, 0, 0) * transform.forward;
+            switch (mapnumber)
+            {
                 case 0:
                     // AddForce를 통해 카트를 앞으로 가볍게 날림
                     rb.AddForce(forwardDirection * 7000f, ForceMode.Impulse);
@@ -233,7 +250,7 @@ namespace PUROPORO
                     // fillAmount를 0으로 설정하고 코루틴 시작
                     buttonImage.fillAmount = 1;
                     StartCoroutine(FillButtonImage(buttonImage, 5f));
-                    
+
                 }
             }
             else
@@ -292,7 +309,7 @@ namespace PUROPORO
                     // Send input to the server
                     //SendInputToServer();
                 }
-                
+
                 // Always recover Z rotation towards 0
                 RecoverZRotation();
             }
@@ -338,13 +355,14 @@ namespace PUROPORO
                 {
                     adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); // Reduce acceleration when turning proportionally to steering
                 }
-                if(resetandbeforelanding) { adjustedAcceleration = 0;}
+                if (resetandbeforelanding) { adjustedAcceleration = 0; }
                 currentAccelForce = Mathf.Lerp(currentAccelForce, adjustedAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
                 rb.MovePosition(rb.position + moveDirection);
             }
             else if (inputAcceleration < 0)
             {
                 float adjustedAcceleration = inputAcceleration;
+
                 if (inputSteering != 0)
                 {
                     adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); // Reduce acceleration when turning proportionally to steering
@@ -372,9 +390,18 @@ namespace PUROPORO
             // Steering
             if (inputSteering != 0)
             {
-                float turn = inputSteering * maxSteeringAngle * Time.fixedDeltaTime;
+                currentsteerAngle = inputSteering * maxSteeringAngle;
+                wheelColliderFL.steerAngle = currentsteerAngle;
+                wheelColliderFR.steerAngle = currentsteerAngle;
+                float turn = currentsteerAngle * Time.fixedDeltaTime;
                 Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
                 rb.MoveRotation(Quaternion.Lerp(rb.rotation, rb.rotation * turnRotation, rotationSpeed * Time.fixedDeltaTime));
+            }
+            else
+            {
+                currentsteerAngle = 0;
+                wheelColliderFL.steerAngle = currentsteerAngle;
+                wheelColliderFR.steerAngle = currentsteerAngle;
             }
 
             // Recovery of acceleration after steering
@@ -383,6 +410,7 @@ namespace PUROPORO
                 currentAccelForce = Mathf.Lerp(currentAccelForce, accelerationForce, Time.fixedDeltaTime * recoverySpeed);
             }
         }
+
 
         private void SendInputToServer()
         {
@@ -471,7 +499,7 @@ namespace PUROPORO
 
                 currentAccelForce = currentAccelForce * 0.5f; // 가속도를 0으로
             }
-            else if (collision.gameObject.CompareTag("Fence") || collision.gameObject.CompareTag("Player")) 
+            else if (collision.gameObject.CompareTag("Fence") || collision.gameObject.CompareTag("Player"))
             {
                 // 충돌 처리:
 

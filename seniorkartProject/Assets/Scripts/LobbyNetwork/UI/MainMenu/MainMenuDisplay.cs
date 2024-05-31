@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuDisplay : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MainMenuDisplay : MonoBehaviour
     private bool isMatchmaking;
     private bool isCancelling;
     private ClientGameManager gameManager;
+    public Button CreateRoomButton;
 
     private void Start()
     {
@@ -88,5 +90,10 @@ public class MainMenuDisplay : MonoBehaviour
     public async void StartClient()
     {
         await ClientSingleton.Instance.Manager.BeginConnection(joinCodeInputField.text);
+    }
+
+    public void stopClickButton()
+    {
+        CreateRoomButton.interactable = false;
     }
 }

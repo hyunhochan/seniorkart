@@ -4,7 +4,9 @@ using UnityEngine;
 public class ApplicationController : MonoBehaviour
 {
     [Header("References")]
+#if UNITY_SERVER || UNITY_EDITOR
     [SerializeField] private ServerSingleton serverPrefab;
+#endif
     [SerializeField] private ClientSingleton clientPrefab;
     [SerializeField] private HostSingleton hostSingleton;
 
@@ -16,7 +18,11 @@ public class ApplicationController : MonoBehaviour
         Application.targetFrameRate = 60;
         DontDestroyOnLoad(gameObject);
 
+#if UNITY_SERVER || UNITY_EDITOR
         await LaunchInMode(SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null);
+#else
+        await LaunchInMode(false); // 모바일 클라이언트에서는 항상 false
+#endif
     }
 
     private async Task LaunchInMode(bool isServer)
@@ -24,6 +30,7 @@ public class ApplicationController : MonoBehaviour
         appData = new ApplicationData();
         IsServer = isServer;
 
+#if UNITY_SERVER || UNITY_EDITOR
         if (isServer)
         {
             ServerSingleton serverSingleton = Instantiate(serverPrefab);
@@ -39,6 +46,7 @@ public class ApplicationController : MonoBehaviour
             await serverSingleton.Manager.StartGameServerAsync(defaultGameInfo);
         }
         else
+#endif
         {
             ClientSingleton clientSingleton = Instantiate(clientPrefab);
             Instantiate(hostSingleton);

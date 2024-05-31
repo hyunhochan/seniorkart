@@ -1,3 +1,4 @@
+#if UNITY_SERVER || UNITY_EDITOR
 using System;
 using System.Threading.Tasks;
 using Unity.Netcode;
@@ -163,3 +164,4 @@ public class ServerGameManager : IDisposable
         NetworkServer?.Dispose();
     }
 }
+#endif

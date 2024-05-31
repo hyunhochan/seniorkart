@@ -1,3 +1,4 @@
+#if UNITY_SERVER || UNITY_EDITOR
 using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Services.Core;
@@ -62,3 +63,4 @@ public class ServerSingleton : MonoBehaviour
         gameManager?.Dispose();
     }
 }
+#endif
