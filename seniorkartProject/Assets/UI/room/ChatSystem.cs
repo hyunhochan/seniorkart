@@ -10,9 +10,9 @@ public class ChatSystem : NetworkBehaviour
     [Header("UI References")]
     [SerializeField] private TMP_InputField chatInputField;
     [SerializeField] private Button sendButton;
-    [SerializeField] private RectTransform content; // Content가 되는 RectTransform
-    [SerializeField] private TextMeshProUGUI chatMessagePrefab; // TextMeshProUGUI 프리팹
-    [SerializeField] private ScrollRect scrollRect; // ScrollRect 컴포넌트
+    [SerializeField] private RectTransform content;
+    [SerializeField] private TextMeshProUGUI chatMessagePrefab;
+    [SerializeField] private ScrollRect scrollRect;
 
     private NetworkList<ChatMessage> chatMessages;
 
@@ -53,7 +53,6 @@ public class ChatSystem : NetworkBehaviour
 
     private void HandleClientConnected(ulong clientId)
     {
-        // 기존 클라이언트에 대해 필요한 초기화가 있으면 처리
     }
 
     private void HandleChatMessagesChanged(NetworkListEvent<ChatMessage> changeEvent)
@@ -79,7 +78,7 @@ public class ChatSystem : NetworkBehaviour
         SendChatMessageServerRpc(NetworkManager.Singleton.LocalClientId, fixedStringMessage);
 
         chatInputField.text = string.Empty;
-        chatInputField.ActivateInputField(); // 입력 필드를 다시 활성화하여 계속 입력할 수 있도록 합니다.
+        chatInputField.ActivateInputField();
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -104,9 +103,7 @@ public class ChatSystem : NetworkBehaviour
             newMessage.text = messageText;
         }
 
-        //Canvas 업데이트를 강제로 호출하여 레이아웃이 즉시 업데이트되도록 함
         Canvas.ForceUpdateCanvases();
-        // 스크롤 뷰를 아래로 스크롤
         scrollRect.verticalNormalizedPosition = 0f;
     }
 }

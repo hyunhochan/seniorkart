@@ -78,7 +78,7 @@ namespace PUROPORO
     {
         public string skinName;
         public Material material;
-        public string baseMapName = "_MainTex";   // or _BaseMap
+        public string baseMapName = "_MainTex";
         public Texture[] textures;
     }
 }

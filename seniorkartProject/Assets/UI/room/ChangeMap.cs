@@ -5,14 +5,12 @@ using UnityEngine;
 public class ChangeMap : MonoBehaviour
 {
     public bool isopen = false;
-    public GameObject ChangeMapSequence; // 활성화/비활성화할 오브젝트
-    // Start is called before the first frame update
+    public GameObject ChangeMapSequence;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

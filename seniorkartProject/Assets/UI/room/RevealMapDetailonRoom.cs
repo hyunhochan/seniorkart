@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;  // UI 관련 기능을 사용하기 위해 필요합니다.
-using TMPro;  // TMP 텍스트 관련 네임스페이스 추가
+using UnityEngine.UI;
+using TMPro;
 using MapData;
 
 public class RevealMapDetailRoom : MonoBehaviour
 {
-    public Button myButton; // 버튼 컴포넌트에 대한 참조
-    public Image targetImage; // 덧씌울 이미지 컴포넌트를 지정할 공개 변수
-    public Image miniMap; // 덧씌울 이미지 컴포넌트를 지정할 공개 변수
+    public Button myButton;
+    public Image targetImage;
+    public Image miniMap;
     public TextMeshProUGUI thisTrackName; // 그리드 내 해당 트랙의 이름을 표시해야.
-    public TextMeshProUGUI targetTrackName; // 트랙 이름을 표시할 TMP Text 컴포넌트
-    public TextMeshProUGUI targetBestRecord; // 최고 기록을 표시할 TMP Text 컴포넌트
-    public TextMeshProUGUI targetBestKart; // 최고 카트를 표시할 TMP Text 컴포넌트
+    public TextMeshProUGUI targetTrackName;
+    public TextMeshProUGUI targetBestRecord;
+    public TextMeshProUGUI targetBestKart;
 
 
     void Start()
@@ -23,8 +23,8 @@ public class RevealMapDetailRoom : MonoBehaviour
             myButton.onClick.AddListener(RevealDetail);
             Transform trackImageTransform = transform.Find("Track/TrackImage");
             Transform miniMapTransform = transform.Find("minimap");
-            TrackInfo trackInfo = trackImageTransform.GetComponentInParent<TrackInfo>(); // TrackInfo 컴포넌트를 찾습니다.
-            thisTrackName.text = trackInfo.trackName; // 그리드 내 트랙 이름 업데이트
+            TrackInfo trackInfo = trackImageTransform.GetComponentInParent<TrackInfo>();
+            thisTrackName.text = trackInfo.trackName;
 
         }
         else
@@ -41,7 +41,7 @@ public class RevealMapDetailRoom : MonoBehaviour
         {
             Image trackImage = trackImageTransform.GetComponent<Image>();
             Image miniMapImage = miniMapTransform.GetComponent<Image>();
-            TrackInfo trackInfo = trackImageTransform.GetComponentInParent<TrackInfo>(); // TrackInfo 컴포넌트를 찾습니다.
+            TrackInfo trackInfo = trackImageTransform.GetComponentInParent<TrackInfo>();
             if (trackImage != null && trackInfo != null)
             {
                 targetImage.sprite = trackImage.sprite;

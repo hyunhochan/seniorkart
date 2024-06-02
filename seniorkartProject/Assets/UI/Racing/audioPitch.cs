@@ -28,7 +28,7 @@ public class audioPitch : NetworkBehaviour
         {
             Debug.LogError("CharacterSpawner instance not found!");
         }
-        previousPosition = rb.transform.position; // ??? ??
+        previousPosition = rb.transform.position;
         if (IsOwner)
         {
             isOwner = true;
@@ -58,7 +58,6 @@ public class audioPitch : NetworkBehaviour
                 audioSource.pitch = pitch;
             }
 
-            // ??? ??? ????.
             speed = Velocity.magnitude * 3.6f;
 
             if (speedManager != null)

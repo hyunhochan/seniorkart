@@ -55,25 +55,19 @@ namespace PUROPORO
             Quaternion rot;
             wheelCollider.GetWorldPose(out pos, out rot);
 
-            // Update wheel's visual position
             wheelTransform.position = pos;
 
-            // Calculate rotation angle based on the audioPitch speed
             float wheelRotationSpeed = m_AudioPitch.speed / (2 * Mathf.PI * wheelCollider.radius) * 360;
             float wheelRotationAngle = wheelRotationSpeed * Time.deltaTime;
 
-            // Apply rotation based on whether it's a front or rear wheel
             if (isFrontWheel)
             {
-                // For front wheels, use steering rotation
                 wheelTransform.rotation = rot;
 
-                // Apply rolling rotation around the local right axis
                 wheelTransform.Rotate(Vector3.right, wheelRotationAngle, Space.Self);
             }
             else
             {
-                // For rear wheels, only use rolling rotation around the local right axis
                 wheelTransform.rotation = rot * Quaternion.Euler(wheelRotationAngle, 0, 0);
             }
         }

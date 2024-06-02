@@ -25,15 +25,15 @@ namespace PUROPORO
         private float maxSteeringAngle;
         private float autoDriveDelay;
         private float rotationSpeed;
-        public float brakeLerpSpeed; // Variable to control the lerp speed for braking
-        private float accelLerpSpeed; // Variable to control the lerp speed for accelerating
-        private float turnDecelerationFactor; // Factor to reduce acceleration when turning
-        private float recoverySpeed; // Speed at which acceleration recovers after turning
+        public float brakeLerpSpeed; 
+        private float accelLerpSpeed;
+        private float turnDecelerationFactor; 
+        private float recoverySpeed;
 
         public float buttonSteering;
         public float buttonBrake;
-        public float steeringLerpSpeed = 2f; // Variable to control the lerp speed for steering
-        public float rotationRecoverySpeed = 1f; // Speed at which z-rotation recovers
+        public float steeringLerpSpeed = 2f;
+        public float rotationRecoverySpeed = 1f;
         private bool HostDelay = false;
 
 
@@ -44,11 +44,11 @@ namespace PUROPORO
         private bool isreset = false;
         private bool isbrake = false;
         private bool autoDrive = false;
-        public bool isGrounded = false; // Flag to check if the kart is grounded
+        public bool isGrounded = false;
         private Rigidbody rb;
-        public float currentBrakeForce = 0f; // Variable to track the current braking force
-        public float currentAccelForce = 0f; // Variable to track the current acceleration force
-        private bool resetandbeforelanding; // to prevent acceling in the air right after resetting
+        public float currentBrakeForce = 0f;
+        public float currentAccelForce = 0f;
+        private bool resetandbeforelanding;
         private int mapnumber;
 
         private NetworkTransform networkTransform;
@@ -174,7 +174,6 @@ namespace PUROPORO
         private void OnButtonRelease()
         {
             buttonSteering = 0f;
-            // 앞바퀴를 정면으로 돌림
             currentsteerAngle = 0f;
             wheelColliderFL.steerAngle = 0f;
             wheelColliderFR.steerAngle = 0f;
@@ -224,17 +223,14 @@ namespace PUROPORO
 
         private void boost()
         {
-            // 현재 카트의 진행 방향을 기준으로 전방 30도 각도를 계산
-            Vector3 forwardDirection = Quaternion.Euler(-25, 0, 0) * transform.forward;
+            Vector3 forwardDirection = Quaternion.Euler(-7, 0, 0) * transform.forward;
             switch (mapnumber)
             {
                 case 0:
-                    // AddForce를 통해 카트를 앞으로 가볍게 날림
-                    rb.AddForce(forwardDirection * 7000f, ForceMode.Impulse);
+                    rb.AddForce(forwardDirection * 10000f, ForceMode.Impulse);
                     break;
                 case 1:
-                    // AddForce를 통해 카트를 앞으로 가볍게 날림
-                    rb.AddForce(forwardDirection * 10000f, ForceMode.Impulse);
+                    rb.AddForce(forwardDirection * 12000f, ForceMode.Impulse);
                     break;
                 default:
                     break;
@@ -247,7 +243,6 @@ namespace PUROPORO
                 Image buttonImage = boostButton.GetComponent<Image>();
                 if (buttonImage != null)
                 {
-                    // fillAmount를 0으로 설정하고 코루틴 시작
                     buttonImage.fillAmount = 1;
                     StartCoroutine(FillButtonImage(buttonImage, 5f));
 
@@ -298,19 +293,15 @@ namespace PUROPORO
 
                 if (isGrounded)
                 {
-                    // Only handle movement when the kart is grounded
                     if (autoDrive)
                     {
-                        inputAcceleration = 1f; // Auto drive forward
+                        inputAcceleration = 1f; 
                     }
 
                     HandleMovement(inputAcceleration, inputSteering, isBraking);
 
-                    // Send input to the server
-                    //SendInputToServer();
                 }
 
-                // Always recover Z rotation towards 0
                 RecoverZRotation();
             }
         }
@@ -319,7 +310,6 @@ namespace PUROPORO
         {
             if (IsOwner)
             {
-                // Additional update logic for the owner
             }
         }
 
@@ -347,13 +337,12 @@ namespace PUROPORO
         {
             Vector3 moveDirection = transform.forward * currentAccelForce * Time.fixedDeltaTime;
 
-            // Forward/Backward Movement
             if (inputAcceleration > 0 && isGrounded)
             {
                 float adjustedAcceleration = inputAcceleration;
                 if (inputSteering != 0)
                 {
-                    adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); // Reduce acceleration when turning proportionally to steering
+                    adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); 
                 }
                 if (resetandbeforelanding) { adjustedAcceleration = 0; }
                 currentAccelForce = Mathf.Lerp(currentAccelForce, adjustedAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
@@ -365,7 +354,7 @@ namespace PUROPORO
 
                 if (inputSteering != 0)
                 {
-                    adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); // Reduce acceleration when turning proportionally to steering
+                    adjustedAcceleration *= (1f - Mathf.Abs(inputSteering) * turnDecelerationFactor); 
                 }
                 currentAccelForce = Mathf.Lerp(currentAccelForce, adjustedAcceleration * accelerationForce, Time.fixedDeltaTime * accelLerpSpeed);
                 rb.MovePosition(rb.position + moveDirection);
@@ -404,7 +393,7 @@ namespace PUROPORO
                 wheelColliderFR.steerAngle = currentsteerAngle;
             }
 
-            // Recovery of acceleration after steering
+            
             if (inputSteering == 0 && currentAccelForce < accelerationForce)
             {
                 currentAccelForce = Mathf.Lerp(currentAccelForce, accelerationForce, Time.fixedDeltaTime * recoverySpeed);
@@ -427,7 +416,6 @@ namespace PUROPORO
         [ServerRpc]
         private void SubmitInputServerRpc(KartInput input)
         {
-            // Process input on the server and correct client state
             HandleMovement(input.Acceleration, input.Steering, input.IsBraking);
         }
 
@@ -448,7 +436,7 @@ namespace PUROPORO
             cameraFollow.SetTarget(cameraMountPoint.transform);
         }
 
-        public void ResetKart() // This method will be called from the GoKartReset script
+        public void ResetKart()
         {
             currentAccelForce = 0f;
             currentBrakeForce = 0f;
@@ -459,7 +447,6 @@ namespace PUROPORO
 
         private void ServerReconciliation()
         {
-            // Server reconciliation logic to correct differences between client and server states
             if (IsServer)
             {
                 foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
@@ -485,32 +472,26 @@ namespace PUROPORO
 
         private void OnCollisionEnter(Collision collision)
         {
-            // 태그가 "Ground" 또는 "Grass"인 오브젝트와 닿았을 때
             if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Grass"))
             {
                 isGrounded = true;
                 Debug.Log("Grounded");
                 resetandbeforelanding = false;
             }
-            // 태그가 "Wall"인 오브젝트와 닿았을 때
             else if (collision.gameObject.CompareTag("Wall"))
             {
-                // 충돌 처리:
 
-                currentAccelForce = currentAccelForce * 0.5f; // 가속도를 0으로
+                currentAccelForce = currentAccelForce * 0.5f;
             }
             else if (collision.gameObject.CompareTag("Fence") || collision.gameObject.CompareTag("Player"))
             {
-                // 충돌 처리:
-
-                currentAccelForce = currentAccelForce * 0.7f; // 가속도를 0으로
+                currentAccelForce = currentAccelForce * 0.7f;
             }
 
         }
 
         private void OnCollisionStay(Collision collision)
         {
-            // 태그가 "Ground" 또는 "Gress"인 오브젝트와 닿았을 때
             if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Grass"))
             {
                 isGrounded = true;
@@ -518,20 +499,17 @@ namespace PUROPORO
             }
             else if (collision.gameObject.CompareTag("Wall"))
             {
-                currentAccelForce = currentAccelForce * 0.8f; // 가속도를 0으로
+                currentAccelForce = currentAccelForce * 0.8f;
 
             }
             else if (collision.gameObject.CompareTag("Fence") || collision.gameObject.CompareTag("Player"))
             {
-                // 충돌 처리:
-
-                currentAccelForce = currentAccelForce * 0.95f; // 가속도를 점진적으로 죽임
+                currentAccelForce = currentAccelForce * 0.95f;
             }
         }
 
         private void OnCollisionExit(Collision collision)
         {
-            // 태그가 "Ground"인 오브젝트에서 떨어졌을 때
             if (collision.gameObject.CompareTag("Ground"))
             {
                 isGrounded = false;

@@ -4,9 +4,7 @@ using UnityEngine;
 
 namespace PUROPORO
 {
-    /// <summary>
-    /// When the R-key is pressed or the transform's position Y falls below -20, this simple code returns it to its original place.
-    /// </summary>
+    
     public class GoKartReset : MonoBehaviour
     {
         private Vector3 m_OriginalPosition;
@@ -50,7 +48,6 @@ namespace PUROPORO
             transform.rotation = Quaternion.identity;
             transform.localScale = Vector3.one;
 
-            // 리지드바디 초기화
             if (m_Rigidbody != null)
             {
                 m_Rigidbody.velocity = Vector3.zero;
@@ -58,13 +55,11 @@ namespace PUROPORO
                 m_Rigidbody.isKinematic = false;
             }
 
-            // 오디오 피치 초기화
             if (m_AudioSource != null)
             {
                 m_AudioSource.pitch = 1.0f;
             }
 
-            // audioPitch 스크립트의 ResetGoKart 호출
             if (m_AudioPitch != null)
             {
                 m_AudioPitch.ResetGoKart();

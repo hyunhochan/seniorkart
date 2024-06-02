@@ -18,10 +18,20 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.001
       objectReference: {fileID: 0}
+    - target: {fileID: 4086257024249116061, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4086257024868392116, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
       propertyPath: m_Radius
       value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086257024868392116, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4086257025619103329, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
@@ -83,15 +93,25 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.001
       objectReference: {fileID: 0}
+    - target: {fileID: 4086257025726339872, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4086257025834455475, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
       propertyPath: m_Radius
       value: 0.001
       objectReference: {fileID: 0}
+    - target: {fileID: 4086257025834455475, guid: 5d87bfa21e12b477e80fc96a351cf384,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6304259357467997618, guid: 5d87bfa21e12b477e80fc96a351cf384,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3610682862
+      value: 951099334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

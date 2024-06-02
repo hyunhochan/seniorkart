@@ -6,12 +6,12 @@ using TMPro;
 
 public class tabtoggle : MonoBehaviour
 {
-    public Toggle[] toggles; // 모든 Toggle 요소를 저장할 배열
-    public Sprite selectedSprite; // 선택된 상태의 스프라이트
-    public Sprite unselectedSprite; // 선택되지 않은 상태의 스프라이트
-    public GameObject optiontab0; // 
-    public GameObject optiontab1; // 활성화/비활성화할 오브젝트
-    public GameObject optiontab2; // 활성화/비활성화할 오브젝트
+    public Toggle[] toggles;
+    public Sprite selectedSprite;
+    public Sprite unselectedSprite;
+    public GameObject optiontab0; 
+    public GameObject optiontab1; 
+    public GameObject optiontab2; 
 
 
     void OnEnable()
@@ -19,7 +19,6 @@ public class tabtoggle : MonoBehaviour
         toggles[0].isOn = true;
         ToggleClick();
 
-        // 각 Toggle에 대한 이벤트 리스너 추가
         foreach (var toggle in toggles)
         {
             toggle.onValueChanged.AddListener(delegate {
@@ -30,12 +29,10 @@ public class tabtoggle : MonoBehaviour
 
     public void ToggleClick()
     {
-        // 각 탭의 상태에 따라 optiontab을 활성화 또는 비활성화
         optiontab0.SetActive(toggles[0].isOn);
         optiontab1.SetActive(toggles[1].isOn);
         optiontab2.SetActive(toggles[2].isOn);
 
-        // Toggle의 스프라이트와 텍스트 색상 변경
         foreach (var toggle in toggles)
         {
             var textComponent = toggle.GetComponentInChildren<TextMeshProUGUI>();
