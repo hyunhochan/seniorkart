@@ -29,8 +29,8 @@
 ### 3. 팀소개
 |이름|학번|이메일|역할|
 |------|---|---|---|
-|유현호|1891248|homnbvcx12@gmail.com|카트 물리엔진 및 UI 제작|
-|유현우|1891247|robindalnim@naver.com|로그인/멀티플레이, 게임시스템 구현|
+|유현호|1891248|homnbvcx12@gmail.com|카트 물리엔진 및 UI 제작, 기능 부여|
+|유현우|1891247|robindalnim@naver.com|로그인/멀티플레이 구현, 네트워크 클라이언트 동기화, 게임시스템 구현|
 |이동규|1971183|leedonggyu1290@gmail.com|네트워크 클라이언트 동기화, 3D 사운드 제작|
 |최민수|1771441|chl6863@gmail.com|3D 이펙트, 그래픽, 사운드 제작|
 
@@ -45,6 +45,9 @@
 
 ### 5. 포스터
 ![image](https://github.com/hyunhochan/seniorkart/assets/162757631/ab0ae006-bb57-4c94-90d3-48b3a7005092)
+
+### 6. 상장
+![Adobe-Scan-2024년-6월-3일](https://github.com/hyunhochan/seniorkart/assets/39771617/af8cb5fd-8e97-48fb-b5f9-9fffa11d71d2)
 
 
 
